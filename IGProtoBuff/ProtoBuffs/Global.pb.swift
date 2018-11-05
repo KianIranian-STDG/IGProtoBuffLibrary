@@ -820,6 +820,11 @@ public struct IGPRegisteredUser: SwiftProtobuf.Message {
     set {_uniqueStorage()._igpVerified = newValue}
   }
 
+  public var igpBot: Bool {
+    get {return _storage._igpBot}
+    set {_uniqueStorage()._igpBot = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPStatus: SwiftProtobuf.Enum {
@@ -2386,6 +2391,7 @@ extension IGPRegisteredUser: SwiftProtobuf._MessageImplementationBase, SwiftProt
     15: .standard(proto: "IGP_cache_id"),
     16: .standard(proto: "IGP_bio"),
     17: .standard(proto: "IGP_verified"),
+    18: .standard(proto: "IGP_bot"),
   ]
 
   fileprivate class _StorageClass {
@@ -2406,6 +2412,7 @@ extension IGPRegisteredUser: SwiftProtobuf._MessageImplementationBase, SwiftProt
     var _igpCacheID: String = String()
     var _igpBio: String = String()
     var _igpVerified: Bool = false
+    var _igpBot: Bool = false
 
     static let defaultInstance = _StorageClass()
 
@@ -2429,6 +2436,7 @@ extension IGPRegisteredUser: SwiftProtobuf._MessageImplementationBase, SwiftProt
       _igpCacheID = source._igpCacheID
       _igpBio = source._igpBio
       _igpVerified = source._igpVerified
+      _igpBot = source._igpBot
     }
   }
 
@@ -2461,6 +2469,7 @@ extension IGPRegisteredUser: SwiftProtobuf._MessageImplementationBase, SwiftProt
         case 15: try decoder.decodeSingularStringField(value: &_storage._igpCacheID)
         case 16: try decoder.decodeSingularStringField(value: &_storage._igpBio)
         case 17: try decoder.decodeSingularBoolField(value: &_storage._igpVerified)
+        case 18: try decoder.decodeSingularBoolField(value: &_storage._igpBot)
         default: break
         }
       }
@@ -2520,6 +2529,9 @@ extension IGPRegisteredUser: SwiftProtobuf._MessageImplementationBase, SwiftProt
       if _storage._igpVerified != false {
         try visitor.visitSingularBoolField(value: _storage._igpVerified, fieldNumber: 17)
       }
+      if _storage._igpBot != false {
+        try visitor.visitSingularBoolField(value: _storage._igpBot, fieldNumber: 18)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2546,6 +2558,7 @@ extension IGPRegisteredUser: SwiftProtobuf._MessageImplementationBase, SwiftProt
         if _storage._igpCacheID != other_storage._igpCacheID {return false}
         if _storage._igpBio != other_storage._igpBio {return false}
         if _storage._igpVerified != other_storage._igpVerified {return false}
+        if _storage._igpBot != other_storage._igpBot {return false}
         return true
       }
       if !storagesAreEqual {return false}
