@@ -20,6 +20,7 @@
 		FA90B73A20B59D9700043C89 /* ChannelUpdateReactionStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */; };
 		FA90B73B20B59D9700043C89 /* GroupPinMessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73820B59D9600043C89 /* GroupPinMessage.pb.swift */; };
 		FA90B73C20B59D9700043C89 /* ChannelPinMessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73920B59D9700043C89 /* ChannelPinMessage.pb.swift */; };
+		FAA0F2EC21AD1FF700FC5A3A /* ClientGetPromote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA0F2EB21AD1FF700FC5A3A /* ClientGetPromote.pb.swift */; };
 		FAA1BDB21F98EDF90010FE8A /* ClientMuteRoom.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB11F98EDF70010FE8A /* ClientMuteRoom.pb.swift */; };
 		FAA1BDB81F98EE230010FE8A /* ClientPinRoom.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB31F98EE220010FE8A /* ClientPinRoom.pb.swift */; };
 		FAA1BDB91F98EE230010FE8A /* UserProfileSetBio.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB41F98EE220010FE8A /* UserProfileSetBio.pb.swift */; };
@@ -212,6 +213,7 @@
 		FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelUpdateReactionStatus.pb.swift; sourceTree = "<group>"; };
 		FA90B73820B59D9600043C89 /* GroupPinMessage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPinMessage.pb.swift; sourceTree = "<group>"; };
 		FA90B73920B59D9700043C89 /* ChannelPinMessage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPinMessage.pb.swift; sourceTree = "<group>"; };
+		FAA0F2EB21AD1FF700FC5A3A /* ClientGetPromote.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetPromote.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB11F98EDF70010FE8A /* ClientMuteRoom.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMuteRoom.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB31F98EE220010FE8A /* ClientPinRoom.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPinRoom.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB41F98EE220010FE8A /* UserProfileSetBio.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetBio.pb.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				FAA0F2EB21AD1FF700FC5A3A /* ClientGetPromote.pb.swift */,
 				FA8107EA2190849A000BAE4F /* UserSetBot.pb.swift */,
 				FA2A506B20ECDA74002C5322 /* BillInquiryMci.pb.swift */,
 				FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */,
@@ -707,6 +710,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA0F2EC21AD1FF700FC5A3A /* ClientGetPromote.pb.swift in Sources */,
 				FA2A506D20ECDA75002C5322 /* WalletRegister.pb.swift in Sources */,
 				FA2A506E20ECDA75002C5322 /* BillInquiryMci.pb.swift in Sources */,
 				FA2A506F20ECDA75002C5322 /* BillInquiryTelecom.pb.swift in Sources */,
