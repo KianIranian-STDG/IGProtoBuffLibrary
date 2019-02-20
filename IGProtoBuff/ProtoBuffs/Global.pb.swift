@@ -173,6 +173,7 @@ public enum IGPRoomMessageType: SwiftProtobuf.Enum {
   case log // = 12
   case contact // = 13
   case wallet // = 15
+  case sticker // = 16
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -197,6 +198,7 @@ public enum IGPRoomMessageType: SwiftProtobuf.Enum {
     case 13: self = .contact
     case 14: self = .gifText
     case 15: self = .wallet
+    case 16: self = .sticker
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -219,6 +221,7 @@ public enum IGPRoomMessageType: SwiftProtobuf.Enum {
     case .contact: return 13
     case .gifText: return 14
     case .wallet: return 15
+    case .sticker: return 16
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1921,6 +1924,7 @@ extension IGPRoomMessageType: SwiftProtobuf._ProtoNameProviding {
     13: .same(proto: "CONTACT"),
     14: .same(proto: "GIF_TEXT"),
     15: .same(proto: "WALLET"),
+    16: .same(proto: "STICKER"),
   ]
 }
 
