@@ -173,6 +173,7 @@ public enum IGPRoomMessageType: SwiftProtobuf.Enum {
   case log // = 12
   case contact // = 13
   case wallet // = 15
+  case sticker // = 16
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -197,6 +198,7 @@ public enum IGPRoomMessageType: SwiftProtobuf.Enum {
     case 13: self = .contact
     case 14: self = .gifText
     case 15: self = .wallet
+    case 16: self = .sticker
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -219,6 +221,7 @@ public enum IGPRoomMessageType: SwiftProtobuf.Enum {
     case .contact: return 13
     case .gifText: return 14
     case .wallet: return 15
+    case .sticker: return 16
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -1188,6 +1191,8 @@ public struct IGPRoomDraft: SwiftProtobuf.Message {
 
   public var igpReplyTo: Int64 = 0
 
+  public var igpDraftTime: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -1921,6 +1926,7 @@ extension IGPRoomMessageType: SwiftProtobuf._ProtoNameProviding {
     13: .same(proto: "CONTACT"),
     14: .same(proto: "GIF_TEXT"),
     15: .same(proto: "WALLET"),
+    16: .same(proto: "STICKER"),
   ]
 }
 
@@ -3110,6 +3116,7 @@ extension IGPRoomDraft: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_message"),
     2: .standard(proto: "IGP_reply_to"),
+    3: .standard(proto: "IGP_draft_time"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3117,6 +3124,7 @@ extension IGPRoomDraft: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self.igpMessage)
       case 2: try decoder.decodeSingularInt64Field(value: &self.igpReplyTo)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.igpDraftTime)
       default: break
       }
     }
@@ -3129,12 +3137,16 @@ extension IGPRoomDraft: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     if self.igpReplyTo != 0 {
       try visitor.visitSingularInt64Field(value: self.igpReplyTo, fieldNumber: 2)
     }
+    if self.igpDraftTime != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpDraftTime, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: IGPRoomDraft) -> Bool {
     if self.igpMessage != other.igpMessage {return false}
     if self.igpReplyTo != other.igpReplyTo {return false}
+    if self.igpDraftTime != other.igpDraftTime {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
