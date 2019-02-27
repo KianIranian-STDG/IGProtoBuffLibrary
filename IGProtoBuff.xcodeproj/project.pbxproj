@@ -26,6 +26,7 @@
 		FAA1BDBB1F98EE230010FE8A /* UserProfileGetBio.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB61F98EE230010FE8A /* UserProfileGetBio.pb.swift */; };
 		FAA1BDBC1F98EE230010FE8A /* UserReport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB71F98EE230010FE8A /* UserReport.pb.swift */; };
 		FAB87B3A21C62B6B0056D403 /* ClientGetPromote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */; };
+		FAC254DA22267DE40097ED13 /* MplGetSalesToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC254D922267DE30097ED13 /* MplGetSalesToken.pb.swift */; };
 		FAF5D23D1F8D66DB00A26EE1 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF5D23C1F8D66CE00A26EE1 /* SwiftProtobuf.framework */; };
 		FAF5D23F1F8D6AF100A26EE1 /* ChannelAddAdmin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D1FE1F8D665300A26EE1 /* ChannelAddAdmin.pb.swift */; };
 		FAF5D2401F8D6C2000A26EE1 /* ChannelAddMember.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D2071F8D665600A26EE1 /* ChannelAddMember.pb.swift */; };
@@ -218,6 +219,7 @@
 		FAA1BDB61F98EE230010FE8A /* UserProfileGetBio.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGetBio.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB71F98EE230010FE8A /* UserReport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReport.pb.swift; sourceTree = "<group>"; };
 		FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetPromote.pb.swift; sourceTree = "<group>"; };
+		FAC254D922267DE30097ED13 /* MplGetSalesToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplGetSalesToken.pb.swift; sourceTree = "<group>"; };
 		FAF5D1951F8D663800A26EE1 /* QrCodeAddContact.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeAddContact.pb.swift; sourceTree = "<group>"; };
 		FAF5D1961F8D663800A26EE1 /* GroupAddAdmin.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAddAdmin.pb.swift; sourceTree = "<group>"; };
 		FAF5D1971F8D663800A26EE1 /* GroupAddModerator.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAddModerator.pb.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */,
 				FA2A506A20ECDA74002C5322 /* WalletRegister.pb.swift */,
 				FA8CF03620E2729400994811 /* WalletPaymentInit.pb.swift */,
+				FAC254D922267DE30097ED13 /* MplGetSalesToken.pb.swift */,
 				FA416B9020D8DEB50013DB17 /* MplGetBillToken.pb.swift */,
 				FA416B8F20D8DEB50013DB17 /* MplGetTopupToken.pb.swift */,
 				FA416B8D20D8DE890013DB17 /* ClientRegisterDevice.pb.swift */,
@@ -707,6 +710,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC254DA22267DE40097ED13 /* MplGetSalesToken.pb.swift in Sources */,
 				FAB87B3A21C62B6B0056D403 /* ClientGetPromote.pb.swift in Sources */,
 				FA2A506D20ECDA75002C5322 /* WalletRegister.pb.swift in Sources */,
 				FA2A506E20ECDA75002C5322 /* BillInquiryMci.pb.swift in Sources */,
