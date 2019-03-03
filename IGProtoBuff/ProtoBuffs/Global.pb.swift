@@ -1870,6 +1870,26 @@ public struct IGPPagination: SwiftProtobuf.Message {
   public init() {}
 }
 
+public struct IGPFavorite: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpName: String = String()
+
+  public var igpTextcolor: String = String()
+
+  public var igpBgcolor: String = String()
+
+  public var igpValue: String = String()
+
+  public var igpImage: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension IGPGender: SwiftProtobuf._ProtoNameProviding {
@@ -4183,6 +4203,59 @@ extension IGPPagination: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
   public func _protobuf_generated_isEqualTo(other: IGPPagination) -> Bool {
     if self.igpOffset != other.igpOffset {return false}
     if self.igpLimit != other.igpLimit {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension IGPFavorite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPFavorite"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_name"),
+    2: .standard(proto: "IGP_textcolor"),
+    3: .standard(proto: "IGP_bgcolor"),
+    4: .standard(proto: "IGP_value"),
+    5: .standard(proto: "IGP_image"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.igpName)
+      case 2: try decoder.decodeSingularStringField(value: &self.igpTextcolor)
+      case 3: try decoder.decodeSingularStringField(value: &self.igpBgcolor)
+      case 4: try decoder.decodeSingularStringField(value: &self.igpValue)
+      case 5: try decoder.decodeSingularStringField(value: &self.igpImage)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.igpName.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpName, fieldNumber: 1)
+    }
+    if !self.igpTextcolor.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpTextcolor, fieldNumber: 2)
+    }
+    if !self.igpBgcolor.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpBgcolor, fieldNumber: 3)
+    }
+    if !self.igpValue.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpValue, fieldNumber: 4)
+    }
+    if !self.igpImage.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpImage, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func _protobuf_generated_isEqualTo(other: IGPFavorite) -> Bool {
+    if self.igpName != other.igpName {return false}
+    if self.igpTextcolor != other.igpTextcolor {return false}
+    if self.igpBgcolor != other.igpBgcolor {return false}
+    if self.igpValue != other.igpValue {return false}
+    if self.igpImage != other.igpImage {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
