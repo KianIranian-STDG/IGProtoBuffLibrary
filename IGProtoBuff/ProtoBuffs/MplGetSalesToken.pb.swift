@@ -43,7 +43,43 @@ public struct IGPMplGetSalesToken: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpBotID = newValue}
   }
 
+  public var igpType: IGPMplGetSalesToken.IGPPaymentType {
+    get {return _storage._igpType}
+    set {_uniqueStorage()._igpType = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum IGPPaymentType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+    case null // = 0
+    case noInquiry // = 1
+    case hasInquiry // = 2
+    case UNRECOGNIZED(Int)
+
+    public init() {
+      self = .null
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .null
+      case 1: self = .noInquiry
+      case 2: self = .hasInquiry
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .null: return 0
+      case .noInquiry: return 1
+      case .hasInquiry: return 2
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
 
   public init() {}
 
@@ -99,12 +135,14 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
     1: .standard(proto: "IGP_request"),
     2: .standard(proto: "IGP_amount"),
     3: .standard(proto: "IGP_bot_id"),
+    4: .standard(proto: "IGP_type"),
   ]
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
     var _igpAmount: Int64 = 0
     var _igpBotID: Int64 = 0
+    var _igpType: IGPMplGetSalesToken.IGPPaymentType = .null
 
     static let defaultInstance = _StorageClass()
 
@@ -114,6 +152,7 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
       _igpRequest = source._igpRequest
       _igpAmount = source._igpAmount
       _igpBotID = source._igpBotID
+      _igpType = source._igpType
     }
   }
 
@@ -132,6 +171,7 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
         case 2: try decoder.decodeSingularInt64Field(value: &_storage._igpAmount)
         case 3: try decoder.decodeSingularInt64Field(value: &_storage._igpBotID)
+        case 4: try decoder.decodeSingularEnumField(value: &_storage._igpType)
         default: break
         }
       }
@@ -149,6 +189,9 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
       if _storage._igpBotID != 0 {
         try visitor.visitSingularInt64Field(value: _storage._igpBotID, fieldNumber: 3)
       }
+      if _storage._igpType != .null {
+        try visitor.visitSingularEnumField(value: _storage._igpType, fieldNumber: 4)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -161,6 +204,7 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
         if _storage._igpRequest != other_storage._igpRequest {return false}
         if _storage._igpAmount != other_storage._igpAmount {return false}
         if _storage._igpBotID != other_storage._igpBotID {return false}
+        if _storage._igpType != other_storage._igpType {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -168,6 +212,14 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension IGPMplGetSalesToken.IGPPaymentType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NULL"),
+    1: .same(proto: "NO_INQUIRY"),
+    2: .same(proto: "HAS_INQUIRY"),
+  ]
 }
 
 extension IGPMplGetSalesTokenResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
