@@ -33,7 +33,7 @@ public struct IGPMplSetSalesResult: SwiftProtobuf.RequestMessage {
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
   public mutating func clearIgpRequest() {_storage._igpRequest = nil}
 
-  public var igpStatus: Int32 {
+  public var igpStatus: String {
     get {return _storage._igpStatus}
     set {_uniqueStorage()._igpStatus = newValue}
   }
@@ -69,7 +69,7 @@ public struct IGPMplSetSalesResultResponse: SwiftProtobuf.ResponseMessage {
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
   public mutating func clearIgpResponse() {_storage._igpResponse = nil}
 
-  public var igpStatus: Int32 {
+  public var igpStatus: String {
     get {return _storage._igpStatus}
     set {_uniqueStorage()._igpStatus = newValue}
   }
@@ -99,7 +99,7 @@ extension IGPMplSetSalesResult: SwiftProtobuf._MessageImplementationBase, SwiftP
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
-    var _igpStatus: Int32 = 0
+    var _igpStatus: String = String()
     var _igpMessage: String = String()
     var _igpData: String = String()
 
@@ -128,7 +128,7 @@ extension IGPMplSetSalesResult: SwiftProtobuf._MessageImplementationBase, SwiftP
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
-        case 2: try decoder.decodeSingularInt32Field(value: &_storage._igpStatus)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._igpStatus)
         case 3: try decoder.decodeSingularStringField(value: &_storage._igpMessage)
         case 4: try decoder.decodeSingularStringField(value: &_storage._igpData)
         default: break
@@ -142,8 +142,8 @@ extension IGPMplSetSalesResult: SwiftProtobuf._MessageImplementationBase, SwiftP
       if let v = _storage._igpRequest {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if _storage._igpStatus != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._igpStatus, fieldNumber: 2)
+      if !_storage._igpStatus.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._igpStatus, fieldNumber: 2)
       }
       if !_storage._igpMessage.isEmpty {
         try visitor.visitSingularStringField(value: _storage._igpMessage, fieldNumber: 3)
@@ -183,7 +183,7 @@ extension IGPMplSetSalesResultResponse: SwiftProtobuf._MessageImplementationBase
 
   fileprivate class _StorageClass {
     var _igpResponse: IGPResponse? = nil
-    var _igpStatus: Int32 = 0
+    var _igpStatus: String = String()
     var _igpMessage: String = String()
 
     static let defaultInstance = _StorageClass()
@@ -210,7 +210,7 @@ extension IGPMplSetSalesResultResponse: SwiftProtobuf._MessageImplementationBase
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpResponse)
-        case 2: try decoder.decodeSingularInt32Field(value: &_storage._igpStatus)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._igpStatus)
         case 3: try decoder.decodeSingularStringField(value: &_storage._igpMessage)
         default: break
         }
@@ -223,8 +223,8 @@ extension IGPMplSetSalesResultResponse: SwiftProtobuf._MessageImplementationBase
       if let v = _storage._igpResponse {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if _storage._igpStatus != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._igpStatus, fieldNumber: 2)
+      if !_storage._igpStatus.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._igpStatus, fieldNumber: 2)
       }
       if !_storage._igpMessage.isEmpty {
         try visitor.visitSingularStringField(value: _storage._igpMessage, fieldNumber: 3)
