@@ -1901,8 +1901,6 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
 
   public var igpActiontype: IGPDiscoveryField.IGPButtonActionType = .none
 
-  public var igpHeight: Int32 = 0
-
   public var igpOrderid: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1930,6 +1928,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case topupMenu // = 18
     case walletMenu // = 19
     case nearbyMenu // = 20
+    case call // = 21
+    case stickerShop // = 22
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -1959,6 +1959,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 18: self = .topupMenu
       case 19: self = .walletMenu
       case 20: self = .nearbyMenu
+      case 21: self = .call
+      case 22: self = .stickerShop
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -1986,6 +1988,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .topupMenu: return 18
       case .walletMenu: return 19
       case .nearbyMenu: return 20
+      case .call: return 21
+      case .stickerShop: return 22
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2001,6 +2005,8 @@ public struct IGPDiscovery: SwiftProtobuf.Message {
   // methods supported on all messages.
 
   public var igpModel: IGPDiscovery.IGPDiscoveryModel = .model1
+
+  public var igpHeight: Int32 = 0
 
   public var igpDiscoveryfields: [IGPDiscoveryField] = []
 
@@ -4426,8 +4432,7 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     1: .standard(proto: "IGP_imageurl"),
     2: .standard(proto: "IGP_value"),
     3: .standard(proto: "IGP_actiontype"),
-    4: .standard(proto: "IGP_height"),
-    5: .standard(proto: "IGP_orderid"),
+    4: .standard(proto: "IGP_orderid"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4436,8 +4441,7 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
       case 1: try decoder.decodeSingularStringField(value: &self.igpImageurl)
       case 2: try decoder.decodeSingularStringField(value: &self.igpValue)
       case 3: try decoder.decodeSingularEnumField(value: &self.igpActiontype)
-      case 4: try decoder.decodeSingularInt32Field(value: &self.igpHeight)
-      case 5: try decoder.decodeSingularInt32Field(value: &self.igpOrderid)
+      case 4: try decoder.decodeSingularInt32Field(value: &self.igpOrderid)
       default: break
       }
     }
@@ -4453,11 +4457,8 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     if self.igpActiontype != .none {
       try visitor.visitSingularEnumField(value: self.igpActiontype, fieldNumber: 3)
     }
-    if self.igpHeight != 0 {
-      try visitor.visitSingularInt32Field(value: self.igpHeight, fieldNumber: 4)
-    }
     if self.igpOrderid != 0 {
-      try visitor.visitSingularInt32Field(value: self.igpOrderid, fieldNumber: 5)
+      try visitor.visitSingularInt32Field(value: self.igpOrderid, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4466,7 +4467,6 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     if self.igpImageurl != other.igpImageurl {return false}
     if self.igpValue != other.igpValue {return false}
     if self.igpActiontype != other.igpActiontype {return false}
-    if self.igpHeight != other.igpHeight {return false}
     if self.igpOrderid != other.igpOrderid {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -4496,6 +4496,8 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     18: .same(proto: "TOPUP_MENU"),
     19: .same(proto: "WALLET_MENU"),
     20: .same(proto: "NEARBY_MENU"),
+    21: .same(proto: "CALL"),
+    22: .same(proto: "STICKER_SHOP"),
   ]
 }
 
@@ -4503,14 +4505,16 @@ extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
   public static let protoMessageName: String = "IGPDiscovery"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_model"),
-    2: .standard(proto: "IGP_discoveryfields"),
+    2: .standard(proto: "IGP_height"),
+    3: .standard(proto: "IGP_discoveryfields"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularEnumField(value: &self.igpModel)
-      case 2: try decoder.decodeRepeatedMessageField(value: &self.igpDiscoveryfields)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.igpHeight)
+      case 3: try decoder.decodeRepeatedMessageField(value: &self.igpDiscoveryfields)
       default: break
       }
     }
@@ -4520,14 +4524,18 @@ extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     if self.igpModel != .model1 {
       try visitor.visitSingularEnumField(value: self.igpModel, fieldNumber: 1)
     }
+    if self.igpHeight != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpHeight, fieldNumber: 2)
+    }
     if !self.igpDiscoveryfields.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.igpDiscoveryfields, fieldNumber: 2)
+      try visitor.visitRepeatedMessageField(value: self.igpDiscoveryfields, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: IGPDiscovery) -> Bool {
     if self.igpModel != other.igpModel {return false}
+    if self.igpHeight != other.igpHeight {return false}
     if self.igpDiscoveryfields != other.igpDiscoveryfields {return false}
     if unknownFields != other.unknownFields {return false}
     return true
