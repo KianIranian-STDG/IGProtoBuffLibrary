@@ -1890,6 +1890,165 @@ public struct IGPFavorite: SwiftProtobuf.Message {
   public init() {}
 }
 
+public struct IGPDiscoveryField: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpImageurl: String = String()
+
+  public var igpValue: String = String()
+
+  public var igpActiontype: IGPDiscoveryField.IGPButtonActionType = .none
+
+  public var igpHeight: Int32 = 0
+
+  public var igpOrderid: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum IGPButtonActionType: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+    case none // = 0
+    case joinLink // = 1
+    case botAction // = 2
+    case usernameLink // = 3
+    case webLink // = 4
+    case webViewLink // = 5
+    case streamPlay // = 6
+    case payByWallet // = 7
+    case payDirect // = 8
+    case requestPhone // = 9
+    case requestLocation // = 10
+    case showAlert // = 11
+    case page // = 12
+    case financialMenu // = 13
+    case billMenu // = 14
+    case trafficBillMenu // = 15
+    case mobileBillMenu // = 16
+    case phoneBillMenu // = 17
+    case topupMenu // = 18
+    case walletMenu // = 19
+    case nearbyMenu // = 20
+    case UNRECOGNIZED(Int)
+
+    public init() {
+      self = .none
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .none
+      case 1: self = .joinLink
+      case 2: self = .botAction
+      case 3: self = .usernameLink
+      case 4: self = .webLink
+      case 5: self = .webViewLink
+      case 6: self = .streamPlay
+      case 7: self = .payByWallet
+      case 8: self = .payDirect
+      case 9: self = .requestPhone
+      case 10: self = .requestLocation
+      case 11: self = .showAlert
+      case 12: self = .page
+      case 13: self = .financialMenu
+      case 14: self = .billMenu
+      case 15: self = .trafficBillMenu
+      case 16: self = .mobileBillMenu
+      case 17: self = .phoneBillMenu
+      case 18: self = .topupMenu
+      case 19: self = .walletMenu
+      case 20: self = .nearbyMenu
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .none: return 0
+      case .joinLink: return 1
+      case .botAction: return 2
+      case .usernameLink: return 3
+      case .webLink: return 4
+      case .webViewLink: return 5
+      case .streamPlay: return 6
+      case .payByWallet: return 7
+      case .payDirect: return 8
+      case .requestPhone: return 9
+      case .requestLocation: return 10
+      case .showAlert: return 11
+      case .page: return 12
+      case .financialMenu: return 13
+      case .billMenu: return 14
+      case .trafficBillMenu: return 15
+      case .mobileBillMenu: return 16
+      case .phoneBillMenu: return 17
+      case .topupMenu: return 18
+      case .walletMenu: return 19
+      case .nearbyMenu: return 20
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  public init() {}
+}
+
+public struct IGPDiscovery: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpModel: IGPDiscovery.IGPDiscoveryModel = .model1
+
+  public var igpDiscoveryfields: [IGPDiscoveryField] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum IGPDiscoveryModel: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+    case model1 // = 0
+    case model2 // = 1
+    case model3 // = 2
+    case model4 // = 3
+    case model5 // = 4
+    case model6 // = 5
+    case UNRECOGNIZED(Int)
+
+    public init() {
+      self = .model1
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .model1
+      case 1: self = .model2
+      case 2: self = .model3
+      case 3: self = .model4
+      case 4: self = .model5
+      case 5: self = .model6
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .model1: return 0
+      case .model2: return 1
+      case .model3: return 2
+      case .model4: return 3
+      case .model5: return 4
+      case .model6: return 5
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension IGPGender: SwiftProtobuf._ProtoNameProviding {
@@ -4259,4 +4418,129 @@ extension IGPFavorite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPDiscoveryField"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_imageurl"),
+    2: .standard(proto: "IGP_value"),
+    3: .standard(proto: "IGP_actiontype"),
+    4: .standard(proto: "IGP_height"),
+    5: .standard(proto: "IGP_orderid"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.igpImageurl)
+      case 2: try decoder.decodeSingularStringField(value: &self.igpValue)
+      case 3: try decoder.decodeSingularEnumField(value: &self.igpActiontype)
+      case 4: try decoder.decodeSingularInt32Field(value: &self.igpHeight)
+      case 5: try decoder.decodeSingularInt32Field(value: &self.igpOrderid)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.igpImageurl.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpImageurl, fieldNumber: 1)
+    }
+    if !self.igpValue.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpValue, fieldNumber: 2)
+    }
+    if self.igpActiontype != .none {
+      try visitor.visitSingularEnumField(value: self.igpActiontype, fieldNumber: 3)
+    }
+    if self.igpHeight != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpHeight, fieldNumber: 4)
+    }
+    if self.igpOrderid != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpOrderid, fieldNumber: 5)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func _protobuf_generated_isEqualTo(other: IGPDiscoveryField) -> Bool {
+    if self.igpImageurl != other.igpImageurl {return false}
+    if self.igpValue != other.igpValue {return false}
+    if self.igpActiontype != other.igpActiontype {return false}
+    if self.igpHeight != other.igpHeight {return false}
+    if self.igpOrderid != other.igpOrderid {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE"),
+    1: .same(proto: "JOIN_LINK"),
+    2: .same(proto: "BOT_ACTION"),
+    3: .same(proto: "USERNAME_LINK"),
+    4: .same(proto: "WEB_LINK"),
+    5: .same(proto: "WEB_VIEW_LINK"),
+    6: .same(proto: "STREAM_PLAY"),
+    7: .same(proto: "PAY_BY_WALLET"),
+    8: .same(proto: "PAY_DIRECT"),
+    9: .same(proto: "REQUEST_PHONE"),
+    10: .same(proto: "REQUEST_LOCATION"),
+    11: .same(proto: "SHOW_ALERT"),
+    12: .same(proto: "PAGE"),
+    13: .same(proto: "FINANCIAL_MENU"),
+    14: .same(proto: "BILL_MENU"),
+    15: .same(proto: "TRAFFIC_BILL_MENU"),
+    16: .same(proto: "MOBILE_BILL_MENU"),
+    17: .same(proto: "PHONE_BILL_MENU"),
+    18: .same(proto: "TOPUP_MENU"),
+    19: .same(proto: "WALLET_MENU"),
+    20: .same(proto: "NEARBY_MENU"),
+  ]
+}
+
+extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPDiscovery"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_model"),
+    2: .standard(proto: "IGP_discoveryfields"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularEnumField(value: &self.igpModel)
+      case 2: try decoder.decodeRepeatedMessageField(value: &self.igpDiscoveryfields)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.igpModel != .model1 {
+      try visitor.visitSingularEnumField(value: self.igpModel, fieldNumber: 1)
+    }
+    if !self.igpDiscoveryfields.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.igpDiscoveryfields, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func _protobuf_generated_isEqualTo(other: IGPDiscovery) -> Bool {
+    if self.igpModel != other.igpModel {return false}
+    if self.igpDiscoveryfields != other.igpDiscoveryfields {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension IGPDiscovery.IGPDiscoveryModel: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MODEL1"),
+    1: .same(proto: "MODEL2"),
+    2: .same(proto: "MODEL3"),
+    3: .same(proto: "MODEL4"),
+    4: .same(proto: "MODEL5"),
+    5: .same(proto: "MODEL6"),
+  ]
 }
