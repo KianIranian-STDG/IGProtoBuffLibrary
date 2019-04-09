@@ -16,6 +16,7 @@
 		FA416B9220D8DEB50013DB17 /* MplGetBillToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA416B9020D8DEB50013DB17 /* MplGetBillToken.pb.swift */; };
 		FA68A1E3222C21B100DB927C /* MplGetSalesToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68A1E2222C21B100DB927C /* MplGetSalesToken.pb.swift */; };
 		FA76382E1E2FFD5E00C24391 /* IGProtoBuff.h in Headers */ = {isa = PBXBuildFile; fileRef = FA76382C1E2FFD5E00C24391 /* IGProtoBuff.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA7C3CE4225C769500DDEE95 /* WalletIdMapping.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C3CE3225C769500DDEE95 /* WalletIdMapping.pb.swift */; };
 		FA88817D222BDED6004F7194 /* ClientGetFavoriteMenu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88817C222BDED5004F7194 /* ClientGetFavoriteMenu.pb.swift */; };
 		FA8CF03720E2729400994811 /* WalletPaymentInit.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CF03620E2729400994811 /* WalletPaymentInit.pb.swift */; };
 		FA90B73A20B59D9700043C89 /* ChannelUpdateReactionStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */; };
@@ -210,6 +211,7 @@
 		FA7638291E2FFD5E00C24391 /* IGProtoBuff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGProtoBuff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA76382C1E2FFD5E00C24391 /* IGProtoBuff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGProtoBuff.h; sourceTree = "<group>"; };
 		FA76382D1E2FFD5E00C24391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA7C3CE3225C769500DDEE95 /* WalletIdMapping.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletIdMapping.pb.swift; sourceTree = "<group>"; };
 		FA88817C222BDED5004F7194 /* ClientGetFavoriteMenu.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetFavoriteMenu.pb.swift; sourceTree = "<group>"; };
 		FA8CF03620E2729400994811 /* WalletPaymentInit.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPaymentInit.pb.swift; sourceTree = "<group>"; };
 		FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelUpdateReactionStatus.pb.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 				FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */,
 				FA2A506B20ECDA74002C5322 /* BillInquiryMci.pb.swift */,
 				FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */,
+				FA7C3CE3225C769500DDEE95 /* WalletIdMapping.pb.swift */,
 				FA2A506A20ECDA74002C5322 /* WalletRegister.pb.swift */,
 				FA8CF03620E2729400994811 /* WalletPaymentInit.pb.swift */,
 				FA416B9020D8DEB50013DB17 /* MplGetBillToken.pb.swift */,
@@ -713,6 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7C3CE4225C769500DDEE95 /* WalletIdMapping.pb.swift in Sources */,
 				FA68A1E3222C21B100DB927C /* MplGetSalesToken.pb.swift in Sources */,
 				FA88817D222BDED6004F7194 /* ClientGetFavoriteMenu.pb.swift in Sources */,
 				FAB87B3A21C62B6B0056D403 /* ClientGetPromote.pb.swift in Sources */,
