@@ -1903,6 +1903,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
 
   public var igpOrderid: Int32 = 0
 
+  public var igpID: Int32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPButtonActionType: SwiftProtobuf.Enum {
@@ -2020,6 +2022,7 @@ public struct IGPDiscovery: SwiftProtobuf.Message {
     case model4 // = 3
     case model5 // = 4
     case model6 // = 5
+    case model7 // = 6
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2034,6 +2037,7 @@ public struct IGPDiscovery: SwiftProtobuf.Message {
       case 3: self = .model4
       case 4: self = .model5
       case 5: self = .model6
+      case 6: self = .model7
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2046,6 +2050,7 @@ public struct IGPDiscovery: SwiftProtobuf.Message {
       case .model4: return 3
       case .model5: return 4
       case .model6: return 5
+      case .model7: return 6
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -4433,6 +4438,7 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     2: .standard(proto: "IGP_value"),
     3: .standard(proto: "IGP_actiontype"),
     4: .standard(proto: "IGP_orderid"),
+    5: .standard(proto: "IGP_id"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4442,6 +4448,7 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
       case 2: try decoder.decodeSingularStringField(value: &self.igpValue)
       case 3: try decoder.decodeSingularEnumField(value: &self.igpActiontype)
       case 4: try decoder.decodeSingularInt32Field(value: &self.igpOrderid)
+      case 5: try decoder.decodeSingularInt32Field(value: &self.igpID)
       default: break
       }
     }
@@ -4460,6 +4467,9 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     if self.igpOrderid != 0 {
       try visitor.visitSingularInt32Field(value: self.igpOrderid, fieldNumber: 4)
     }
+    if self.igpID != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpID, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -4468,6 +4478,7 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     if self.igpValue != other.igpValue {return false}
     if self.igpActiontype != other.igpActiontype {return false}
     if self.igpOrderid != other.igpOrderid {return false}
+    if self.igpID != other.igpID {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4550,5 +4561,6 @@ extension IGPDiscovery.IGPDiscoveryModel: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "MODEL4"),
     4: .same(proto: "MODEL5"),
     5: .same(proto: "MODEL6"),
+    6: .same(proto: "MODEL7"),
   ]
 }
