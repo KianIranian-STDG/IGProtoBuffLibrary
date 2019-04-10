@@ -2006,7 +2006,7 @@ public struct IGPDiscovery: SwiftProtobuf.Message {
 
   public var igpModel: IGPDiscovery.IGPDiscoveryModel = .model1
 
-  public var igpHeight: Int32 = 0
+  public var igpScale: String = String()
 
   public var igpDiscoveryfields: [IGPDiscoveryField] = []
 
@@ -4505,7 +4505,7 @@ extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
   public static let protoMessageName: String = "IGPDiscovery"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_model"),
-    2: .standard(proto: "IGP_height"),
+    2: .standard(proto: "IGP_scale"),
     3: .standard(proto: "IGP_discoveryfields"),
   ]
 
@@ -4513,7 +4513,7 @@ extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularEnumField(value: &self.igpModel)
-      case 2: try decoder.decodeSingularInt32Field(value: &self.igpHeight)
+      case 2: try decoder.decodeSingularStringField(value: &self.igpScale)
       case 3: try decoder.decodeRepeatedMessageField(value: &self.igpDiscoveryfields)
       default: break
       }
@@ -4524,8 +4524,8 @@ extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     if self.igpModel != .model1 {
       try visitor.visitSingularEnumField(value: self.igpModel, fieldNumber: 1)
     }
-    if self.igpHeight != 0 {
-      try visitor.visitSingularInt32Field(value: self.igpHeight, fieldNumber: 2)
+    if !self.igpScale.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpScale, fieldNumber: 2)
     }
     if !self.igpDiscoveryfields.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.igpDiscoveryfields, fieldNumber: 3)
@@ -4535,7 +4535,7 @@ extension IGPDiscovery: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
 
   public func _protobuf_generated_isEqualTo(other: IGPDiscovery) -> Bool {
     if self.igpModel != other.igpModel {return false}
-    if self.igpHeight != other.igpHeight {return false}
+    if self.igpScale != other.igpScale {return false}
     if self.igpDiscoveryfields != other.igpDiscoveryfields {return false}
     if unknownFields != other.unknownFields {return false}
     return true
