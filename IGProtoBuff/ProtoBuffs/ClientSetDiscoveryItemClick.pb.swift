@@ -45,7 +45,7 @@ public struct IGPClientSetDiscoveryItemClick: SwiftProtobuf.RequestMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct IGPClientGetDiscoveryResponse: SwiftProtobuf.ResponseMessage {
+public struct IGPClientSetDiscoveryItemClickResponse: SwiftProtobuf.ResponseMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -137,8 +137,8 @@ extension IGPClientSetDiscoveryItemClick: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension IGPClientGetDiscoveryResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "IGPClientGetDiscoveryResponse"
+extension IGPClientSetDiscoveryItemClickResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPClientSetDiscoveryItemClickResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_response"),
   ]
@@ -183,7 +183,7 @@ extension IGPClientGetDiscoveryResponse: SwiftProtobuf._MessageImplementationBas
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientGetDiscoveryResponse) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: IGPClientSetDiscoveryItemClickResponse) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
