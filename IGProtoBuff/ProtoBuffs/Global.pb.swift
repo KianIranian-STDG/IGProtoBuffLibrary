@@ -1932,6 +1932,9 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case nearbyMenu // = 20
     case call // = 21
     case stickerShop // = 22
+    case ivand // = 23
+    case ivandqr // = 24
+    case ivandlist // = 25
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -1963,6 +1966,9 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 20: self = .nearbyMenu
       case 21: self = .call
       case 22: self = .stickerShop
+      case 23: self = .ivand
+      case 24: self = .ivandqr
+      case 25: self = .ivandlist
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -1992,6 +1998,9 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .nearbyMenu: return 20
       case .call: return 21
       case .stickerShop: return 22
+      case .ivand: return 23
+      case .ivandqr: return 24
+      case .ivandlist: return 25
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2056,6 +2065,22 @@ public struct IGPDiscovery: SwiftProtobuf.Message {
     }
 
   }
+
+  public init() {}
+}
+
+public struct IGPIVandActivity: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpTitle: String = String()
+
+  public var igpScore: Int32 = 0
+
+  public var igpTime: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
@@ -4509,6 +4534,9 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     20: .same(proto: "NEARBY_MENU"),
     21: .same(proto: "CALL"),
     22: .same(proto: "STICKER_SHOP"),
+    23: .same(proto: "IVAND"),
+    24: .same(proto: "IVANDQR"),
+    25: .same(proto: "IVANDLIST"),
   ]
 }
 
@@ -4563,4 +4591,45 @@ extension IGPDiscovery.IGPDiscoveryModel: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "MODEL6"),
     6: .same(proto: "MODEL7"),
   ]
+}
+
+extension IGPIVandActivity: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPIVandActivity"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_title"),
+    2: .standard(proto: "IGP_score"),
+    3: .standard(proto: "IGP_time"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.igpTitle)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.igpScore)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.igpTime)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.igpTitle.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpTitle, fieldNumber: 1)
+    }
+    if self.igpScore != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpScore, fieldNumber: 2)
+    }
+    if self.igpTime != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpTime, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public func _protobuf_generated_isEqualTo(other: IGPIVandActivity) -> Bool {
+    if self.igpTitle != other.igpTitle {return false}
+    if self.igpScore != other.igpScore {return false}
+    if self.igpTime != other.igpTime {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
