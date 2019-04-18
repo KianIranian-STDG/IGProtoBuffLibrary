@@ -63,9 +63,9 @@ public struct IGPUserIVandGetActivitiesResponse: SwiftProtobuf.ResponseMessage {
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
   public mutating func clearIgpResponse() {_storage._igpResponse = nil}
 
-  public var igpAcitivities: [IGPIVandActivity] {
-    get {return _storage._igpAcitivities}
-    set {_uniqueStorage()._igpAcitivities = newValue}
+  public var igpActivities: [IGPIVandActivity] {
+    get {return _storage._igpActivities}
+    set {_uniqueStorage()._igpActivities = newValue}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -150,12 +150,12 @@ extension IGPUserIVandGetActivitiesResponse: SwiftProtobuf._MessageImplementatio
   public static let protoMessageName: String = "IGPUserIVandGetActivitiesResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_response"),
-    2: .standard(proto: "IGP_acitivities"),
+    2: .standard(proto: "IGP_activities"),
   ]
 
   fileprivate class _StorageClass {
     var _igpResponse: IGPResponse? = nil
-    var _igpAcitivities: [IGPIVandActivity] = []
+    var _igpActivities: [IGPIVandActivity] = []
 
     static let defaultInstance = _StorageClass()
 
@@ -163,7 +163,7 @@ extension IGPUserIVandGetActivitiesResponse: SwiftProtobuf._MessageImplementatio
 
     init(copying source: _StorageClass) {
       _igpResponse = source._igpResponse
-      _igpAcitivities = source._igpAcitivities
+      _igpActivities = source._igpActivities
     }
   }
 
@@ -180,7 +180,7 @@ extension IGPUserIVandGetActivitiesResponse: SwiftProtobuf._MessageImplementatio
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpResponse)
-        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._igpAcitivities)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._igpActivities)
         default: break
         }
       }
@@ -192,8 +192,8 @@ extension IGPUserIVandGetActivitiesResponse: SwiftProtobuf._MessageImplementatio
       if let v = _storage._igpResponse {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if !_storage._igpAcitivities.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._igpAcitivities, fieldNumber: 2)
+      if !_storage._igpActivities.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._igpActivities, fieldNumber: 2)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -205,7 +205,7 @@ extension IGPUserIVandGetActivitiesResponse: SwiftProtobuf._MessageImplementatio
         let _storage = _args.0
         let other_storage = _args.1
         if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpAcitivities != other_storage._igpAcitivities {return false}
+        if _storage._igpActivities != other_storage._igpActivities {return false}
         return true
       }
       if !storagesAreEqual {return false}
