@@ -2078,7 +2078,7 @@ public struct IGPIVandActivity: SwiftProtobuf.Message {
 
   public var igpScore: Int32 = 0
 
-  public var igpTime: Int32 = 0
+  public var igpTimeIvand: Int32 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4598,7 +4598,7 @@ extension IGPIVandActivity: SwiftProtobuf._MessageImplementationBase, SwiftProto
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_title"),
     2: .standard(proto: "IGP_score"),
-    3: .standard(proto: "IGP_time"),
+    3: .standard(proto: "IGP_time_ivand"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4606,7 +4606,7 @@ extension IGPIVandActivity: SwiftProtobuf._MessageImplementationBase, SwiftProto
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self.igpTitle)
       case 2: try decoder.decodeSingularInt32Field(value: &self.igpScore)
-      case 3: try decoder.decodeSingularInt32Field(value: &self.igpTime)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.igpTimeIvand)
       default: break
       }
     }
@@ -4619,8 +4619,8 @@ extension IGPIVandActivity: SwiftProtobuf._MessageImplementationBase, SwiftProto
     if self.igpScore != 0 {
       try visitor.visitSingularInt32Field(value: self.igpScore, fieldNumber: 2)
     }
-    if self.igpTime != 0 {
-      try visitor.visitSingularInt32Field(value: self.igpTime, fieldNumber: 3)
+    if self.igpTimeIvand != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpTimeIvand, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4628,7 +4628,7 @@ extension IGPIVandActivity: SwiftProtobuf._MessageImplementationBase, SwiftProto
   public func _protobuf_generated_isEqualTo(other: IGPIVandActivity) -> Bool {
     if self.igpTitle != other.igpTitle {return false}
     if self.igpScore != other.igpScore {return false}
-    if self.igpTime != other.igpTime {return false}
+    if self.igpTimeIvand != other.igpTimeIvand {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
