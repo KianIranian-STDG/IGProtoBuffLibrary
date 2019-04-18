@@ -22,6 +22,9 @@
 		FA7E9BCF2262F9F100FB861D /* UserProfileSetRepresentative.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */; };
 		FA7E9BD02262F9F100FB861D /* UserProfileGetRepresentative.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E9BCE2262F9F100FB861D /* UserProfileGetRepresentative.pb.swift */; };
 		FA88817D222BDED6004F7194 /* ClientGetFavoriteMenu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88817C222BDED5004F7194 /* ClientGetFavoriteMenu.pb.swift */; };
+		FA8A7B34226885F6008CEC11 /* UserIVandGetScore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */; };
+		FA8A7B35226885F6008CEC11 /* UserIVandSetActivity.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A7B33226885F6008CEC11 /* UserIVandSetActivity.pb.swift */; };
+		FA8A7B37226889C0008CEC11 /* UserIVandGetActivities.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A7B36226889C0008CEC11 /* UserIVandGetActivities.pb.swift */; };
 		FA8CF03720E2729400994811 /* WalletPaymentInit.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8CF03620E2729400994811 /* WalletPaymentInit.pb.swift */; };
 		FA90B73A20B59D9700043C89 /* ChannelUpdateReactionStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */; };
 		FA90B73B20B59D9700043C89 /* GroupPinMessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73820B59D9600043C89 /* GroupPinMessage.pb.swift */; };
@@ -221,6 +224,9 @@
 		FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetRepresentative.pb.swift; sourceTree = "<group>"; };
 		FA7E9BCE2262F9F100FB861D /* UserProfileGetRepresentative.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGetRepresentative.pb.swift; sourceTree = "<group>"; };
 		FA88817C222BDED5004F7194 /* ClientGetFavoriteMenu.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetFavoriteMenu.pb.swift; sourceTree = "<group>"; };
+		FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIVandGetScore.pb.swift; sourceTree = "<group>"; };
+		FA8A7B33226885F6008CEC11 /* UserIVandSetActivity.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIVandSetActivity.pb.swift; sourceTree = "<group>"; };
+		FA8A7B36226889C0008CEC11 /* UserIVandGetActivities.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIVandGetActivities.pb.swift; sourceTree = "<group>"; };
 		FA8CF03620E2729400994811 /* WalletPaymentInit.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPaymentInit.pb.swift; sourceTree = "<group>"; };
 		FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelUpdateReactionStatus.pb.swift; sourceTree = "<group>"; };
 		FA90B73820B59D9600043C89 /* GroupPinMessage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPinMessage.pb.swift; sourceTree = "<group>"; };
@@ -418,6 +424,9 @@
 			isa = PBXGroup;
 			children = (
 				FA68A1E2222C21B100DB927C /* MplGetSalesToken.pb.swift */,
+				FA8A7B36226889C0008CEC11 /* UserIVandGetActivities.pb.swift */,
+				FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */,
+				FA8A7B33226885F6008CEC11 /* UserIVandSetActivity.pb.swift */,
 				FA7E9BCE2262F9F100FB861D /* UserProfileGetRepresentative.pb.swift */,
 				FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */,
 				FA712AE8225DF86000FD78AA /* ClientSetDiscoveryItemClick.pb.swift */,
@@ -728,6 +737,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8A7B37226889C0008CEC11 /* UserIVandGetActivities.pb.swift in Sources */,
+				FA8A7B34226885F6008CEC11 /* UserIVandGetScore.pb.swift in Sources */,
+				FA8A7B35226885F6008CEC11 /* UserIVandSetActivity.pb.swift in Sources */,
 				FA7E9BCF2262F9F100FB861D /* UserProfileSetRepresentative.pb.swift in Sources */,
 				FA7E9BD02262F9F100FB861D /* UserProfileGetRepresentative.pb.swift in Sources */,
 				FA712AE9225DF86000FD78AA /* ClientSetDiscoveryItemClick.pb.swift in Sources */,
