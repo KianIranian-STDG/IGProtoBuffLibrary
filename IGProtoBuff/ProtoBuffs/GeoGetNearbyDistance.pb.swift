@@ -31,7 +31,7 @@ public struct IGPGeoGetNearbyDistance: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpLat: Double {
     get {return _storage._igpLat}
@@ -62,7 +62,7 @@ public struct IGPGeoGetNearbyDistanceResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpResult: [IGPGeoGetNearbyDistanceResponse.IGPResult] {
     get {return _storage._igpResult}
@@ -154,19 +154,19 @@ extension IGPGeoGetNearbyDistance: SwiftProtobuf._MessageImplementationBase, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGeoGetNearbyDistance) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGeoGetNearbyDistance, rhs: IGPGeoGetNearbyDistance) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpLat != other_storage._igpLat {return false}
-        if _storage._igpLon != other_storage._igpLon {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpLat != rhs_storage._igpLat {return false}
+        if _storage._igpLon != rhs_storage._igpLon {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -224,18 +224,18 @@ extension IGPGeoGetNearbyDistanceResponse: SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGeoGetNearbyDistanceResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGeoGetNearbyDistanceResponse, rhs: IGPGeoGetNearbyDistanceResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpResult != other_storage._igpResult {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpResult != rhs_storage._igpResult {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -272,11 +272,11 @@ extension IGPGeoGetNearbyDistanceResponse.IGPResult: SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGeoGetNearbyDistanceResponse.IGPResult) -> Bool {
-    if self.igpUserID != other.igpUserID {return false}
-    if self.igpHasComment != other.igpHasComment {return false}
-    if self.igpDistance != other.igpDistance {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPGeoGetNearbyDistanceResponse.IGPResult, rhs: IGPGeoGetNearbyDistanceResponse.IGPResult) -> Bool {
+    if lhs.igpUserID != rhs.igpUserID {return false}
+    if lhs.igpHasComment != rhs.igpHasComment {return false}
+    if lhs.igpDistance != rhs.igpDistance {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

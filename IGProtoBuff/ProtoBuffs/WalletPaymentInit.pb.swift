@@ -31,7 +31,7 @@ public struct IGPWalletPaymentInit: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpLanguage: IGPLanguage {
     get {return _storage._igpLanguage}
@@ -77,7 +77,7 @@ public struct IGPWalletPaymentInitResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpToken: String {
     get {return _storage._igpToken}
@@ -179,22 +179,22 @@ extension IGPWalletPaymentInit: SwiftProtobuf._MessageImplementationBase, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPWalletPaymentInit) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPWalletPaymentInit, rhs: IGPWalletPaymentInit) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpLanguage != other_storage._igpLanguage {return false}
-        if _storage._igpJwt != other_storage._igpJwt {return false}
-        if _storage._igpToUserID != other_storage._igpToUserID {return false}
-        if _storage._igpAmount != other_storage._igpAmount {return false}
-        if _storage._igpDescription != other_storage._igpDescription {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpLanguage != rhs_storage._igpLanguage {return false}
+        if _storage._igpJwt != rhs_storage._igpJwt {return false}
+        if _storage._igpToUserID != rhs_storage._igpToUserID {return false}
+        if _storage._igpAmount != rhs_storage._igpAmount {return false}
+        if _storage._igpDescription != rhs_storage._igpDescription {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -259,19 +259,19 @@ extension IGPWalletPaymentInitResponse: SwiftProtobuf._MessageImplementationBase
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPWalletPaymentInitResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPWalletPaymentInitResponse, rhs: IGPWalletPaymentInitResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpToken != other_storage._igpToken {return false}
-        if _storage._igpPublicKey != other_storage._igpPublicKey {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpToken != rhs_storage._igpToken {return false}
+        if _storage._igpPublicKey != rhs_storage._igpPublicKey {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

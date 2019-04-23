@@ -31,7 +31,7 @@ public struct IGPClientCondition: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpRooms: [IGPClientCondition.IGPRoom] {
     get {return _storage._igpRooms}
@@ -153,7 +153,7 @@ public struct IGPClientConditionResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -217,18 +217,18 @@ extension IGPClientCondition: SwiftProtobuf._MessageImplementationBase, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientCondition) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientCondition, rhs: IGPClientCondition) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpRooms != other_storage._igpRooms {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpRooms != rhs_storage._igpRooms {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -315,21 +315,21 @@ extension IGPClientCondition.IGPRoom: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientCondition.IGPRoom) -> Bool {
-    if self.igpRoomID != other.igpRoomID {return false}
-    if self.igpMessageVersion != other.igpMessageVersion {return false}
-    if self.igpStatusVersion != other.igpStatusVersion {return false}
-    if self.igpDeleteVersion != other.igpDeleteVersion {return false}
-    if self.igpOfflineDeletedDeprecated != other.igpOfflineDeletedDeprecated {return false}
-    if self.igpOfflineEdited != other.igpOfflineEdited {return false}
-    if self.igpOfflineSeen != other.igpOfflineSeen {return false}
-    if self.igpClearID != other.igpClearID {return false}
-    if self.igpCacheStartID != other.igpCacheStartID {return false}
-    if self.igpCacheEndID != other.igpCacheEndID {return false}
-    if self.igpOfflineMute != other.igpOfflineMute {return false}
-    if self.igpOfflineListened != other.igpOfflineListened {return false}
-    if self.igpOfflineDeleted != other.igpOfflineDeleted {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPClientCondition.IGPRoom, rhs: IGPClientCondition.IGPRoom) -> Bool {
+    if lhs.igpRoomID != rhs.igpRoomID {return false}
+    if lhs.igpMessageVersion != rhs.igpMessageVersion {return false}
+    if lhs.igpStatusVersion != rhs.igpStatusVersion {return false}
+    if lhs.igpDeleteVersion != rhs.igpDeleteVersion {return false}
+    if lhs.igpOfflineDeletedDeprecated != rhs.igpOfflineDeletedDeprecated {return false}
+    if lhs.igpOfflineEdited != rhs.igpOfflineEdited {return false}
+    if lhs.igpOfflineSeen != rhs.igpOfflineSeen {return false}
+    if lhs.igpClearID != rhs.igpClearID {return false}
+    if lhs.igpCacheStartID != rhs.igpCacheStartID {return false}
+    if lhs.igpCacheEndID != rhs.igpCacheEndID {return false}
+    if lhs.igpOfflineMute != rhs.igpOfflineMute {return false}
+    if lhs.igpOfflineListened != rhs.igpOfflineListened {return false}
+    if lhs.igpOfflineDeleted != rhs.igpOfflineDeleted {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -369,10 +369,10 @@ extension IGPClientCondition.IGPRoom.IGPOfflineEdited: SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientCondition.IGPRoom.IGPOfflineEdited) -> Bool {
-    if self.igpMessageID != other.igpMessageID {return false}
-    if self.igpMessage != other.igpMessage {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPClientCondition.IGPRoom.IGPOfflineEdited, rhs: IGPClientCondition.IGPRoom.IGPOfflineEdited) -> Bool {
+    if lhs.igpMessageID != rhs.igpMessageID {return false}
+    if lhs.igpMessage != rhs.igpMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -404,10 +404,10 @@ extension IGPClientCondition.IGPRoom.IGPOfflineDeleted: SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientCondition.IGPRoom.IGPOfflineDeleted) -> Bool {
-    if self.igpMessageID != other.igpMessageID {return false}
-    if self.igpBoth != other.igpBoth {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPClientCondition.IGPRoom.IGPOfflineDeleted, rhs: IGPClientCondition.IGPRoom.IGPOfflineDeleted) -> Bool {
+    if lhs.igpMessageID != rhs.igpMessageID {return false}
+    if lhs.igpBoth != rhs.igpBoth {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -458,17 +458,17 @@ extension IGPClientConditionResponse: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientConditionResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientConditionResponse, rhs: IGPClientConditionResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

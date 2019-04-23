@@ -31,7 +31,7 @@ public struct IGPFileUploadInit: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpFirstBytes: Data {
     get {return _storage._igpFirstBytes}
@@ -77,7 +77,7 @@ public struct IGPFileUploadInitResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpToken: String {
     get {return _storage._igpToken}
@@ -189,22 +189,22 @@ extension IGPFileUploadInit: SwiftProtobuf._MessageImplementationBase, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPFileUploadInit) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPFileUploadInit, rhs: IGPFileUploadInit) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpFirstBytes != other_storage._igpFirstBytes {return false}
-        if _storage._igpLastBytes != other_storage._igpLastBytes {return false}
-        if _storage._igpSize != other_storage._igpSize {return false}
-        if _storage._igpFileHash != other_storage._igpFileHash {return false}
-        if _storage._igpFileName != other_storage._igpFileName {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpFirstBytes != rhs_storage._igpFirstBytes {return false}
+        if _storage._igpLastBytes != rhs_storage._igpLastBytes {return false}
+        if _storage._igpSize != rhs_storage._igpSize {return false}
+        if _storage._igpFileHash != rhs_storage._igpFileHash {return false}
+        if _storage._igpFileName != rhs_storage._igpFileName {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -283,21 +283,21 @@ extension IGPFileUploadInitResponse: SwiftProtobuf._MessageImplementationBase, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPFileUploadInitResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPFileUploadInitResponse, rhs: IGPFileUploadInitResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpToken != other_storage._igpToken {return false}
-        if _storage._igpProgress != other_storage._igpProgress {return false}
-        if _storage._igpOffset != other_storage._igpOffset {return false}
-        if _storage._igpLimit != other_storage._igpLimit {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpToken != rhs_storage._igpToken {return false}
+        if _storage._igpProgress != rhs_storage._igpProgress {return false}
+        if _storage._igpOffset != rhs_storage._igpOffset {return false}
+        if _storage._igpLimit != rhs_storage._igpLimit {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

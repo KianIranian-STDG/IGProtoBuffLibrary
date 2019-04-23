@@ -31,7 +31,7 @@ public struct IGPChannelAvatarAdd: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpAttachment: String {
     get {return _storage._igpAttachment}
@@ -62,7 +62,7 @@ public struct IGPChannelAvatarAddResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpAvatar: IGPAvatar {
     get {return _storage._igpAvatar ?? IGPAvatar()}
@@ -71,7 +71,7 @@ public struct IGPChannelAvatarAddResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpAvatar` has been explicitly set.
   public var hasIgpAvatar: Bool {return _storage._igpAvatar != nil}
   /// Clears the value of `igpAvatar`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpAvatar() {_storage._igpAvatar = nil}
+  public mutating func clearIgpAvatar() {_uniqueStorage()._igpAvatar = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -147,19 +147,19 @@ extension IGPChannelAvatarAdd: SwiftProtobuf._MessageImplementationBase, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChannelAvatarAdd) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChannelAvatarAdd, rhs: IGPChannelAvatarAdd) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpAttachment != other_storage._igpAttachment {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpAttachment != rhs_storage._igpAttachment {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -224,19 +224,19 @@ extension IGPChannelAvatarAddResponse: SwiftProtobuf._MessageImplementationBase,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChannelAvatarAddResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChannelAvatarAddResponse, rhs: IGPChannelAvatarAddResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpAvatar != other_storage._igpAvatar {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpAvatar != rhs_storage._igpAvatar {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

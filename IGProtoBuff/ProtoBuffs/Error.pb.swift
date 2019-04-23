@@ -31,7 +31,7 @@ public struct IGPErrorResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpMajorCode: Int32 {
     get {return _storage._igpMajorCode}
@@ -136,21 +136,21 @@ extension IGPErrorResponse: SwiftProtobuf._MessageImplementationBase, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPErrorResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPErrorResponse, rhs: IGPErrorResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpMajorCode != other_storage._igpMajorCode {return false}
-        if _storage._igpMinorCode != other_storage._igpMinorCode {return false}
-        if _storage._igpWait != other_storage._igpWait {return false}
-        if _storage._igpMessage != other_storage._igpMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpMajorCode != rhs_storage._igpMajorCode {return false}
+        if _storage._igpMinorCode != rhs_storage._igpMinorCode {return false}
+        if _storage._igpWait != rhs_storage._igpWait {return false}
+        if _storage._igpMessage != rhs_storage._igpMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

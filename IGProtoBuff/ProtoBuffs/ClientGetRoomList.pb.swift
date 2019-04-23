@@ -31,7 +31,7 @@ public struct IGPClientGetRoomList: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpPagination: IGPPagination {
     get {return _storage._igpPagination ?? IGPPagination()}
@@ -40,7 +40,7 @@ public struct IGPClientGetRoomList: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpPagination` has been explicitly set.
   public var hasIgpPagination: Bool {return _storage._igpPagination != nil}
   /// Clears the value of `igpPagination`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpPagination() {_storage._igpPagination = nil}
+  public mutating func clearIgpPagination() {_uniqueStorage()._igpPagination = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -61,7 +61,7 @@ public struct IGPClientGetRoomListResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpRooms: [IGPRoom] {
     get {return _storage._igpRooms}
@@ -130,18 +130,18 @@ extension IGPClientGetRoomList: SwiftProtobuf._MessageImplementationBase, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientGetRoomList) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientGetRoomList, rhs: IGPClientGetRoomList) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpPagination != other_storage._igpPagination {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpPagination != rhs_storage._igpPagination {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -199,18 +199,18 @@ extension IGPClientGetRoomListResponse: SwiftProtobuf._MessageImplementationBase
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientGetRoomListResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientGetRoomListResponse, rhs: IGPClientGetRoomListResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpRooms != other_storage._igpRooms {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpRooms != rhs_storage._igpRooms {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

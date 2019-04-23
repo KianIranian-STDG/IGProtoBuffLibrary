@@ -31,7 +31,7 @@ public struct IGPChatSetAction: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -67,7 +67,7 @@ public struct IGPChatSetActionResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -160,20 +160,20 @@ extension IGPChatSetAction: SwiftProtobuf._MessageImplementationBase, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChatSetAction) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChatSetAction, rhs: IGPChatSetAction) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpAction != other_storage._igpAction {return false}
-        if _storage._igpActionID != other_storage._igpActionID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpAction != rhs_storage._igpAction {return false}
+        if _storage._igpActionID != rhs_storage._igpActionID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -245,20 +245,20 @@ extension IGPChatSetActionResponse: SwiftProtobuf._MessageImplementationBase, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChatSetActionResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChatSetActionResponse, rhs: IGPChatSetActionResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpAction != other_storage._igpAction {return false}
-        if _storage._igpUserID != other_storage._igpUserID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpAction != rhs_storage._igpAction {return false}
+        if _storage._igpUserID != rhs_storage._igpUserID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

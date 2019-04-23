@@ -31,7 +31,7 @@ public struct IGPClientSearchUsername: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpQuery: String {
     get {return _storage._igpQuery}
@@ -57,7 +57,7 @@ public struct IGPClientSearchUsernameResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpResult: [IGPClientSearchUsernameResponse.IGPResult] {
     get {return _storage._igpResult}
@@ -88,7 +88,7 @@ public struct IGPClientSearchUsernameResponse: SwiftProtobuf.ResponseMessage {
     /// Returns true if `igpUser` has been explicitly set.
     public var hasIgpUser: Bool {return _storage._igpUser != nil}
     /// Clears the value of `igpUser`. Subsequent reads from it will return its default value.
-    public mutating func clearIgpUser() {_storage._igpUser = nil}
+    public mutating func clearIgpUser() {_uniqueStorage()._igpUser = nil}
 
     public var igpRoom: IGPRoom {
       get {return _storage._igpRoom ?? IGPRoom()}
@@ -97,7 +97,7 @@ public struct IGPClientSearchUsernameResponse: SwiftProtobuf.ResponseMessage {
     /// Returns true if `igpRoom` has been explicitly set.
     public var hasIgpRoom: Bool {return _storage._igpRoom != nil}
     /// Clears the value of `igpRoom`. Subsequent reads from it will return its default value.
-    public mutating func clearIgpRoom() {_storage._igpRoom = nil}
+    public mutating func clearIgpRoom() {_uniqueStorage()._igpRoom = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -194,18 +194,18 @@ extension IGPClientSearchUsername: SwiftProtobuf._MessageImplementationBase, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientSearchUsername) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientSearchUsername, rhs: IGPClientSearchUsername) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpQuery != other_storage._igpQuery {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpQuery != rhs_storage._igpQuery {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -263,18 +263,18 @@ extension IGPClientSearchUsernameResponse: SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientSearchUsernameResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientSearchUsernameResponse, rhs: IGPClientSearchUsernameResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpResult != other_storage._igpResult {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpResult != rhs_storage._igpResult {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -346,20 +346,20 @@ extension IGPClientSearchUsernameResponse.IGPResult: SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientSearchUsernameResponse.IGPResult) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientSearchUsernameResponse.IGPResult, rhs: IGPClientSearchUsernameResponse.IGPResult) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpType != other_storage._igpType {return false}
-        if _storage._igpExactMatch != other_storage._igpExactMatch {return false}
-        if _storage._igpUser != other_storage._igpUser {return false}
-        if _storage._igpRoom != other_storage._igpRoom {return false}
+        let rhs_storage = _args.1
+        if _storage._igpType != rhs_storage._igpType {return false}
+        if _storage._igpExactMatch != rhs_storage._igpExactMatch {return false}
+        if _storage._igpUser != rhs_storage._igpUser {return false}
+        if _storage._igpRoom != rhs_storage._igpRoom {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

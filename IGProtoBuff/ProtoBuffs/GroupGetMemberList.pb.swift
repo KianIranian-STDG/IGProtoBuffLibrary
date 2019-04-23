@@ -31,7 +31,7 @@ public struct IGPGroupGetMemberList: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -50,7 +50,7 @@ public struct IGPGroupGetMemberList: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpPagination` has been explicitly set.
   public var hasIgpPagination: Bool {return _storage._igpPagination != nil}
   /// Clears the value of `igpPagination`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpPagination() {_storage._igpPagination = nil}
+  public mutating func clearIgpPagination() {_uniqueStorage()._igpPagination = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -93,6 +93,20 @@ public struct IGPGroupGetMemberList: SwiftProtobuf.RequestMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+#if swift(>=4.2)
+
+extension IGPGroupGetMemberList.IGPFilterRole: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [IGPGroupGetMemberList.IGPFilterRole] = [
+    .all,
+    .member,
+    .moderator,
+    .admin,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public struct IGPGroupGetMemberListResponse: SwiftProtobuf.ResponseMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -105,7 +119,7 @@ public struct IGPGroupGetMemberListResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpMember: [IGPGroupGetMemberListResponse.IGPMember] {
     get {return _storage._igpMember}
@@ -202,20 +216,20 @@ extension IGPGroupGetMemberList: SwiftProtobuf._MessageImplementationBase, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGroupGetMemberList) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGroupGetMemberList, rhs: IGPGroupGetMemberList) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpFilterRole != other_storage._igpFilterRole {return false}
-        if _storage._igpPagination != other_storage._igpPagination {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpFilterRole != rhs_storage._igpFilterRole {return false}
+        if _storage._igpPagination != rhs_storage._igpPagination {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -282,18 +296,18 @@ extension IGPGroupGetMemberListResponse: SwiftProtobuf._MessageImplementationBas
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGroupGetMemberListResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGroupGetMemberListResponse, rhs: IGPGroupGetMemberListResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpMember != other_storage._igpMember {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpMember != rhs_storage._igpMember {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -325,10 +339,10 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGroupGetMemberListResponse.IGPMember) -> Bool {
-    if self.igpUserID != other.igpUserID {return false}
-    if self.igpRole != other.igpRole {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPGroupGetMemberListResponse.IGPMember, rhs: IGPGroupGetMemberListResponse.IGPMember) -> Bool {
+    if lhs.igpUserID != rhs.igpUserID {return false}
+    if lhs.igpRole != rhs.igpRole {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

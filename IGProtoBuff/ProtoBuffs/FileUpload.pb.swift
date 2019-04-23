@@ -31,7 +31,7 @@ public struct IGPFileUpload: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpToken: String {
     get {return _storage._igpToken}
@@ -67,7 +67,7 @@ public struct IGPFileUploadResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpProgress: Double {
     get {return _storage._igpProgress}
@@ -160,20 +160,20 @@ extension IGPFileUpload: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPFileUpload) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPFileUpload, rhs: IGPFileUpload) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpToken != other_storage._igpToken {return false}
-        if _storage._igpOffset != other_storage._igpOffset {return false}
-        if _storage._igpBytes != other_storage._igpBytes {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpToken != rhs_storage._igpToken {return false}
+        if _storage._igpOffset != rhs_storage._igpOffset {return false}
+        if _storage._igpBytes != rhs_storage._igpBytes {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -245,20 +245,20 @@ extension IGPFileUploadResponse: SwiftProtobuf._MessageImplementationBase, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPFileUploadResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPFileUploadResponse, rhs: IGPFileUploadResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpProgress != other_storage._igpProgress {return false}
-        if _storage._igpNextOffset != other_storage._igpNextOffset {return false}
-        if _storage._igpNextLimit != other_storage._igpNextLimit {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpProgress != rhs_storage._igpProgress {return false}
+        if _storage._igpNextOffset != rhs_storage._igpNextOffset {return false}
+        if _storage._igpNextLimit != rhs_storage._igpNextLimit {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

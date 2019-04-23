@@ -31,7 +31,7 @@ public struct IGPSignalingGetConfiguration: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -52,7 +52,7 @@ public struct IGPSignalingGetConfigurationResponse: SwiftProtobuf.ResponseMessag
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpIceServer: [IGPSignalingGetConfigurationResponse.IGPIceServer] {
     get {return _storage._igpIceServer}
@@ -150,17 +150,17 @@ extension IGPSignalingGetConfiguration: SwiftProtobuf._MessageImplementationBase
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingGetConfiguration) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingGetConfiguration, rhs: IGPSignalingGetConfiguration) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -246,22 +246,22 @@ extension IGPSignalingGetConfigurationResponse: SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingGetConfigurationResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingGetConfigurationResponse, rhs: IGPSignalingGetConfigurationResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpIceServer != other_storage._igpIceServer {return false}
-        if _storage._igpVoiceCalling != other_storage._igpVoiceCalling {return false}
-        if _storage._igpVideoCalling != other_storage._igpVideoCalling {return false}
-        if _storage._igpScreenSharing != other_storage._igpScreenSharing {return false}
-        if _storage._igpSecretChat != other_storage._igpSecretChat {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpIceServer != rhs_storage._igpIceServer {return false}
+        if _storage._igpVoiceCalling != rhs_storage._igpVoiceCalling {return false}
+        if _storage._igpVideoCalling != rhs_storage._igpVideoCalling {return false}
+        if _storage._igpScreenSharing != rhs_storage._igpScreenSharing {return false}
+        if _storage._igpSecretChat != rhs_storage._igpSecretChat {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -298,11 +298,11 @@ extension IGPSignalingGetConfigurationResponse.IGPIceServer: SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingGetConfigurationResponse.IGPIceServer) -> Bool {
-    if self.igpURL != other.igpURL {return false}
-    if self.igpCredential != other.igpCredential {return false}
-    if self.igpUsername != other.igpUsername {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPSignalingGetConfigurationResponse.IGPIceServer, rhs: IGPSignalingGetConfigurationResponse.IGPIceServer) -> Bool {
+    if lhs.igpURL != rhs.igpURL {return false}
+    if lhs.igpCredential != rhs.igpCredential {return false}
+    if lhs.igpUsername != rhs.igpUsername {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

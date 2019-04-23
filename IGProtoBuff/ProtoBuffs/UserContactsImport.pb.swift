@@ -31,7 +31,7 @@ public struct IGPUserContactsImport: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpContacts: [IGPUserContactsImport.IGPContact] {
     get {return _storage._igpContacts}
@@ -80,7 +80,7 @@ public struct IGPUserContactsImportResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpRegisteredContacts: [IGPUserContactsImportResponse.IGPContact] {
     get {return _storage._igpRegisteredContacts}
@@ -170,19 +170,19 @@ extension IGPUserContactsImport: SwiftProtobuf._MessageImplementationBase, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsImport) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserContactsImport, rhs: IGPUserContactsImport) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpContacts != other_storage._igpContacts {return false}
-        if _storage._igpForce != other_storage._igpForce {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpContacts != rhs_storage._igpContacts {return false}
+        if _storage._igpForce != rhs_storage._igpForce {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -224,12 +224,12 @@ extension IGPUserContactsImport.IGPContact: SwiftProtobuf._MessageImplementation
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsImport.IGPContact) -> Bool {
-    if self.igpPhone != other.igpPhone {return false}
-    if self.igpFirstName != other.igpFirstName {return false}
-    if self.igpLastName != other.igpLastName {return false}
-    if self.igpClientID != other.igpClientID {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPUserContactsImport.IGPContact, rhs: IGPUserContactsImport.IGPContact) -> Bool {
+    if lhs.igpPhone != rhs.igpPhone {return false}
+    if lhs.igpFirstName != rhs.igpFirstName {return false}
+    if lhs.igpLastName != rhs.igpLastName {return false}
+    if lhs.igpClientID != rhs.igpClientID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -287,18 +287,18 @@ extension IGPUserContactsImportResponse: SwiftProtobuf._MessageImplementationBas
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsImportResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserContactsImportResponse, rhs: IGPUserContactsImportResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpRegisteredContacts != other_storage._igpRegisteredContacts {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpRegisteredContacts != rhs_storage._igpRegisteredContacts {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -330,10 +330,10 @@ extension IGPUserContactsImportResponse.IGPContact: SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsImportResponse.IGPContact) -> Bool {
-    if self.igpClientID != other.igpClientID {return false}
-    if self.igpUserID != other.igpUserID {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPUserContactsImportResponse.IGPContact, rhs: IGPUserContactsImportResponse.IGPContact) -> Bool {
+    if lhs.igpClientID != rhs.igpClientID {return false}
+    if lhs.igpUserID != rhs.igpUserID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

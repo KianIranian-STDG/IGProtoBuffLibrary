@@ -31,7 +31,7 @@ public struct IGPChatSendMessage: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpMessageType: IGPRoomMessageType {
     get {return _storage._igpMessageType}
@@ -60,7 +60,7 @@ public struct IGPChatSendMessage: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpLocation` has been explicitly set.
   public var hasIgpLocation: Bool {return _storage._igpLocation != nil}
   /// Clears the value of `igpLocation`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpLocation() {_storage._igpLocation = nil}
+  public mutating func clearIgpLocation() {_uniqueStorage()._igpLocation = nil}
 
   public var igpContact: IGPRoomMessageContact {
     get {return _storage._igpContact ?? IGPRoomMessageContact()}
@@ -69,7 +69,7 @@ public struct IGPChatSendMessage: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpContact` has been explicitly set.
   public var hasIgpContact: Bool {return _storage._igpContact != nil}
   /// Clears the value of `igpContact`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpContact() {_storage._igpContact = nil}
+  public mutating func clearIgpContact() {_uniqueStorage()._igpContact = nil}
 
   public var igpReplyTo: Int64 {
     get {return _storage._igpReplyTo}
@@ -83,7 +83,7 @@ public struct IGPChatSendMessage: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpForwardFrom` has been explicitly set.
   public var hasIgpForwardFrom: Bool {return _storage._igpForwardFrom != nil}
   /// Clears the value of `igpForwardFrom`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpForwardFrom() {_storage._igpForwardFrom = nil}
+  public mutating func clearIgpForwardFrom() {_uniqueStorage()._igpForwardFrom = nil}
 
   public var igpRandomID: Int64 {
     get {return _storage._igpRandomID}
@@ -119,7 +119,7 @@ public struct IGPChatSendMessageResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -133,7 +133,7 @@ public struct IGPChatSendMessageResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpRoomMessage` has been explicitly set.
   public var hasIgpRoomMessage: Bool {return _storage._igpRoomMessage != nil}
   /// Clears the value of `igpRoomMessage`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRoomMessage() {_storage._igpRoomMessage = nil}
+  public mutating func clearIgpRoomMessage() {_uniqueStorage()._igpRoomMessage = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -267,28 +267,28 @@ extension IGPChatSendMessage: SwiftProtobuf._MessageImplementationBase, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChatSendMessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChatSendMessage, rhs: IGPChatSendMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpMessageType != other_storage._igpMessageType {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpMessage != other_storage._igpMessage {return false}
-        if _storage._igpAttachment != other_storage._igpAttachment {return false}
-        if _storage._igpLocation != other_storage._igpLocation {return false}
-        if _storage._igpContact != other_storage._igpContact {return false}
-        if _storage._igpReplyTo != other_storage._igpReplyTo {return false}
-        if _storage._igpForwardFrom != other_storage._igpForwardFrom {return false}
-        if _storage._igpRandomID != other_storage._igpRandomID {return false}
-        if _storage._igpAdditionalType != other_storage._igpAdditionalType {return false}
-        if _storage._igpAdditionalData != other_storage._igpAdditionalData {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpMessageType != rhs_storage._igpMessageType {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpMessage != rhs_storage._igpMessage {return false}
+        if _storage._igpAttachment != rhs_storage._igpAttachment {return false}
+        if _storage._igpLocation != rhs_storage._igpLocation {return false}
+        if _storage._igpContact != rhs_storage._igpContact {return false}
+        if _storage._igpReplyTo != rhs_storage._igpReplyTo {return false}
+        if _storage._igpForwardFrom != rhs_storage._igpForwardFrom {return false}
+        if _storage._igpRandomID != rhs_storage._igpRandomID {return false}
+        if _storage._igpAdditionalType != rhs_storage._igpAdditionalType {return false}
+        if _storage._igpAdditionalData != rhs_storage._igpAdditionalData {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -353,19 +353,19 @@ extension IGPChatSendMessageResponse: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChatSendMessageResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChatSendMessageResponse, rhs: IGPChatSendMessageResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpRoomMessage != other_storage._igpRoomMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpRoomMessage != rhs_storage._igpRoomMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

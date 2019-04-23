@@ -31,7 +31,7 @@ public struct IGPBillInquiryMci: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpMobileNumber: Int64 {
     get {return _storage._igpMobileNumber}
@@ -57,7 +57,7 @@ public struct IGPBillInquiryMciResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpStatus: Int32 {
     get {return _storage._igpStatus}
@@ -76,7 +76,7 @@ public struct IGPBillInquiryMciResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpMidTerm` has been explicitly set.
   public var hasIgpMidTerm: Bool {return _storage._igpMidTerm != nil}
   /// Clears the value of `igpMidTerm`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpMidTerm() {_storage._igpMidTerm = nil}
+  public mutating func clearIgpMidTerm() {_uniqueStorage()._igpMidTerm = nil}
 
   public var igpLastTerm: IGPBillInquiryMciResponse.IGPBillInfo {
     get {return _storage._igpLastTerm ?? IGPBillInquiryMciResponse.IGPBillInfo()}
@@ -85,7 +85,7 @@ public struct IGPBillInquiryMciResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpLastTerm` has been explicitly set.
   public var hasIgpLastTerm: Bool {return _storage._igpLastTerm != nil}
   /// Clears the value of `igpLastTerm`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpLastTerm() {_storage._igpLastTerm = nil}
+  public mutating func clearIgpLastTerm() {_uniqueStorage()._igpLastTerm = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -169,18 +169,18 @@ extension IGPBillInquiryMci: SwiftProtobuf._MessageImplementationBase, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPBillInquiryMci) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPBillInquiryMci, rhs: IGPBillInquiryMci) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpMobileNumber != other_storage._igpMobileNumber {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpMobileNumber != rhs_storage._igpMobileNumber {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -259,21 +259,21 @@ extension IGPBillInquiryMciResponse: SwiftProtobuf._MessageImplementationBase, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPBillInquiryMciResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPBillInquiryMciResponse, rhs: IGPBillInquiryMciResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpStatus != other_storage._igpStatus {return false}
-        if _storage._igpMessage != other_storage._igpMessage {return false}
-        if _storage._igpMidTerm != other_storage._igpMidTerm {return false}
-        if _storage._igpLastTerm != other_storage._igpLastTerm {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpStatus != rhs_storage._igpStatus {return false}
+        if _storage._igpMessage != rhs_storage._igpMessage {return false}
+        if _storage._igpMidTerm != rhs_storage._igpMidTerm {return false}
+        if _storage._igpLastTerm != rhs_storage._igpLastTerm {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -320,13 +320,13 @@ extension IGPBillInquiryMciResponse.IGPBillInfo: SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPBillInquiryMciResponse.IGPBillInfo) -> Bool {
-    if self.igpStatus != other.igpStatus {return false}
-    if self.igpBillID != other.igpBillID {return false}
-    if self.igpPayID != other.igpPayID {return false}
-    if self.igpAmount != other.igpAmount {return false}
-    if self.igpMessage != other.igpMessage {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPBillInquiryMciResponse.IGPBillInfo, rhs: IGPBillInquiryMciResponse.IGPBillInfo) -> Bool {
+    if lhs.igpStatus != rhs.igpStatus {return false}
+    if lhs.igpBillID != rhs.igpBillID {return false}
+    if lhs.igpPayID != rhs.igpPayID {return false}
+    if lhs.igpAmount != rhs.igpAmount {return false}
+    if lhs.igpMessage != rhs.igpMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
