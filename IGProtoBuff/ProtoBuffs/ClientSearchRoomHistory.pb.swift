@@ -31,7 +31,7 @@ public struct IGPClientSearchRoomHistory: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -104,6 +104,23 @@ public struct IGPClientSearchRoomHistory: SwiftProtobuf.RequestMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+#if swift(>=4.2)
+
+extension IGPClientSearchRoomHistory.IGPFilter: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [IGPClientSearchRoomHistory.IGPFilter] = [
+    .image,
+    .video,
+    .audio,
+    .voice,
+    .gif,
+    .file,
+    .url,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public struct IGPClientSearchRoomHistoryResponse: SwiftProtobuf.ResponseMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -116,7 +133,7 @@ public struct IGPClientSearchRoomHistoryResponse: SwiftProtobuf.ResponseMessage 
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpTotalCount: Int32 {
     get {return _storage._igpTotalCount}
@@ -216,21 +233,21 @@ extension IGPClientSearchRoomHistory: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientSearchRoomHistory) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientSearchRoomHistory, rhs: IGPClientSearchRoomHistory) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpOffset != other_storage._igpOffset {return false}
-        if _storage._igpFilter != other_storage._igpFilter {return false}
-        if _storage._igpOffsetMessageID != other_storage._igpOffsetMessageID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpOffset != rhs_storage._igpOffset {return false}
+        if _storage._igpFilter != rhs_storage._igpFilter {return false}
+        if _storage._igpOffsetMessageID != rhs_storage._igpOffsetMessageID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -314,20 +331,20 @@ extension IGPClientSearchRoomHistoryResponse: SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientSearchRoomHistoryResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientSearchRoomHistoryResponse, rhs: IGPClientSearchRoomHistoryResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpTotalCount != other_storage._igpTotalCount {return false}
-        if _storage._igpNotDeletedCount != other_storage._igpNotDeletedCount {return false}
-        if _storage._igpResult != other_storage._igpResult {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpTotalCount != rhs_storage._igpTotalCount {return false}
+        if _storage._igpNotDeletedCount != rhs_storage._igpNotDeletedCount {return false}
+        if _storage._igpResult != rhs_storage._igpResult {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

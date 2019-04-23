@@ -31,7 +31,7 @@ public struct IGPMplGetBillToken: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpBillID: Int64 {
     get {return _storage._igpBillID}
@@ -62,7 +62,7 @@ public struct IGPMplGetBillTokenResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpStatus: Int32 {
     get {return _storage._igpStatus}
@@ -153,19 +153,19 @@ extension IGPMplGetBillToken: SwiftProtobuf._MessageImplementationBase, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPMplGetBillToken) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPMplGetBillToken, rhs: IGPMplGetBillToken) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpBillID != other_storage._igpBillID {return false}
-        if _storage._igpPayID != other_storage._igpPayID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpBillID != rhs_storage._igpBillID {return false}
+        if _storage._igpPayID != rhs_storage._igpPayID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -244,21 +244,21 @@ extension IGPMplGetBillTokenResponse: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPMplGetBillTokenResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPMplGetBillTokenResponse, rhs: IGPMplGetBillTokenResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpStatus != other_storage._igpStatus {return false}
-        if _storage._igpToken != other_storage._igpToken {return false}
-        if _storage._igpExpireTime != other_storage._igpExpireTime {return false}
-        if _storage._igpMessage != other_storage._igpMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpStatus != rhs_storage._igpStatus {return false}
+        if _storage._igpToken != rhs_storage._igpToken {return false}
+        if _storage._igpExpireTime != rhs_storage._igpExpireTime {return false}
+        if _storage._igpMessage != rhs_storage._igpMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

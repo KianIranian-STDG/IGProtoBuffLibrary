@@ -31,7 +31,7 @@ public struct IGPClientCountRoomHistory: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -57,7 +57,7 @@ public struct IGPClientCountRoomHistoryResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpMedia: Int32 {
     get {return _storage._igpMedia}
@@ -161,18 +161,18 @@ extension IGPClientCountRoomHistory: SwiftProtobuf._MessageImplementationBase, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientCountRoomHistory) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientCountRoomHistory, rhs: IGPClientCountRoomHistory) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -279,25 +279,25 @@ extension IGPClientCountRoomHistoryResponse: SwiftProtobuf._MessageImplementatio
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPClientCountRoomHistoryResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPClientCountRoomHistoryResponse, rhs: IGPClientCountRoomHistoryResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpMedia != other_storage._igpMedia {return false}
-        if _storage._igpImage != other_storage._igpImage {return false}
-        if _storage._igpVideo != other_storage._igpVideo {return false}
-        if _storage._igpAudio != other_storage._igpAudio {return false}
-        if _storage._igpVoice != other_storage._igpVoice {return false}
-        if _storage._igpGif != other_storage._igpGif {return false}
-        if _storage._igpFile != other_storage._igpFile {return false}
-        if _storage._igpURL != other_storage._igpURL {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpMedia != rhs_storage._igpMedia {return false}
+        if _storage._igpImage != rhs_storage._igpImage {return false}
+        if _storage._igpVideo != rhs_storage._igpVideo {return false}
+        if _storage._igpAudio != rhs_storage._igpAudio {return false}
+        if _storage._igpVoice != rhs_storage._igpVoice {return false}
+        if _storage._igpGif != rhs_storage._igpGif {return false}
+        if _storage._igpFile != rhs_storage._igpFile {return false}
+        if _storage._igpURL != rhs_storage._igpURL {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

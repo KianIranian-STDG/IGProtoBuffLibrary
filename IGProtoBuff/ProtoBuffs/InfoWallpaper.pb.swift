@@ -31,7 +31,7 @@ public struct IGPInfoWallpaper: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpFit: IGPInfoWallpaper.IGPFit {
     get {return _storage._igpFit}
@@ -76,6 +76,19 @@ public struct IGPInfoWallpaper: SwiftProtobuf.RequestMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+#if swift(>=4.2)
+
+extension IGPInfoWallpaper.IGPFit: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [IGPInfoWallpaper.IGPFit] = [
+    .phone,
+    .tablet,
+    .desktop,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 public struct IGPInfoWallpaperResponse: SwiftProtobuf.ResponseMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -88,7 +101,7 @@ public struct IGPInfoWallpaperResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpWallpaper: [IGPWallpaper] {
     get {return _storage._igpWallpaper}
@@ -157,18 +170,18 @@ extension IGPInfoWallpaper: SwiftProtobuf._MessageImplementationBase, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPInfoWallpaper) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPInfoWallpaper, rhs: IGPInfoWallpaper) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpFit != other_storage._igpFit {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpFit != rhs_storage._igpFit {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -234,18 +247,18 @@ extension IGPInfoWallpaperResponse: SwiftProtobuf._MessageImplementationBase, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPInfoWallpaperResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPInfoWallpaperResponse, rhs: IGPInfoWallpaperResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpWallpaper != other_storage._igpWallpaper {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpWallpaper != rhs_storage._igpWallpaper {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

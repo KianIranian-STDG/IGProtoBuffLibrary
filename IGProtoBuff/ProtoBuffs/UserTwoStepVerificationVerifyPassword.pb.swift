@@ -31,7 +31,7 @@ public struct IGPUserTwoStepVerificationVerifyPassword: SwiftProtobuf.RequestMes
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpPassword: String {
     get {return _storage._igpPassword}
@@ -57,7 +57,7 @@ public struct IGPUserTwoStepVerificationVerifyPasswordResponse: SwiftProtobuf.Re
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpToken: String {
     get {return _storage._igpToken}
@@ -126,18 +126,18 @@ extension IGPUserTwoStepVerificationVerifyPassword: SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserTwoStepVerificationVerifyPassword) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserTwoStepVerificationVerifyPassword, rhs: IGPUserTwoStepVerificationVerifyPassword) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpPassword != other_storage._igpPassword {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpPassword != rhs_storage._igpPassword {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -195,18 +195,18 @@ extension IGPUserTwoStepVerificationVerifyPasswordResponse: SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserTwoStepVerificationVerifyPasswordResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserTwoStepVerificationVerifyPasswordResponse, rhs: IGPUserTwoStepVerificationVerifyPasswordResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpToken != other_storage._igpToken {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpToken != rhs_storage._igpToken {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

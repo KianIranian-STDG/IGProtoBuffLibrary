@@ -31,7 +31,7 @@ public struct IGPUserTwoStepVerificationGetPasswordDetail: SwiftProtobuf.Request
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -52,7 +52,7 @@ public struct IGPUserTwoStepVerificationGetPasswordDetailResponse: SwiftProtobuf
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpQuestionOne: String {
     get {return _storage._igpQuestionOne}
@@ -134,17 +134,17 @@ extension IGPUserTwoStepVerificationGetPasswordDetail: SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserTwoStepVerificationGetPasswordDetail) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserTwoStepVerificationGetPasswordDetail, rhs: IGPUserTwoStepVerificationGetPasswordDetail) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -230,22 +230,22 @@ extension IGPUserTwoStepVerificationGetPasswordDetailResponse: SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserTwoStepVerificationGetPasswordDetailResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserTwoStepVerificationGetPasswordDetailResponse, rhs: IGPUserTwoStepVerificationGetPasswordDetailResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpQuestionOne != other_storage._igpQuestionOne {return false}
-        if _storage._igpQuestionTwo != other_storage._igpQuestionTwo {return false}
-        if _storage._igpHint != other_storage._igpHint {return false}
-        if _storage._igpHasConfirmedRecoveryEmail != other_storage._igpHasConfirmedRecoveryEmail {return false}
-        if _storage._igpUnconfirmedEmailPattern != other_storage._igpUnconfirmedEmailPattern {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpQuestionOne != rhs_storage._igpQuestionOne {return false}
+        if _storage._igpQuestionTwo != rhs_storage._igpQuestionTwo {return false}
+        if _storage._igpHint != rhs_storage._igpHint {return false}
+        if _storage._igpHasConfirmedRecoveryEmail != rhs_storage._igpHasConfirmedRecoveryEmail {return false}
+        if _storage._igpUnconfirmedEmailPattern != rhs_storage._igpUnconfirmedEmailPattern {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

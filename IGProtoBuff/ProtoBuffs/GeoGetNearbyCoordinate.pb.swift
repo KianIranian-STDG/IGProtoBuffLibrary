@@ -31,7 +31,7 @@ public struct IGPGeoGetNearbyCoordinate: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpLat: Double {
     get {return _storage._igpLat}
@@ -62,7 +62,7 @@ public struct IGPGeoGetNearbyCoordinateResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpResult: [IGPGeoGetNearbyCoordinateResponse.IGPResult] {
     get {return _storage._igpResult}
@@ -156,19 +156,19 @@ extension IGPGeoGetNearbyCoordinate: SwiftProtobuf._MessageImplementationBase, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGeoGetNearbyCoordinate) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGeoGetNearbyCoordinate, rhs: IGPGeoGetNearbyCoordinate) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpLat != other_storage._igpLat {return false}
-        if _storage._igpLon != other_storage._igpLon {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpLat != rhs_storage._igpLat {return false}
+        if _storage._igpLon != rhs_storage._igpLon {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -226,18 +226,18 @@ extension IGPGeoGetNearbyCoordinateResponse: SwiftProtobuf._MessageImplementatio
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGeoGetNearbyCoordinateResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGeoGetNearbyCoordinateResponse, rhs: IGPGeoGetNearbyCoordinateResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpResult != other_storage._igpResult {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpResult != rhs_storage._igpResult {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -279,12 +279,12 @@ extension IGPGeoGetNearbyCoordinateResponse.IGPResult: SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGeoGetNearbyCoordinateResponse.IGPResult) -> Bool {
-    if self.igpUserID != other.igpUserID {return false}
-    if self.igpHasComment != other.igpHasComment {return false}
-    if self.igpLat != other.igpLat {return false}
-    if self.igpLon != other.igpLon {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPGeoGetNearbyCoordinateResponse.IGPResult, rhs: IGPGeoGetNearbyCoordinateResponse.IGPResult) -> Bool {
+    if lhs.igpUserID != rhs.igpUserID {return false}
+    if lhs.igpHasComment != rhs.igpHasComment {return false}
+    if lhs.igpLat != rhs.igpLat {return false}
+    if lhs.igpLon != rhs.igpLon {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

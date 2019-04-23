@@ -31,7 +31,7 @@ public struct IGPGroupPinMessage: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -62,7 +62,7 @@ public struct IGPGroupPinMessageResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpRoomID: Int64 {
     get {return _storage._igpRoomID}
@@ -76,7 +76,7 @@ public struct IGPGroupPinMessageResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpPinnedMessage` has been explicitly set.
   public var hasIgpPinnedMessage: Bool {return _storage._igpPinnedMessage != nil}
   /// Clears the value of `igpPinnedMessage`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpPinnedMessage() {_storage._igpPinnedMessage = nil}
+  public mutating func clearIgpPinnedMessage() {_uniqueStorage()._igpPinnedMessage = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -147,19 +147,19 @@ extension IGPGroupPinMessage: SwiftProtobuf._MessageImplementationBase, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGroupPinMessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGroupPinMessage, rhs: IGPGroupPinMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpMessageID != other_storage._igpMessageID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpMessageID != rhs_storage._igpMessageID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -224,19 +224,19 @@ extension IGPGroupPinMessageResponse: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPGroupPinMessageResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPGroupPinMessageResponse, rhs: IGPGroupPinMessageResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
-        if _storage._igpPinnedMessage != other_storage._igpPinnedMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
+        if _storage._igpPinnedMessage != rhs_storage._igpPinnedMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

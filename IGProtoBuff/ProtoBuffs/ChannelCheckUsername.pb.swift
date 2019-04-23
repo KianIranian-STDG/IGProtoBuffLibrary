@@ -31,7 +31,7 @@ public struct IGPChannelCheckUsername: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpUsername: String {
     get {return _storage._igpUsername}
@@ -62,7 +62,7 @@ public struct IGPChannelCheckUsernameResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpStatus: IGPChannelCheckUsernameResponse.IGPStatus {
     get {return _storage._igpStatus}
@@ -109,6 +109,20 @@ public struct IGPChannelCheckUsernameResponse: SwiftProtobuf.ResponseMessage {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
+#if swift(>=4.2)
+
+extension IGPChannelCheckUsernameResponse.IGPStatus: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [IGPChannelCheckUsernameResponse.IGPStatus] = [
+    .invalid,
+    .taken,
+    .available,
+    .occupyingLimitExceeded,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -172,19 +186,19 @@ extension IGPChannelCheckUsername: SwiftProtobuf._MessageImplementationBase, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChannelCheckUsername) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChannelCheckUsername, rhs: IGPChannelCheckUsername) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpUsername != other_storage._igpUsername {return false}
-        if _storage._igpRoomID != other_storage._igpRoomID {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpUsername != rhs_storage._igpUsername {return false}
+        if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -242,18 +256,18 @@ extension IGPChannelCheckUsernameResponse: SwiftProtobuf._MessageImplementationB
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPChannelCheckUsernameResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPChannelCheckUsernameResponse, rhs: IGPChannelCheckUsernameResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpStatus != other_storage._igpStatus {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpStatus != rhs_storage._igpStatus {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

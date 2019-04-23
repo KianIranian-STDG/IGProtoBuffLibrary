@@ -31,7 +31,7 @@ public struct IGPUserTwoStepVerificationChangeRecoveryQuestion: SwiftProtobuf.Re
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpPassword: String {
     get {return _storage._igpPassword}
@@ -77,7 +77,7 @@ public struct IGPUserTwoStepVerificationChangeRecoveryQuestionResponse: SwiftPro
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -169,22 +169,22 @@ extension IGPUserTwoStepVerificationChangeRecoveryQuestion: SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserTwoStepVerificationChangeRecoveryQuestion) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserTwoStepVerificationChangeRecoveryQuestion, rhs: IGPUserTwoStepVerificationChangeRecoveryQuestion) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpPassword != other_storage._igpPassword {return false}
-        if _storage._igpQuestionOne != other_storage._igpQuestionOne {return false}
-        if _storage._igpAnswerOne != other_storage._igpAnswerOne {return false}
-        if _storage._igpQuestionTwo != other_storage._igpQuestionTwo {return false}
-        if _storage._igpAnswerTwo != other_storage._igpAnswerTwo {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpPassword != rhs_storage._igpPassword {return false}
+        if _storage._igpQuestionOne != rhs_storage._igpQuestionOne {return false}
+        if _storage._igpAnswerOne != rhs_storage._igpAnswerOne {return false}
+        if _storage._igpQuestionTwo != rhs_storage._igpQuestionTwo {return false}
+        if _storage._igpAnswerTwo != rhs_storage._igpAnswerTwo {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -235,17 +235,17 @@ extension IGPUserTwoStepVerificationChangeRecoveryQuestionResponse: SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserTwoStepVerificationChangeRecoveryQuestionResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserTwoStepVerificationChangeRecoveryQuestionResponse, rhs: IGPUserTwoStepVerificationChangeRecoveryQuestionResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

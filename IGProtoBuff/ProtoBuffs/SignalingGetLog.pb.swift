@@ -31,7 +31,7 @@ public struct IGPSignalingGetLog: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpPagination: IGPPagination {
     get {return _storage._igpPagination ?? IGPPagination()}
@@ -40,7 +40,7 @@ public struct IGPSignalingGetLog: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpPagination` has been explicitly set.
   public var hasIgpPagination: Bool {return _storage._igpPagination != nil}
   /// Clears the value of `igpPagination`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpPagination() {_storage._igpPagination = nil}
+  public mutating func clearIgpPagination() {_uniqueStorage()._igpPagination = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -61,7 +61,7 @@ public struct IGPSignalingGetLogResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpSignalingLog: [IGPSignalingGetLogResponse.IGPSignalingLog] {
     get {return _storage._igpSignalingLog}
@@ -97,7 +97,7 @@ public struct IGPSignalingGetLogResponse: SwiftProtobuf.ResponseMessage {
     /// Returns true if `igpPeer` has been explicitly set.
     public var hasIgpPeer: Bool {return _storage._igpPeer != nil}
     /// Clears the value of `igpPeer`. Subsequent reads from it will return its default value.
-    public mutating func clearIgpPeer() {_storage._igpPeer = nil}
+    public mutating func clearIgpPeer() {_uniqueStorage()._igpPeer = nil}
 
     public var igpOfferTime: Int32 {
       get {return _storage._igpOfferTime}
@@ -210,18 +210,18 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingGetLog) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingGetLog, rhs: IGPSignalingGetLog) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpPagination != other_storage._igpPagination {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpPagination != rhs_storage._igpPagination {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -279,18 +279,18 @@ extension IGPSignalingGetLogResponse: SwiftProtobuf._MessageImplementationBase, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingGetLogResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingGetLogResponse, rhs: IGPSignalingGetLogResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpSignalingLog != other_storage._igpSignalingLog {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpSignalingLog != rhs_storage._igpSignalingLog {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -376,22 +376,22 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingGetLogResponse.IGPSignalingLog) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingGetLogResponse.IGPSignalingLog, rhs: IGPSignalingGetLogResponse.IGPSignalingLog) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpID != other_storage._igpID {return false}
-        if _storage._igpType != other_storage._igpType {return false}
-        if _storage._igpStatus != other_storage._igpStatus {return false}
-        if _storage._igpPeer != other_storage._igpPeer {return false}
-        if _storage._igpOfferTime != other_storage._igpOfferTime {return false}
-        if _storage._igpDuration != other_storage._igpDuration {return false}
+        let rhs_storage = _args.1
+        if _storage._igpID != rhs_storage._igpID {return false}
+        if _storage._igpType != rhs_storage._igpType {return false}
+        if _storage._igpStatus != rhs_storage._igpStatus {return false}
+        if _storage._igpPeer != rhs_storage._igpPeer {return false}
+        if _storage._igpOfferTime != rhs_storage._igpOfferTime {return false}
+        if _storage._igpDuration != rhs_storage._igpDuration {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

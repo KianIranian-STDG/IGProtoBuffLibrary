@@ -31,7 +31,7 @@ public struct IGPFileInfo: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpToken: String {
     get {return _storage._igpToken}
@@ -57,7 +57,7 @@ public struct IGPFileInfoResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpFile: IGPFile {
     get {return _storage._igpFile ?? IGPFile()}
@@ -66,7 +66,7 @@ public struct IGPFileInfoResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpFile` has been explicitly set.
   public var hasIgpFile: Bool {return _storage._igpFile != nil}
   /// Clears the value of `igpFile`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpFile() {_storage._igpFile = nil}
+  public mutating func clearIgpFile() {_uniqueStorage()._igpFile = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -130,18 +130,18 @@ extension IGPFileInfo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPFileInfo) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPFileInfo, rhs: IGPFileInfo) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpToken != other_storage._igpToken {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpToken != rhs_storage._igpToken {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -199,18 +199,18 @@ extension IGPFileInfoResponse: SwiftProtobuf._MessageImplementationBase, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPFileInfoResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPFileInfoResponse, rhs: IGPFileInfoResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpFile != other_storage._igpFile {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpFile != rhs_storage._igpFile {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

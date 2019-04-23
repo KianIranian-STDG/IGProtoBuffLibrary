@@ -31,7 +31,7 @@ public struct IGPUserContactsGetBlockedList: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -52,7 +52,7 @@ public struct IGPUserContactsGetBlockedListResponse: SwiftProtobuf.ResponseMessa
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpUser: [IGPUserContactsGetBlockedListResponse.IGPUser] {
     get {return _storage._igpUser}
@@ -128,17 +128,17 @@ extension IGPUserContactsGetBlockedList: SwiftProtobuf._MessageImplementationBas
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsGetBlockedList) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserContactsGetBlockedList, rhs: IGPUserContactsGetBlockedList) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -196,18 +196,18 @@ extension IGPUserContactsGetBlockedListResponse: SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsGetBlockedListResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserContactsGetBlockedListResponse, rhs: IGPUserContactsGetBlockedListResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpUser != other_storage._igpUser {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpUser != rhs_storage._igpUser {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -239,10 +239,10 @@ extension IGPUserContactsGetBlockedListResponse.IGPUser: SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserContactsGetBlockedListResponse.IGPUser) -> Bool {
-    if self.igpUserID != other.igpUserID {return false}
-    if self.igpCacheID != other.igpCacheID {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPUserContactsGetBlockedListResponse.IGPUser, rhs: IGPUserContactsGetBlockedListResponse.IGPUser) -> Bool {
+    if lhs.igpUserID != rhs.igpUserID {return false}
+    if lhs.igpCacheID != rhs.igpCacheID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

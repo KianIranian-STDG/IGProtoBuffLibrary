@@ -31,7 +31,7 @@ public struct IGPUserSessionGetActiveList: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -52,7 +52,7 @@ public struct IGPUserSessionGetActiveListResponse: SwiftProtobuf.ResponseMessage
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpSession: [IGPUserSessionGetActiveListResponse.IGPSession] {
     get {return _storage._igpSession}
@@ -154,17 +154,17 @@ extension IGPUserSessionGetActiveList: SwiftProtobuf._MessageImplementationBase,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserSessionGetActiveList) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserSessionGetActiveList, rhs: IGPUserSessionGetActiveList) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -222,18 +222,18 @@ extension IGPUserSessionGetActiveListResponse: SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserSessionGetActiveListResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPUserSessionGetActiveListResponse, rhs: IGPUserSessionGetActiveListResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpSession != other_storage._igpSession {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpSession != rhs_storage._igpSession {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -330,23 +330,23 @@ extension IGPUserSessionGetActiveListResponse.IGPSession: SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPUserSessionGetActiveListResponse.IGPSession) -> Bool {
-    if self.igpSessionID != other.igpSessionID {return false}
-    if self.igpAppName != other.igpAppName {return false}
-    if self.igpAppID != other.igpAppID {return false}
-    if self.igpAppBuildVersion != other.igpAppBuildVersion {return false}
-    if self.igpAppVersion != other.igpAppVersion {return false}
-    if self.igpPlatform != other.igpPlatform {return false}
-    if self.igpPlatformVersion != other.igpPlatformVersion {return false}
-    if self.igpDevice != other.igpDevice {return false}
-    if self.igpDeviceName != other.igpDeviceName {return false}
-    if self.igpLanguage != other.igpLanguage {return false}
-    if self.igpCountry != other.igpCountry {return false}
-    if self.igpCurrent != other.igpCurrent {return false}
-    if self.igpCreateTime != other.igpCreateTime {return false}
-    if self.igpActiveTime != other.igpActiveTime {return false}
-    if self.igpIp != other.igpIp {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: IGPUserSessionGetActiveListResponse.IGPSession, rhs: IGPUserSessionGetActiveListResponse.IGPSession) -> Bool {
+    if lhs.igpSessionID != rhs.igpSessionID {return false}
+    if lhs.igpAppName != rhs.igpAppName {return false}
+    if lhs.igpAppID != rhs.igpAppID {return false}
+    if lhs.igpAppBuildVersion != rhs.igpAppBuildVersion {return false}
+    if lhs.igpAppVersion != rhs.igpAppVersion {return false}
+    if lhs.igpPlatform != rhs.igpPlatform {return false}
+    if lhs.igpPlatformVersion != rhs.igpPlatformVersion {return false}
+    if lhs.igpDevice != rhs.igpDevice {return false}
+    if lhs.igpDeviceName != rhs.igpDeviceName {return false}
+    if lhs.igpLanguage != rhs.igpLanguage {return false}
+    if lhs.igpCountry != rhs.igpCountry {return false}
+    if lhs.igpCurrent != rhs.igpCurrent {return false}
+    if lhs.igpCreateTime != rhs.igpCreateTime {return false}
+    if lhs.igpActiveTime != rhs.igpActiveTime {return false}
+    if lhs.igpIp != rhs.igpIp {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

@@ -31,7 +31,7 @@ public struct IGPSignalingCandidate: SwiftProtobuf.RequestMessage {
   /// Returns true if `igpRequest` has been explicitly set.
   public var hasIgpRequest: Bool {return _storage._igpRequest != nil}
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpRequest() {_storage._igpRequest = nil}
+  public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
   public var igpCandidate: String {
     get {return _storage._igpCandidate}
@@ -67,7 +67,7 @@ public struct IGPSignalingCandidateResponse: SwiftProtobuf.ResponseMessage {
   /// Returns true if `igpResponse` has been explicitly set.
   public var hasIgpResponse: Bool {return _storage._igpResponse != nil}
   /// Clears the value of `igpResponse`. Subsequent reads from it will return its default value.
-  public mutating func clearIgpResponse() {_storage._igpResponse = nil}
+  public mutating func clearIgpResponse() {_uniqueStorage()._igpResponse = nil}
 
   public var igpPeerCandidate: String {
     get {return _storage._igpPeerCandidate}
@@ -160,20 +160,20 @@ extension IGPSignalingCandidate: SwiftProtobuf._MessageImplementationBase, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingCandidate) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingCandidate, rhs: IGPSignalingCandidate) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpRequest != other_storage._igpRequest {return false}
-        if _storage._igpCandidate != other_storage._igpCandidate {return false}
-        if _storage._igpSdpMID != other_storage._igpSdpMID {return false}
-        if _storage._igpSdpMLineIndex != other_storage._igpSdpMLineIndex {return false}
+        let rhs_storage = _args.1
+        if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpCandidate != rhs_storage._igpCandidate {return false}
+        if _storage._igpSdpMID != rhs_storage._igpSdpMID {return false}
+        if _storage._igpSdpMLineIndex != rhs_storage._igpSdpMLineIndex {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -245,20 +245,20 @@ extension IGPSignalingCandidateResponse: SwiftProtobuf._MessageImplementationBas
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: IGPSignalingCandidateResponse) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: IGPSignalingCandidateResponse, rhs: IGPSignalingCandidateResponse) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._igpResponse != other_storage._igpResponse {return false}
-        if _storage._igpPeerCandidate != other_storage._igpPeerCandidate {return false}
-        if _storage._igpPeerSdpMID != other_storage._igpPeerSdpMID {return false}
-        if _storage._igpPeerSdpMLineIndex != other_storage._igpPeerSdpMLineIndex {return false}
+        let rhs_storage = _args.1
+        if _storage._igpResponse != rhs_storage._igpResponse {return false}
+        if _storage._igpPeerCandidate != rhs_storage._igpPeerCandidate {return false}
+        if _storage._igpPeerSdpMID != rhs_storage._igpPeerSdpMID {return false}
+        if _storage._igpPeerSdpMLineIndex != rhs_storage._igpPeerSdpMLineIndex {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
