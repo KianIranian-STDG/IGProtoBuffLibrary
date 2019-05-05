@@ -34,6 +34,7 @@
 		FAA1BDBA1F98EE230010FE8A /* ClientRoomReport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB51F98EE220010FE8A /* ClientRoomReport.pb.swift */; };
 		FAA1BDBB1F98EE230010FE8A /* UserProfileGetBio.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB61F98EE230010FE8A /* UserProfileGetBio.pb.swift */; };
 		FAA1BDBC1F98EE230010FE8A /* UserReport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB71F98EE230010FE8A /* UserReport.pb.swift */; };
+		FAB50BDD227EFAA400BE2D6A /* MplGetCardToCardToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */; };
 		FAB87B3A21C62B6B0056D403 /* ClientGetPromote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */; };
 		FAF5D23D1F8D66DB00A26EE1 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF5D23C1F8D66CE00A26EE1 /* SwiftProtobuf.framework */; };
 		FAF5D23F1F8D6AF100A26EE1 /* ChannelAddAdmin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D1FE1F8D665300A26EE1 /* ChannelAddAdmin.pb.swift */; };
@@ -235,6 +236,7 @@
 		FAA1BDB51F98EE220010FE8A /* ClientRoomReport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRoomReport.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB61F98EE230010FE8A /* UserProfileGetBio.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGetBio.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB71F98EE230010FE8A /* UserReport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReport.pb.swift; sourceTree = "<group>"; };
+		FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplGetCardToCardToken.pb.swift; sourceTree = "<group>"; };
 		FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetPromote.pb.swift; sourceTree = "<group>"; };
 		FAF5D1951F8D663800A26EE1 /* QrCodeAddContact.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeAddContact.pb.swift; sourceTree = "<group>"; };
 		FAF5D1961F8D663800A26EE1 /* GroupAddAdmin.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAddAdmin.pb.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */,
 				FA8A7B36226889C0008CEC11 /* UserIVandGetActivities.pb.swift */,
 				FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */,
 				FA8A7B33226885F6008CEC11 /* UserIVandSetActivity.pb.swift */,
@@ -735,6 +738,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB50BDD227EFAA400BE2D6A /* MplGetCardToCardToken.pb.swift in Sources */,
 				FA8A7B37226889C0008CEC11 /* UserIVandGetActivities.pb.swift in Sources */,
 				FA8A7B34226885F6008CEC11 /* UserIVandGetScore.pb.swift in Sources */,
 				FA8A7B35226885F6008CEC11 /* UserIVandSetActivity.pb.swift in Sources */,
