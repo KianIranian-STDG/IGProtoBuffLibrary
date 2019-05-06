@@ -2245,6 +2245,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case ivand // = 23
     case ivandqr // = 24
     case ivandlist // = 25
+    case ivandscore // = 26
+    case cardToCard // = 27
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2279,6 +2281,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 23: self = .ivand
       case 24: self = .ivandqr
       case 25: self = .ivandlist
+      case 26: self = .ivandscore
+      case 27: self = .cardToCard
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2311,6 +2315,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .ivand: return 23
       case .ivandqr: return 24
       case .ivandlist: return 25
+      case .ivandscore: return 26
+      case .cardToCard: return 27
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2351,6 +2357,8 @@ extension IGPDiscoveryField.IGPButtonActionType: CaseIterable {
     .ivand,
     .ivandqr,
     .ivandlist,
+    .ivandscore,
+    .cardToCard,
   ]
 }
 
@@ -4900,6 +4908,8 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     23: .same(proto: "IVAND"),
     24: .same(proto: "IVANDQR"),
     25: .same(proto: "IVANDLIST"),
+    26: .same(proto: "IVANDSCORE"),
+    27: .same(proto: "CARD_TO_CARD"),
   ]
 }
 
