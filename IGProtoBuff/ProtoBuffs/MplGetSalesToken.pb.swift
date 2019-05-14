@@ -43,6 +43,11 @@ public struct IGPMplGetSalesToken: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpToUserID = newValue}
   }
 
+  public var igpInvoiceNumber: Int64 {
+    get {return _storage._igpInvoiceNumber}
+    set {_uniqueStorage()._igpInvoiceNumber = newValue}
+  }
+
   public var igpInquiry: Bool {
     get {return _storage._igpInquiry}
     set {_uniqueStorage()._igpInquiry = newValue}
@@ -109,14 +114,16 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
     1: .standard(proto: "IGP_request"),
     2: .standard(proto: "IGP_amount"),
     3: .standard(proto: "IGP_to_user_id"),
-    4: .standard(proto: "IGP_inquiry"),
-    5: .standard(proto: "IGP_description"),
+    4: .standard(proto: "IGP_invoice_number"),
+    5: .standard(proto: "IGP_inquiry"),
+    6: .standard(proto: "IGP_description"),
   ]
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
     var _igpAmount: Int64 = 0
     var _igpToUserID: Int64 = 0
+    var _igpInvoiceNumber: Int64 = 0
     var _igpInquiry: Bool = false
     var _igpDescription: String = String()
 
@@ -128,6 +135,7 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
       _igpRequest = source._igpRequest
       _igpAmount = source._igpAmount
       _igpToUserID = source._igpToUserID
+      _igpInvoiceNumber = source._igpInvoiceNumber
       _igpInquiry = source._igpInquiry
       _igpDescription = source._igpDescription
     }
@@ -148,8 +156,9 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
         case 2: try decoder.decodeSingularInt64Field(value: &_storage._igpAmount)
         case 3: try decoder.decodeSingularInt64Field(value: &_storage._igpToUserID)
-        case 4: try decoder.decodeSingularBoolField(value: &_storage._igpInquiry)
-        case 5: try decoder.decodeSingularStringField(value: &_storage._igpDescription)
+        case 4: try decoder.decodeSingularInt64Field(value: &_storage._igpInvoiceNumber)
+        case 5: try decoder.decodeSingularBoolField(value: &_storage._igpInquiry)
+        case 6: try decoder.decodeSingularStringField(value: &_storage._igpDescription)
         default: break
         }
       }
@@ -167,11 +176,14 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
       if _storage._igpToUserID != 0 {
         try visitor.visitSingularInt64Field(value: _storage._igpToUserID, fieldNumber: 3)
       }
+      if _storage._igpInvoiceNumber != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._igpInvoiceNumber, fieldNumber: 4)
+      }
       if _storage._igpInquiry != false {
-        try visitor.visitSingularBoolField(value: _storage._igpInquiry, fieldNumber: 4)
+        try visitor.visitSingularBoolField(value: _storage._igpInquiry, fieldNumber: 5)
       }
       if !_storage._igpDescription.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._igpDescription, fieldNumber: 5)
+        try visitor.visitSingularStringField(value: _storage._igpDescription, fieldNumber: 6)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -185,6 +197,7 @@ extension IGPMplGetSalesToken: SwiftProtobuf._MessageImplementationBase, SwiftPr
         if _storage._igpRequest != rhs_storage._igpRequest {return false}
         if _storage._igpAmount != rhs_storage._igpAmount {return false}
         if _storage._igpToUserID != rhs_storage._igpToUserID {return false}
+        if _storage._igpInvoiceNumber != rhs_storage._igpInvoiceNumber {return false}
         if _storage._igpInquiry != rhs_storage._igpInquiry {return false}
         if _storage._igpDescription != rhs_storage._igpDescription {return false}
         return true
