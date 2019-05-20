@@ -20,6 +20,10 @@
 		FA7C3CE6225C8DC300DDEE95 /* ClientGetDiscovery.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C3CE5225C8DC300DDEE95 /* ClientGetDiscovery.pb.swift */; };
 		FA7E9BCF2262F9F100FB861D /* UserProfileSetRepresentative.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */; };
 		FA7E9BD02262F9F100FB861D /* UserProfileGetRepresentative.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E9BCE2262F9F100FB861D /* UserProfileGetRepresentative.pb.swift */; };
+		FA80B74322928576003DCF52 /* MplSalesList.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80B73F22928575003DCF52 /* MplSalesList.pb.swift */; };
+		FA80B74422928576003DCF52 /* MplSalesConfirm.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80B74022928575003DCF52 /* MplSalesConfirm.pb.swift */; };
+		FA80B74522928576003DCF52 /* MplSetSalesResult.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80B74222928575003DCF52 /* MplSetSalesResult.pb.swift */; };
+		FA80B7462292857E003DCF52 /* MplGetBillToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80B74122928575003DCF52 /* MplGetBillToken.pb.swift */; };
 		FA88817D222BDED6004F7194 /* ClientGetFavoriteMenu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88817C222BDED5004F7194 /* ClientGetFavoriteMenu.pb.swift */; };
 		FA8A7B34226885F6008CEC11 /* UserIVandGetScore.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */; };
 		FA8A7B35226885F6008CEC11 /* UserIVandSetActivity.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A7B33226885F6008CEC11 /* UserIVandSetActivity.pb.swift */; };
@@ -222,6 +226,10 @@
 		FA7C3CE5225C8DC300DDEE95 /* ClientGetDiscovery.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetDiscovery.pb.swift; sourceTree = "<group>"; };
 		FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetRepresentative.pb.swift; sourceTree = "<group>"; };
 		FA7E9BCE2262F9F100FB861D /* UserProfileGetRepresentative.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGetRepresentative.pb.swift; sourceTree = "<group>"; };
+		FA80B73F22928575003DCF52 /* MplSalesList.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplSalesList.pb.swift; sourceTree = "<group>"; };
+		FA80B74022928575003DCF52 /* MplSalesConfirm.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplSalesConfirm.pb.swift; sourceTree = "<group>"; };
+		FA80B74122928575003DCF52 /* MplGetBillToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplGetBillToken.pb.swift; sourceTree = "<group>"; };
+		FA80B74222928575003DCF52 /* MplSetSalesResult.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplSetSalesResult.pb.swift; sourceTree = "<group>"; };
 		FA88817C222BDED5004F7194 /* ClientGetFavoriteMenu.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetFavoriteMenu.pb.swift; sourceTree = "<group>"; };
 		FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIVandGetScore.pb.swift; sourceTree = "<group>"; };
 		FA8A7B33226885F6008CEC11 /* UserIVandSetActivity.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIVandSetActivity.pb.swift; sourceTree = "<group>"; };
@@ -423,6 +431,10 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				FA80B74122928575003DCF52 /* MplGetBillToken.pb.swift */,
+				FA80B74022928575003DCF52 /* MplSalesConfirm.pb.swift */,
+				FA80B73F22928575003DCF52 /* MplSalesList.pb.swift */,
+				FA80B74222928575003DCF52 /* MplSetSalesResult.pb.swift */,
 				FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */,
 				FA8A7B36226889C0008CEC11 /* UserIVandGetActivities.pb.swift */,
 				FA8A7B32226885F5008CEC11 /* UserIVandGetScore.pb.swift */,
@@ -738,6 +750,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA80B74322928576003DCF52 /* MplSalesList.pb.swift in Sources */,
+				FA80B74422928576003DCF52 /* MplSalesConfirm.pb.swift in Sources */,
+				FA416B9220D8DEB50013DB17 /* MplGetBillToken.pb.swift in Sources */,
+				FA80B74522928576003DCF52 /* MplSetSalesResult.pb.swift in Sources */,
 				FAB50BDD227EFAA400BE2D6A /* MplGetCardToCardToken.pb.swift in Sources */,
 				FA8A7B37226889C0008CEC11 /* UserIVandGetActivities.pb.swift in Sources */,
 				FA8A7B34226885F6008CEC11 /* UserIVandGetScore.pb.swift in Sources */,
@@ -851,6 +867,7 @@
 				FAF5D28C1F8D6C2000A26EE1 /* GroupCreate.pb.swift in Sources */,
 				FAF5D2CC1F8D6C2000A26EE1 /* UserProfileSetEmail.pb.swift in Sources */,
 				FAF5D2C11F8D6C2000A26EE1 /* UserDelete.pb.swift in Sources */,
+				FA80B7462292857E003DCF52 /* MplGetBillToken.pb.swift in Sources */,
 				FAF5D26F1F8D6C2000A26EE1 /* ClientSearchRoomHistory.pb.swift in Sources */,
 				FAF5D2B91F8D6C2000A26EE1 /* UserAvatarGetList.pb.swift in Sources */,
 				FAF5D25C1F8D6C2000A26EE1 /* ChatDelete.pb.swift in Sources */,
@@ -931,7 +948,6 @@
 				FAF5D29F1F8D6C2000A26EE1 /* InfoCountry.pb.swift in Sources */,
 				FA416B8E20D8DE890013DB17 /* ClientRegisterDevice.pb.swift in Sources */,
 				FA416B9120D8DEB50013DB17 /* MplGetTopupToken.pb.swift in Sources */,
-				FA416B9220D8DEB50013DB17 /* MplGetBillToken.pb.swift in Sources */,
 				FA416B8C20D8DE610013DB17 /* WalletGetAccessToken.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
