@@ -40,6 +40,7 @@
 		FAA1BDBC1F98EE230010FE8A /* UserReport.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB71F98EE230010FE8A /* UserReport.pb.swift */; };
 		FAA494D922943F7A0054B6EA /* MplSetCardToCardResult.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA494D822943F790054B6EA /* MplSetCardToCardResult.pb.swift */; };
 		FAB50BDD227EFAA400BE2D6A /* MplGetCardToCardToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */; };
+		FAB623E82295254B006DEA00 /* MplGetSalesToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB623E72295254B006DEA00 /* MplGetSalesToken.pb.swift */; };
 		FAB87B3A21C62B6B0056D403 /* ClientGetPromote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */; };
 		FAF5D23D1F8D66DB00A26EE1 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF5D23C1F8D66CE00A26EE1 /* SwiftProtobuf.framework */; };
 		FAF5D23F1F8D6AF100A26EE1 /* ChannelAddAdmin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D1FE1F8D665300A26EE1 /* ChannelAddAdmin.pb.swift */; };
@@ -247,6 +248,7 @@
 		FAA1BDB71F98EE230010FE8A /* UserReport.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReport.pb.swift; sourceTree = "<group>"; };
 		FAA494D822943F790054B6EA /* MplSetCardToCardResult.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplSetCardToCardResult.pb.swift; sourceTree = "<group>"; };
 		FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplGetCardToCardToken.pb.swift; sourceTree = "<group>"; };
+		FAB623E72295254B006DEA00 /* MplGetSalesToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MplGetSalesToken.pb.swift; sourceTree = "<group>"; };
 		FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetPromote.pb.swift; sourceTree = "<group>"; };
 		FAF5D1951F8D663800A26EE1 /* QrCodeAddContact.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeAddContact.pb.swift; sourceTree = "<group>"; };
 		FAF5D1961F8D663800A26EE1 /* GroupAddAdmin.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAddAdmin.pb.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA494D822943F790054B6EA /* MplSetCardToCardResult.pb.swift */,
+				FAB623E72295254B006DEA00 /* MplGetSalesToken.pb.swift */,
 				FA80B74122928575003DCF52 /* MplGetBillToken.pb.swift */,
 				FA80B74022928575003DCF52 /* MplSalesConfirm.pb.swift */,
 				FA80B73F22928575003DCF52 /* MplSalesList.pb.swift */,
@@ -753,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB623E82295254B006DEA00 /* MplGetSalesToken.pb.swift in Sources */,
 				FAA494D922943F7A0054B6EA /* MplSetCardToCardResult.pb.swift in Sources */,
 				FA80B74322928576003DCF52 /* MplSalesList.pb.swift in Sources */,
 				FA80B74422928576003DCF52 /* MplSalesConfirm.pb.swift in Sources */,
