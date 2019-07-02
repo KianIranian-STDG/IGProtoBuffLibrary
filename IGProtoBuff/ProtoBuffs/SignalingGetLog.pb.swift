@@ -42,12 +42,69 @@ public struct IGPSignalingGetLog: SwiftProtobuf.RequestMessage {
   /// Clears the value of `igpPagination`. Subsequent reads from it will return its default value.
   public mutating func clearIgpPagination() {_uniqueStorage()._igpPagination = nil}
 
+  public var igpFilter: IGPSignalingGetLog.IGPFilter {
+    get {return _storage._igpFilter}
+    set {_uniqueStorage()._igpFilter = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public enum IGPFilter: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+    case all // = 0
+    case missed // = 1
+    case canceled // = 2
+    case incoming // = 3
+    case outgoing // = 4
+    case UNRECOGNIZED(Int)
+
+    public init() {
+      self = .all
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .all
+      case 1: self = .missed
+      case 2: self = .canceled
+      case 3: self = .incoming
+      case 4: self = .outgoing
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .all: return 0
+      case .missed: return 1
+      case .canceled: return 2
+      case .incoming: return 3
+      case .outgoing: return 4
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
 
   public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
+#if swift(>=4.2)
+
+extension IGPSignalingGetLog.IGPFilter: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [IGPSignalingGetLog.IGPFilter] = [
+    .all,
+    .missed,
+    .canceled,
+    .incoming,
+    .outgoing,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 public struct IGPSignalingGetLogResponse: SwiftProtobuf.ResponseMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -162,11 +219,13 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_request"),
     2: .standard(proto: "IGP_pagination"),
+    3: .standard(proto: "IGP_filter"),
   ]
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
     var _igpPagination: IGPPagination? = nil
+    var _igpFilter: IGPSignalingGetLog.IGPFilter = .all
 
     static let defaultInstance = _StorageClass()
 
@@ -175,6 +234,7 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
     init(copying source: _StorageClass) {
       _igpRequest = source._igpRequest
       _igpPagination = source._igpPagination
+      _igpFilter = source._igpFilter
     }
   }
 
@@ -192,6 +252,7 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
         case 2: try decoder.decodeSingularMessageField(value: &_storage._igpPagination)
+        case 3: try decoder.decodeSingularEnumField(value: &_storage._igpFilter)
         default: break
         }
       }
@@ -206,6 +267,9 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
       if let v = _storage._igpPagination {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
+      if _storage._igpFilter != .all {
+        try visitor.visitSingularEnumField(value: _storage._igpFilter, fieldNumber: 3)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -217,6 +281,7 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
         let rhs_storage = _args.1
         if _storage._igpRequest != rhs_storage._igpRequest {return false}
         if _storage._igpPagination != rhs_storage._igpPagination {return false}
+        if _storage._igpFilter != rhs_storage._igpFilter {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -224,6 +289,16 @@ extension IGPSignalingGetLog: SwiftProtobuf._MessageImplementationBase, SwiftPro
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension IGPSignalingGetLog.IGPFilter: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ALL"),
+    1: .same(proto: "MISSED"),
+    2: .same(proto: "CANCELED"),
+    3: .same(proto: "INCOMING"),
+    4: .same(proto: "OUTGOING"),
+  ]
 }
 
 extension IGPSignalingGetLogResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

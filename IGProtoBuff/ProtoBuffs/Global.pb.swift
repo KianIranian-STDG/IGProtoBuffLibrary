@@ -2274,6 +2274,14 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
 
   public var igpID: Int32 = 0
 
+  public var igpParam: String = String()
+
+  public var igpAgreement: Bool = false
+
+  public var igpRefresh: Bool = false
+
+  public var igpAgreementSlug: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPButtonActionType: SwiftProtobuf.Enum {
@@ -2306,6 +2314,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case ivandlist // = 25
     case ivandscore // = 26
     case cardToCard // = 27
+    case favoriteChannel // = 28
+    case music // = 29
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2342,6 +2352,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 25: self = .ivandlist
       case 26: self = .ivandscore
       case 27: self = .cardToCard
+      case 28: self = .favoriteChannel
+      case 29: self = .music
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2376,6 +2388,8 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .ivandlist: return 25
       case .ivandscore: return 26
       case .cardToCard: return 27
+      case .favoriteChannel: return 28
+      case .music: return 29
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2418,6 +2432,8 @@ extension IGPDiscoveryField.IGPButtonActionType: CaseIterable {
     .ivandlist,
     .ivandscore,
     .cardToCard,
+    .favoriteChannel,
+    .music,
   ]
 }
 
@@ -5099,6 +5115,10 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     3: .standard(proto: "IGP_actiontype"),
     4: .standard(proto: "IGP_orderid"),
     5: .standard(proto: "IGP_id"),
+    6: .standard(proto: "IGP_param"),
+    7: .standard(proto: "IGP_agreement"),
+    8: .standard(proto: "IGP_refresh"),
+    9: .standard(proto: "IGP_agreementSlug"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -5109,6 +5129,10 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
       case 3: try decoder.decodeSingularEnumField(value: &self.igpActiontype)
       case 4: try decoder.decodeSingularInt32Field(value: &self.igpOrderid)
       case 5: try decoder.decodeSingularInt32Field(value: &self.igpID)
+      case 6: try decoder.decodeSingularStringField(value: &self.igpParam)
+      case 7: try decoder.decodeSingularBoolField(value: &self.igpAgreement)
+      case 8: try decoder.decodeSingularBoolField(value: &self.igpRefresh)
+      case 9: try decoder.decodeSingularStringField(value: &self.igpAgreementSlug)
       default: break
       }
     }
@@ -5130,6 +5154,18 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     if self.igpID != 0 {
       try visitor.visitSingularInt32Field(value: self.igpID, fieldNumber: 5)
     }
+    if !self.igpParam.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpParam, fieldNumber: 6)
+    }
+    if self.igpAgreement != false {
+      try visitor.visitSingularBoolField(value: self.igpAgreement, fieldNumber: 7)
+    }
+    if self.igpRefresh != false {
+      try visitor.visitSingularBoolField(value: self.igpRefresh, fieldNumber: 8)
+    }
+    if !self.igpAgreementSlug.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpAgreementSlug, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5139,6 +5175,10 @@ extension IGPDiscoveryField: SwiftProtobuf._MessageImplementationBase, SwiftProt
     if lhs.igpActiontype != rhs.igpActiontype {return false}
     if lhs.igpOrderid != rhs.igpOrderid {return false}
     if lhs.igpID != rhs.igpID {return false}
+    if lhs.igpParam != rhs.igpParam {return false}
+    if lhs.igpAgreement != rhs.igpAgreement {return false}
+    if lhs.igpRefresh != rhs.igpRefresh {return false}
+    if lhs.igpAgreementSlug != rhs.igpAgreementSlug {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -5174,6 +5214,8 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     25: .same(proto: "IVANDLIST"),
     26: .same(proto: "IVANDSCORE"),
     27: .same(proto: "CARD_TO_CARD"),
+    28: .same(proto: "FAVORITE_CHANNEL"),
+    29: .same(proto: "MUSIC"),
   ]
 }
 

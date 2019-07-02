@@ -16,6 +16,7 @@
 		FA416B9220D8DEB50013DB17 /* MplGetBillToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA416B9020D8DEB50013DB17 /* MplGetBillToken.pb.swift */; };
 		FA712AE9225DF86000FD78AA /* ClientSetDiscoveryItemClick.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA712AE8225DF86000FD78AA /* ClientSetDiscoveryItemClick.pb.swift */; };
 		FA76382E1E2FFD5E00C24391 /* IGProtoBuff.h in Headers */ = {isa = PBXBuildFile; fileRef = FA76382C1E2FFD5E00C24391 /* IGProtoBuff.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA79CBFF22CB7D29008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79CBFE22CB7D28008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift */; };
 		FA7C3CE4225C769500DDEE95 /* WalletIdMapping.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C3CE3225C769500DDEE95 /* WalletIdMapping.pb.swift */; };
 		FA7C3CE6225C8DC300DDEE95 /* ClientGetDiscovery.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7C3CE5225C8DC300DDEE95 /* ClientGetDiscovery.pb.swift */; };
 		FA7E9BCF2262F9F100FB861D /* UserProfileSetRepresentative.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */; };
@@ -224,6 +225,7 @@
 		FA7638291E2FFD5E00C24391 /* IGProtoBuff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IGProtoBuff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA76382C1E2FFD5E00C24391 /* IGProtoBuff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGProtoBuff.h; sourceTree = "<group>"; };
 		FA76382D1E2FFD5E00C24391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA79CBFE22CB7D28008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSetDiscoveryItemAgreement.pb.swift; sourceTree = "<group>"; };
 		FA7C3CE3225C769500DDEE95 /* WalletIdMapping.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletIdMapping.pb.swift; sourceTree = "<group>"; };
 		FA7C3CE5225C8DC300DDEE95 /* ClientGetDiscovery.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetDiscovery.pb.swift; sourceTree = "<group>"; };
 		FA7E9BCD2262F9F000FB861D /* UserProfileSetRepresentative.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetRepresentative.pb.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				FA79CBFE22CB7D28008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift */,
 				FAA494D822943F790054B6EA /* MplSetCardToCardResult.pb.swift */,
 				FAB623E72295254B006DEA00 /* MplGetSalesToken.pb.swift */,
 				FA80B74122928575003DCF52 /* MplGetBillToken.pb.swift */,
@@ -756,6 +759,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA79CBFF22CB7D29008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift in Sources */,
 				FAB623E82295254B006DEA00 /* MplGetSalesToken.pb.swift in Sources */,
 				FAA494D922943F7A0054B6EA /* MplSetCardToCardResult.pb.swift in Sources */,
 				FA80B74322928576003DCF52 /* MplSalesList.pb.swift in Sources */,
