@@ -166,6 +166,11 @@ public struct IGPSignalingGetLogResponse: SwiftProtobuf.ResponseMessage {
       set {_uniqueStorage()._igpDuration = newValue}
     }
 
+    public var igpLogID: Int64 {
+      get {return _storage._igpLogID}
+      set {_uniqueStorage()._igpLogID = newValue}
+    }
+
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public enum IGPStatus: SwiftProtobuf.Enum {
@@ -379,6 +384,7 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
     4: .standard(proto: "IGP_peer"),
     5: .standard(proto: "IGP_offer_time"),
     6: .standard(proto: "IGP_duration"),
+    7: .standard(proto: "IGP_log_id"),
   ]
 
   fileprivate class _StorageClass {
@@ -388,6 +394,7 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
     var _igpPeer: IGPRegisteredUser? = nil
     var _igpOfferTime: Int32 = 0
     var _igpDuration: Int32 = 0
+    var _igpLogID: Int64 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -400,6 +407,7 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
       _igpPeer = source._igpPeer
       _igpOfferTime = source._igpOfferTime
       _igpDuration = source._igpDuration
+      _igpLogID = source._igpLogID
     }
   }
 
@@ -421,6 +429,7 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
         case 4: try decoder.decodeSingularMessageField(value: &_storage._igpPeer)
         case 5: try decoder.decodeSingularInt32Field(value: &_storage._igpOfferTime)
         case 6: try decoder.decodeSingularInt32Field(value: &_storage._igpDuration)
+        case 7: try decoder.decodeSingularInt64Field(value: &_storage._igpLogID)
         default: break
         }
       }
@@ -447,6 +456,9 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
       if _storage._igpDuration != 0 {
         try visitor.visitSingularInt32Field(value: _storage._igpDuration, fieldNumber: 6)
       }
+      if _storage._igpLogID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._igpLogID, fieldNumber: 7)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -462,6 +474,7 @@ extension IGPSignalingGetLogResponse.IGPSignalingLog: SwiftProtobuf._MessageImpl
         if _storage._igpPeer != rhs_storage._igpPeer {return false}
         if _storage._igpOfferTime != rhs_storage._igpOfferTime {return false}
         if _storage._igpDuration != rhs_storage._igpDuration {return false}
+        if _storage._igpLogID != rhs_storage._igpLogID {return false}
         return true
       }
       if !storagesAreEqual {return false}

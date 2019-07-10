@@ -2316,6 +2316,10 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case cardToCard // = 27
     case favoriteChannel // = 28
     case music // = 29
+    case charity // = 30
+    case funService // = 31
+    case virtualMoney // = 32
+    case cityService // = 33
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2354,6 +2358,10 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 27: self = .cardToCard
       case 28: self = .favoriteChannel
       case 29: self = .music
+      case 30: self = .charity
+      case 31: self = .funService
+      case 32: self = .virtualMoney
+      case 33: self = .cityService
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2390,6 +2398,10 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .cardToCard: return 27
       case .favoriteChannel: return 28
       case .music: return 29
+      case .charity: return 30
+      case .funService: return 31
+      case .virtualMoney: return 32
+      case .cityService: return 33
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2434,6 +2446,10 @@ extension IGPDiscoveryField.IGPButtonActionType: CaseIterable {
     .cardToCard,
     .favoriteChannel,
     .music,
+    .charity,
+    .funService,
+    .virtualMoney,
+    .cityService,
   ]
 }
 
@@ -5216,6 +5232,10 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     27: .same(proto: "CARD_TO_CARD"),
     28: .same(proto: "FAVORITE_CHANNEL"),
     29: .same(proto: "MUSIC"),
+    30: .same(proto: "CHARITY"),
+    31: .same(proto: "FUN_SERVICE"),
+    32: .same(proto: "VIRTUAL_MONEY"),
+    33: .same(proto: "CITY_SERVICE"),
   ]
 }
 
