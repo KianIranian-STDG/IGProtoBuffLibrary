@@ -139,6 +139,16 @@ public struct IGPUserLoginResponse: SwiftProtobuf.ResponseMessage {
     set {_uniqueStorage()._igpWalletAgreementAccepted = newValue}
   }
 
+  public var igpAccessToken: String {
+    get {return _storage._igpAccessToken}
+    set {_uniqueStorage()._igpAccessToken = newValue}
+  }
+
+  public var igpContactHash: String {
+    get {return _storage._igpContactHash}
+    set {_uniqueStorage()._igpContactHash = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -300,6 +310,8 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
     6: .standard(proto: "IGP_wallet_active"),
     7: .standard(proto: "IGP_mpl_active"),
     8: .standard(proto: "IGP_wallet_agreement_accepted"),
+    9: .standard(proto: "IGP_access_token"),
+    10: .standard(proto: "IGP_contact_hash"),
   ]
 
   fileprivate class _StorageClass {
@@ -311,6 +323,8 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
     var _igpWalletActive: Bool = false
     var _igpMplActive: Bool = false
     var _igpWalletAgreementAccepted: Bool = false
+    var _igpAccessToken: String = String()
+    var _igpContactHash: String = String()
 
     static let defaultInstance = _StorageClass()
 
@@ -325,6 +339,8 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
       _igpWalletActive = source._igpWalletActive
       _igpMplActive = source._igpMplActive
       _igpWalletAgreementAccepted = source._igpWalletAgreementAccepted
+      _igpAccessToken = source._igpAccessToken
+      _igpContactHash = source._igpContactHash
     }
   }
 
@@ -348,6 +364,8 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
         case 6: try decoder.decodeSingularBoolField(value: &_storage._igpWalletActive)
         case 7: try decoder.decodeSingularBoolField(value: &_storage._igpMplActive)
         case 8: try decoder.decodeSingularBoolField(value: &_storage._igpWalletAgreementAccepted)
+        case 9: try decoder.decodeSingularStringField(value: &_storage._igpAccessToken)
+        case 10: try decoder.decodeSingularStringField(value: &_storage._igpContactHash)
         default: break
         }
       }
@@ -380,6 +398,12 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
       if _storage._igpWalletAgreementAccepted != false {
         try visitor.visitSingularBoolField(value: _storage._igpWalletAgreementAccepted, fieldNumber: 8)
       }
+      if !_storage._igpAccessToken.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._igpAccessToken, fieldNumber: 9)
+      }
+      if !_storage._igpContactHash.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._igpContactHash, fieldNumber: 10)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -397,6 +421,8 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
         if _storage._igpWalletActive != rhs_storage._igpWalletActive {return false}
         if _storage._igpMplActive != rhs_storage._igpMplActive {return false}
         if _storage._igpWalletAgreementAccepted != rhs_storage._igpWalletAgreementAccepted {return false}
+        if _storage._igpAccessToken != rhs_storage._igpAccessToken {return false}
+        if _storage._igpContactHash != rhs_storage._igpContactHash {return false}
         return true
       }
       if !storagesAreEqual {return false}

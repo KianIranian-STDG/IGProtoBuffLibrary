@@ -2320,6 +2320,7 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case funService // = 31
     case virtualMoney // = 32
     case cityService // = 33
+    case poll // = 34
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2362,6 +2363,7 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 31: self = .funService
       case 32: self = .virtualMoney
       case 33: self = .cityService
+      case 34: self = .poll
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2402,6 +2404,7 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .funService: return 31
       case .virtualMoney: return 32
       case .cityService: return 33
+      case .poll: return 34
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2450,6 +2453,7 @@ extension IGPDiscoveryField.IGPButtonActionType: CaseIterable {
     .funService,
     .virtualMoney,
     .cityService,
+    .poll,
   ]
 }
 
@@ -2530,6 +2534,48 @@ extension IGPDiscovery.IGPDiscoveryModel: CaseIterable {
 }
 
 #endif  // swift(>=4.2)
+
+public struct IGPPollField: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpImageurl: String = String()
+
+  public var igpOrderid: Int32 = 0
+
+  public var igpID: Int32 = 0
+
+  public var igpClicked: Bool = false
+
+  public var igpSum: Int64 = 0
+
+  public var igpClickable: Bool = false
+
+  public var igpLabel: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+public struct IGPPoll: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpModel: IGPDiscovery.IGPDiscoveryModel = .model1
+
+  public var igpScale: String = String()
+
+  public var igpMax: Int32 = 0
+
+  public var igpPollfields: [IGPPollField] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
 
 public struct IGPIVandActivity: SwiftProtobuf.Message {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -5236,6 +5282,7 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     31: .same(proto: "FUN_SERVICE"),
     32: .same(proto: "VIRTUAL_MONEY"),
     33: .same(proto: "CITY_SERVICE"),
+    34: .same(proto: "POLL"),
   ]
 }
 
@@ -5290,6 +5337,118 @@ extension IGPDiscovery.IGPDiscoveryModel: SwiftProtobuf._ProtoNameProviding {
     5: .same(proto: "MODEL6"),
     6: .same(proto: "MODEL7"),
   ]
+}
+
+extension IGPPollField: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPPollField"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_imageurl"),
+    2: .standard(proto: "IGP_orderid"),
+    3: .standard(proto: "IGP_id"),
+    4: .standard(proto: "IGP_clicked"),
+    5: .standard(proto: "IGP_sum"),
+    6: .standard(proto: "IGP_clickable"),
+    7: .standard(proto: "IGP_label"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.igpImageurl)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.igpOrderid)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.igpID)
+      case 4: try decoder.decodeSingularBoolField(value: &self.igpClicked)
+      case 5: try decoder.decodeSingularInt64Field(value: &self.igpSum)
+      case 6: try decoder.decodeSingularBoolField(value: &self.igpClickable)
+      case 7: try decoder.decodeSingularStringField(value: &self.igpLabel)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.igpImageurl.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpImageurl, fieldNumber: 1)
+    }
+    if self.igpOrderid != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpOrderid, fieldNumber: 2)
+    }
+    if self.igpID != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpID, fieldNumber: 3)
+    }
+    if self.igpClicked != false {
+      try visitor.visitSingularBoolField(value: self.igpClicked, fieldNumber: 4)
+    }
+    if self.igpSum != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpSum, fieldNumber: 5)
+    }
+    if self.igpClickable != false {
+      try visitor.visitSingularBoolField(value: self.igpClickable, fieldNumber: 6)
+    }
+    if !self.igpLabel.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpLabel, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: IGPPollField, rhs: IGPPollField) -> Bool {
+    if lhs.igpImageurl != rhs.igpImageurl {return false}
+    if lhs.igpOrderid != rhs.igpOrderid {return false}
+    if lhs.igpID != rhs.igpID {return false}
+    if lhs.igpClicked != rhs.igpClicked {return false}
+    if lhs.igpSum != rhs.igpSum {return false}
+    if lhs.igpClickable != rhs.igpClickable {return false}
+    if lhs.igpLabel != rhs.igpLabel {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension IGPPoll: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPPoll"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_model"),
+    2: .standard(proto: "IGP_scale"),
+    3: .standard(proto: "IGP_max"),
+    4: .standard(proto: "IGP_pollfields"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularEnumField(value: &self.igpModel)
+      case 2: try decoder.decodeSingularStringField(value: &self.igpScale)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.igpMax)
+      case 4: try decoder.decodeRepeatedMessageField(value: &self.igpPollfields)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.igpModel != .model1 {
+      try visitor.visitSingularEnumField(value: self.igpModel, fieldNumber: 1)
+    }
+    if !self.igpScale.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpScale, fieldNumber: 2)
+    }
+    if self.igpMax != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpMax, fieldNumber: 3)
+    }
+    if !self.igpPollfields.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.igpPollfields, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: IGPPoll, rhs: IGPPoll) -> Bool {
+    if lhs.igpModel != rhs.igpModel {return false}
+    if lhs.igpScale != rhs.igpScale {return false}
+    if lhs.igpMax != rhs.igpMax {return false}
+    if lhs.igpPollfields != rhs.igpPollfields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension IGPIVandActivity: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

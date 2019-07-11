@@ -33,6 +33,8 @@
 		FA90B73A20B59D9700043C89 /* ChannelUpdateReactionStatus.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */; };
 		FA90B73B20B59D9700043C89 /* GroupPinMessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73820B59D9600043C89 /* GroupPinMessage.pb.swift */; };
 		FA90B73C20B59D9700043C89 /* ChannelPinMessage.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90B73920B59D9700043C89 /* ChannelPinMessage.pb.swift */; };
+		FA9678CC22D7408F00680700 /* ClientGetPoll.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9678CA22D7408F00680700 /* ClientGetPoll.pb.swift */; };
+		FA9678CD22D7408F00680700 /* ClientSetPollItemClick.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9678CB22D7408F00680700 /* ClientSetPollItemClick.pb.swift */; };
 		FAA1BDB21F98EDF90010FE8A /* ClientMuteRoom.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB11F98EDF70010FE8A /* ClientMuteRoom.pb.swift */; };
 		FAA1BDB81F98EE230010FE8A /* ClientPinRoom.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB31F98EE220010FE8A /* ClientPinRoom.pb.swift */; };
 		FAA1BDB91F98EE230010FE8A /* UserProfileSetBio.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA1BDB41F98EE220010FE8A /* UserProfileSetBio.pb.swift */; };
@@ -242,6 +244,8 @@
 		FA90B73720B59D9600043C89 /* ChannelUpdateReactionStatus.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelUpdateReactionStatus.pb.swift; sourceTree = "<group>"; };
 		FA90B73820B59D9600043C89 /* GroupPinMessage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPinMessage.pb.swift; sourceTree = "<group>"; };
 		FA90B73920B59D9700043C89 /* ChannelPinMessage.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPinMessage.pb.swift; sourceTree = "<group>"; };
+		FA9678CA22D7408F00680700 /* ClientGetPoll.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientGetPoll.pb.swift; sourceTree = "<group>"; };
+		FA9678CB22D7408F00680700 /* ClientSetPollItemClick.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSetPollItemClick.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB11F98EDF70010FE8A /* ClientMuteRoom.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMuteRoom.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB31F98EE220010FE8A /* ClientPinRoom.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientPinRoom.pb.swift; sourceTree = "<group>"; };
 		FAA1BDB41F98EE220010FE8A /* UserProfileSetBio.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetBio.pb.swift; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				FA9678CA22D7408F00680700 /* ClientGetPoll.pb.swift */,
+				FA9678CB22D7408F00680700 /* ClientSetPollItemClick.pb.swift */,
 				FA79CBFE22CB7D28008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift */,
 				FAA494D822943F790054B6EA /* MplSetCardToCardResult.pb.swift */,
 				FAB623E72295254B006DEA00 /* MplGetSalesToken.pb.swift */,
@@ -759,6 +765,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9678CC22D7408F00680700 /* ClientGetPoll.pb.swift in Sources */,
+				FA9678CD22D7408F00680700 /* ClientSetPollItemClick.pb.swift in Sources */,
 				FA79CBFF22CB7D29008246F2 /* ClientSetDiscoveryItemAgreement.pb.swift in Sources */,
 				FAB623E82295254B006DEA00 /* MplGetSalesToken.pb.swift in Sources */,
 				FAA494D922943F7A0054B6EA /* MplSetCardToCardResult.pb.swift in Sources */,
