@@ -43,6 +43,11 @@ public struct IGPUserContactsImport: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpForce = newValue}
   }
 
+  public var igpContactHash: String {
+    get {return _storage._igpContactHash}
+    set {_uniqueStorage()._igpContactHash = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public struct IGPContact: SwiftProtobuf.Message {
@@ -116,12 +121,14 @@ extension IGPUserContactsImport: SwiftProtobuf._MessageImplementationBase, Swift
     1: .standard(proto: "IGP_request"),
     2: .standard(proto: "IGP_contacts"),
     3: .standard(proto: "IGP_force"),
+    4: .standard(proto: "IGP_contact_hash"),
   ]
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
     var _igpContacts: [IGPUserContactsImport.IGPContact] = []
     var _igpForce: Bool = false
+    var _igpContactHash: String = String()
 
     static let defaultInstance = _StorageClass()
 
@@ -131,6 +138,7 @@ extension IGPUserContactsImport: SwiftProtobuf._MessageImplementationBase, Swift
       _igpRequest = source._igpRequest
       _igpContacts = source._igpContacts
       _igpForce = source._igpForce
+      _igpContactHash = source._igpContactHash
     }
   }
 
@@ -149,6 +157,7 @@ extension IGPUserContactsImport: SwiftProtobuf._MessageImplementationBase, Swift
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
         case 2: try decoder.decodeRepeatedMessageField(value: &_storage._igpContacts)
         case 3: try decoder.decodeSingularBoolField(value: &_storage._igpForce)
+        case 4: try decoder.decodeSingularStringField(value: &_storage._igpContactHash)
         default: break
         }
       }
@@ -166,6 +175,9 @@ extension IGPUserContactsImport: SwiftProtobuf._MessageImplementationBase, Swift
       if _storage._igpForce != false {
         try visitor.visitSingularBoolField(value: _storage._igpForce, fieldNumber: 3)
       }
+      if !_storage._igpContactHash.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._igpContactHash, fieldNumber: 4)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -178,6 +190,7 @@ extension IGPUserContactsImport: SwiftProtobuf._MessageImplementationBase, Swift
         if _storage._igpRequest != rhs_storage._igpRequest {return false}
         if _storage._igpContacts != rhs_storage._igpContacts {return false}
         if _storage._igpForce != rhs_storage._igpForce {return false}
+        if _storage._igpContactHash != rhs_storage._igpContactHash {return false}
         return true
       }
       if !storagesAreEqual {return false}
