@@ -48,6 +48,11 @@ public struct IGPUserRegister: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpPreferenceMethod = newValue}
   }
 
+  public var igpAppID: Int32 {
+    get {return _storage._igpAppID}
+    set {_uniqueStorage()._igpAppID = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPPreferenceMethod: SwiftProtobuf.Enum {
@@ -222,6 +227,7 @@ extension IGPUserRegister: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     2: .standard(proto: "IGP_phone_number"),
     3: .standard(proto: "IGP_country_code"),
     4: .standard(proto: "IGP_preference_method"),
+    5: .standard(proto: "IGP_app_id"),
   ]
 
   fileprivate class _StorageClass {
@@ -229,6 +235,7 @@ extension IGPUserRegister: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     var _igpPhoneNumber: Int64 = 0
     var _igpCountryCode: String = String()
     var _igpPreferenceMethod: IGPUserRegister.IGPPreferenceMethod = .verifyCodeAuto
+    var _igpAppID: Int32 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -239,6 +246,7 @@ extension IGPUserRegister: SwiftProtobuf._MessageImplementationBase, SwiftProtob
       _igpPhoneNumber = source._igpPhoneNumber
       _igpCountryCode = source._igpCountryCode
       _igpPreferenceMethod = source._igpPreferenceMethod
+      _igpAppID = source._igpAppID
     }
   }
 
@@ -258,6 +266,7 @@ extension IGPUserRegister: SwiftProtobuf._MessageImplementationBase, SwiftProtob
         case 2: try decoder.decodeSingularInt64Field(value: &_storage._igpPhoneNumber)
         case 3: try decoder.decodeSingularStringField(value: &_storage._igpCountryCode)
         case 4: try decoder.decodeSingularEnumField(value: &_storage._igpPreferenceMethod)
+        case 5: try decoder.decodeSingularInt32Field(value: &_storage._igpAppID)
         default: break
         }
       }
@@ -278,6 +287,9 @@ extension IGPUserRegister: SwiftProtobuf._MessageImplementationBase, SwiftProtob
       if _storage._igpPreferenceMethod != .verifyCodeAuto {
         try visitor.visitSingularEnumField(value: _storage._igpPreferenceMethod, fieldNumber: 4)
       }
+      if _storage._igpAppID != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._igpAppID, fieldNumber: 5)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -291,6 +303,7 @@ extension IGPUserRegister: SwiftProtobuf._MessageImplementationBase, SwiftProtob
         if _storage._igpPhoneNumber != rhs_storage._igpPhoneNumber {return false}
         if _storage._igpCountryCode != rhs_storage._igpCountryCode {return false}
         if _storage._igpPreferenceMethod != rhs_storage._igpPreferenceMethod {return false}
+        if _storage._igpAppID != rhs_storage._igpAppID {return false}
         return true
       }
       if !storagesAreEqual {return false}

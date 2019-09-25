@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8EF31B27233B85B9002EF88D /* InfoUpdate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF31B26233B85B9002EF88D /* InfoUpdate.pb.swift */; };
 		FA2A506D20ECDA75002C5322 /* WalletRegister.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A506A20ECDA74002C5322 /* WalletRegister.pb.swift */; };
 		FA2A506E20ECDA75002C5322 /* BillInquiryMci.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A506B20ECDA74002C5322 /* BillInquiryMci.pb.swift */; };
 		FA2A506F20ECDA75002C5322 /* BillInquiryTelecom.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */; };
@@ -218,6 +219,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8EF31B26233B85B9002EF88D /* InfoUpdate.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUpdate.pb.swift; sourceTree = "<group>"; };
 		FA2A506A20ECDA74002C5322 /* WalletRegister.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRegister.pb.swift; sourceTree = "<group>"; };
 		FA2A506B20ECDA74002C5322 /* BillInquiryMci.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInquiryMci.pb.swift; sourceTree = "<group>"; };
 		FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInquiryTelecom.pb.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				8EF31B26233B85B9002EF88D /* InfoUpdate.pb.swift */,
 				FA6D4D4F23094FC600D7539F /* MplTransactionInfo.pb.swift */,
 				FA6D4D5023094FC600D7539F /* MplTransactionList.pb.swift */,
 				FA9678CA22D7408F00680700 /* ClientGetPoll.pb.swift */,
@@ -771,6 +774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF31B27233B85B9002EF88D /* InfoUpdate.pb.swift in Sources */,
 				FA6D4D5123094FC600D7539F /* MplTransactionInfo.pb.swift in Sources */,
 				FA6D4D5223094FC600D7539F /* MplTransactionList.pb.swift in Sources */,
 				FA9678CC22D7408F00680700 /* ClientGetPoll.pb.swift in Sources */,
