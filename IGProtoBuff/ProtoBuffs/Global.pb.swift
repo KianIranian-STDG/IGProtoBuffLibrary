@@ -2323,6 +2323,7 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case poll // = 34
     case internetPackageMenu // = 35
     case financialHistory // = 36
+    case inviteFriend // = 37
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2368,6 +2369,7 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 34: self = .poll
       case 35: self = .internetPackageMenu
       case 36: self = .financialHistory
+      case 37: self = .inviteFriend
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2411,6 +2413,7 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .poll: return 34
       case .internetPackageMenu: return 35
       case .financialHistory: return 36
+      case .inviteFriend: return 37
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2462,6 +2465,7 @@ extension IGPDiscoveryField.IGPButtonActionType: CaseIterable {
     .poll,
     .internetPackageMenu,
     .financialHistory,
+    .inviteFriend,
   ]
 }
 
@@ -5549,6 +5553,7 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     34: .same(proto: "POLL"),
     35: .same(proto: "INTERNET_PACKAGE_MENU"),
     36: .same(proto: "FINANCIAL_HISTORY"),
+    37: .same(proto: "INVITE_FRIEND"),
   ]
 }
 
