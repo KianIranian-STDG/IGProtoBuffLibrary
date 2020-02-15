@@ -33,6 +33,11 @@ public struct IGPMplGetCardToCardToken: SwiftProtobuf.RequestMessage {
   /// Clears the value of `igpRequest`. Subsequent reads from it will return its default value.
   public mutating func clearIgpRequest() {_uniqueStorage()._igpRequest = nil}
 
+  public var igpToUserID: Int64 {
+    get {return _storage._igpToUserID}
+    set {_uniqueStorage()._igpToUserID = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -87,10 +92,12 @@ extension IGPMplGetCardToCardToken: SwiftProtobuf._MessageImplementationBase, Sw
   public static let protoMessageName: String = "IGPMplGetCardToCardToken"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_request"),
+    2: .standard(proto: "IGP_to_user_id"),
   ]
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
+    var _igpToUserID: Int64 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -98,6 +105,7 @@ extension IGPMplGetCardToCardToken: SwiftProtobuf._MessageImplementationBase, Sw
 
     init(copying source: _StorageClass) {
       _igpRequest = source._igpRequest
+      _igpToUserID = source._igpToUserID
     }
   }
 
@@ -114,6 +122,7 @@ extension IGPMplGetCardToCardToken: SwiftProtobuf._MessageImplementationBase, Sw
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
+        case 2: try decoder.decodeSingularInt64Field(value: &_storage._igpToUserID)
         default: break
         }
       }
@@ -125,6 +134,9 @@ extension IGPMplGetCardToCardToken: SwiftProtobuf._MessageImplementationBase, Sw
       if let v = _storage._igpRequest {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
+      if _storage._igpToUserID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._igpToUserID, fieldNumber: 2)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -135,6 +147,7 @@ extension IGPMplGetCardToCardToken: SwiftProtobuf._MessageImplementationBase, Sw
         let _storage = _args.0
         let rhs_storage = _args.1
         if _storage._igpRequest != rhs_storage._igpRequest {return false}
+        if _storage._igpToUserID != rhs_storage._igpToUserID {return false}
         return true
       }
       if !storagesAreEqual {return false}

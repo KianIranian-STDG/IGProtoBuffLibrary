@@ -880,6 +880,24 @@ public struct IGPRoomMessageWallet: SwiftProtobuf.Message {
   /// Clears the value of `igpCardToCard`. Subsequent reads from it will return its default value.
   public mutating func clearIgpCardToCard() {_uniqueStorage()._igpCardToCard = nil}
 
+  public var igpTopup: IGPRoomMessageWallet.IGPTopup {
+    get {return _storage._igpTopup ?? IGPRoomMessageWallet.IGPTopup()}
+    set {_uniqueStorage()._igpTopup = newValue}
+  }
+  /// Returns true if `igpTopup` has been explicitly set.
+  public var hasIgpTopup: Bool {return _storage._igpTopup != nil}
+  /// Clears the value of `igpTopup`. Subsequent reads from it will return its default value.
+  public mutating func clearIgpTopup() {_uniqueStorage()._igpTopup = nil}
+
+  public var igpBill: IGPRoomMessageWallet.IGPBill {
+    get {return _storage._igpBill ?? IGPRoomMessageWallet.IGPBill()}
+    set {_uniqueStorage()._igpBill = newValue}
+  }
+  /// Returns true if `igpBill` has been explicitly set.
+  public var hasIgpBill: Bool {return _storage._igpBill != nil}
+  /// Clears the value of `igpBill`. Subsequent reads from it will return its default value.
+  public mutating func clearIgpBill() {_uniqueStorage()._igpBill = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPType: SwiftProtobuf.Enum {
@@ -887,6 +905,8 @@ public struct IGPRoomMessageWallet: SwiftProtobuf.Message {
     case moneyTransfer // = 0
     case payment // = 1
     case cardToCard // = 2
+    case topup // = 3
+    case bill // = 4
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -898,6 +918,8 @@ public struct IGPRoomMessageWallet: SwiftProtobuf.Message {
       case 0: self = .moneyTransfer
       case 1: self = .payment
       case 2: self = .cardToCard
+      case 3: self = .topup
+      case 4: self = .bill
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -907,6 +929,8 @@ public struct IGPRoomMessageWallet: SwiftProtobuf.Message {
       case .moneyTransfer: return 0
       case .payment: return 1
       case .cardToCard: return 2
+      case .topup: return 3
+      case .bill: return 4
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -979,6 +1003,130 @@ public struct IGPRoomMessageWallet: SwiftProtobuf.Message {
     public init() {}
   }
 
+  public struct IGPTopup: SwiftProtobuf.Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var igpFromUserID: Int64 = 0
+
+    public var igpOrderID: Int64 = 0
+
+    public var igpMyToken: String = String()
+
+    public var igpToken: Int64 = 0
+
+    public var igpAmount: Int64 = 0
+
+    public var igpRequesterMobileNumber: String = String()
+
+    public var igpChargeMobileNumber: String = String()
+
+    public var igpTopupType: IGPRoomMessageWallet.IGPTopup.IGPType = .irancellPrepaid
+
+    public var igpCardNumber: String = String()
+
+    public var igpMerchantName: String = String()
+
+    public var igpTerminalNo: Int64 = 0
+
+    public var igpRrn: Int64 = 0
+
+    public var igpTraceNumber: Int64 = 0
+
+    public var igpRequestTime: Int32 = 0
+
+    public var igpStatus: Bool = false
+
+    public var igpStatusDescription: String = String()
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public enum IGPType: SwiftProtobuf.Enum {
+      public typealias RawValue = Int
+      case irancellPrepaid // = 0
+      case irancellWow // = 1
+      case irancellWimax // = 2
+      case irancellPostpaid // = 3
+      case mci // = 4
+      case rightel // = 5
+      case UNRECOGNIZED(Int)
+
+      public init() {
+        self = .irancellPrepaid
+      }
+
+      public init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .irancellPrepaid
+        case 1: self = .irancellWow
+        case 2: self = .irancellWimax
+        case 3: self = .irancellPostpaid
+        case 4: self = .mci
+        case 5: self = .rightel
+        default: self = .UNRECOGNIZED(rawValue)
+        }
+      }
+
+      public var rawValue: Int {
+        switch self {
+        case .irancellPrepaid: return 0
+        case .irancellWow: return 1
+        case .irancellWimax: return 2
+        case .irancellPostpaid: return 3
+        case .mci: return 4
+        case .rightel: return 5
+        case .UNRECOGNIZED(let i): return i
+        }
+      }
+
+    }
+
+    public init() {}
+  }
+
+  public struct IGPBill: SwiftProtobuf.Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var igpFromUserID: Int64 = 0
+
+    public var igpOrderID: Int64 = 0
+
+    public var igpMyToken: String = String()
+
+    public var igpToken: Int64 = 0
+
+    public var igpAmount: Int64 = 0
+
+    public var igpPayID: String = String()
+
+    public var igpBillID: String = String()
+
+    public var igpBillType: String = String()
+
+    public var igpCardNumber: String = String()
+
+    public var igpMerchantName: String = String()
+
+    public var igpTerminalNo: Int64 = 0
+
+    public var igpRrn: Int64 = 0
+
+    public var igpTraceNumber: Int64 = 0
+
+    public var igpRequestTime: Int32 = 0
+
+    public var igpStatus: Bool = false
+
+    public var igpStatusDescription: String = String()
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
+
   public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
@@ -992,6 +1140,8 @@ extension IGPRoomMessageWallet.IGPType: CaseIterable {
     .moneyTransfer,
     .payment,
     .cardToCard,
+    .topup,
+    .bill,
   ]
 }
 
@@ -2326,6 +2476,10 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
     case inviteFriend // = 37
     case news // = 38
     case electricBillMenu // = 39
+    case blockchain // = 40
+    case parsland // = 41
+    case pollResult // = 42
+    case virtualGiftCard // = 43
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -2374,6 +2528,10 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case 37: self = .inviteFriend
       case 38: self = .news
       case 39: self = .electricBillMenu
+      case 40: self = .blockchain
+      case 41: self = .parsland
+      case 42: self = .pollResult
+      case 43: self = .virtualGiftCard
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -2420,6 +2578,10 @@ public struct IGPDiscoveryField: SwiftProtobuf.Message {
       case .inviteFriend: return 37
       case .news: return 38
       case .electricBillMenu: return 39
+      case .blockchain: return 40
+      case .parsland: return 41
+      case .pollResult: return 42
+      case .virtualGiftCard: return 43
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2474,6 +2636,10 @@ extension IGPDiscoveryField.IGPButtonActionType: CaseIterable {
     .inviteFriend,
     .news,
     .electricBillMenu,
+    .blockchain,
+    .parsland,
+    .pollResult,
+    .virtualGiftCard,
   ]
 }
 
@@ -3298,12 +3464,16 @@ extension IGPRoomMessageWallet: SwiftProtobuf._MessageImplementationBase, SwiftP
     1: .standard(proto: "IGP_type"),
     2: .standard(proto: "IGP_money_transfer"),
     3: .standard(proto: "IGP_card_to_card"),
+    4: .standard(proto: "IGP_topup"),
+    5: .standard(proto: "IGP_bill"),
   ]
 
   fileprivate class _StorageClass {
     var _igpType: IGPRoomMessageWallet.IGPType = .moneyTransfer
     var _igpMoneyTransfer: IGPRoomMessageWallet.IGPMoneyTransfer? = nil
     var _igpCardToCard: IGPRoomMessageWallet.IGPCardToCard? = nil
+    var _igpTopup: IGPRoomMessageWallet.IGPTopup? = nil
+    var _igpBill: IGPRoomMessageWallet.IGPBill? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -3313,6 +3483,8 @@ extension IGPRoomMessageWallet: SwiftProtobuf._MessageImplementationBase, SwiftP
       _igpType = source._igpType
       _igpMoneyTransfer = source._igpMoneyTransfer
       _igpCardToCard = source._igpCardToCard
+      _igpTopup = source._igpTopup
+      _igpBill = source._igpBill
     }
   }
 
@@ -3331,6 +3503,8 @@ extension IGPRoomMessageWallet: SwiftProtobuf._MessageImplementationBase, SwiftP
         case 1: try decoder.decodeSingularEnumField(value: &_storage._igpType)
         case 2: try decoder.decodeSingularMessageField(value: &_storage._igpMoneyTransfer)
         case 3: try decoder.decodeSingularMessageField(value: &_storage._igpCardToCard)
+        case 4: try decoder.decodeSingularMessageField(value: &_storage._igpTopup)
+        case 5: try decoder.decodeSingularMessageField(value: &_storage._igpBill)
         default: break
         }
       }
@@ -3348,6 +3522,12 @@ extension IGPRoomMessageWallet: SwiftProtobuf._MessageImplementationBase, SwiftP
       if let v = _storage._igpCardToCard {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
+      if let v = _storage._igpTopup {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
+      if let v = _storage._igpBill {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -3360,6 +3540,8 @@ extension IGPRoomMessageWallet: SwiftProtobuf._MessageImplementationBase, SwiftP
         if _storage._igpType != rhs_storage._igpType {return false}
         if _storage._igpMoneyTransfer != rhs_storage._igpMoneyTransfer {return false}
         if _storage._igpCardToCard != rhs_storage._igpCardToCard {return false}
+        if _storage._igpTopup != rhs_storage._igpTopup {return false}
+        if _storage._igpBill != rhs_storage._igpBill {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -3374,6 +3556,8 @@ extension IGPRoomMessageWallet.IGPType: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "MONEY_TRANSFER"),
     1: .same(proto: "PAYMENT"),
     2: .same(proto: "CARD_TO_CARD"),
+    3: .same(proto: "TOPUP"),
+    4: .same(proto: "BILL"),
   ]
 }
 
@@ -3556,6 +3740,255 @@ extension IGPRoomMessageWallet.IGPCardToCard: SwiftProtobuf._MessageImplementati
     if lhs.igpDestBankName != rhs.igpDestBankName {return false}
     if lhs.igpCardOwnerName != rhs.igpCardOwnerName {return false}
     if lhs.igpStatus != rhs.igpStatus {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension IGPRoomMessageWallet.IGPTopup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = IGPRoomMessageWallet.protoMessageName + ".IGPTopup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_from_user_id"),
+    2: .standard(proto: "IGP_order_id"),
+    3: .standard(proto: "IGP_my_token"),
+    4: .standard(proto: "IGP_token"),
+    5: .standard(proto: "IGP_amount"),
+    6: .standard(proto: "IGP_requester_mobile_number"),
+    7: .standard(proto: "IGP_charge_mobile_number"),
+    8: .standard(proto: "IGP_topup_type"),
+    9: .standard(proto: "IGP_card_number"),
+    10: .standard(proto: "IGP_merchant_name"),
+    11: .standard(proto: "IGP_terminal_no"),
+    12: .standard(proto: "IGP_rrn"),
+    13: .standard(proto: "IGP_trace_number"),
+    14: .standard(proto: "IGP_request_time"),
+    15: .standard(proto: "IGP_status"),
+    16: .standard(proto: "IGP_status_description"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt64Field(value: &self.igpFromUserID)
+      case 2: try decoder.decodeSingularInt64Field(value: &self.igpOrderID)
+      case 3: try decoder.decodeSingularStringField(value: &self.igpMyToken)
+      case 4: try decoder.decodeSingularInt64Field(value: &self.igpToken)
+      case 5: try decoder.decodeSingularInt64Field(value: &self.igpAmount)
+      case 6: try decoder.decodeSingularStringField(value: &self.igpRequesterMobileNumber)
+      case 7: try decoder.decodeSingularStringField(value: &self.igpChargeMobileNumber)
+      case 8: try decoder.decodeSingularEnumField(value: &self.igpTopupType)
+      case 9: try decoder.decodeSingularStringField(value: &self.igpCardNumber)
+      case 10: try decoder.decodeSingularStringField(value: &self.igpMerchantName)
+      case 11: try decoder.decodeSingularInt64Field(value: &self.igpTerminalNo)
+      case 12: try decoder.decodeSingularInt64Field(value: &self.igpRrn)
+      case 13: try decoder.decodeSingularInt64Field(value: &self.igpTraceNumber)
+      case 14: try decoder.decodeSingularInt32Field(value: &self.igpRequestTime)
+      case 15: try decoder.decodeSingularBoolField(value: &self.igpStatus)
+      case 16: try decoder.decodeSingularStringField(value: &self.igpStatusDescription)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.igpFromUserID != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpFromUserID, fieldNumber: 1)
+    }
+    if self.igpOrderID != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpOrderID, fieldNumber: 2)
+    }
+    if !self.igpMyToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpMyToken, fieldNumber: 3)
+    }
+    if self.igpToken != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpToken, fieldNumber: 4)
+    }
+    if self.igpAmount != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpAmount, fieldNumber: 5)
+    }
+    if !self.igpRequesterMobileNumber.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpRequesterMobileNumber, fieldNumber: 6)
+    }
+    if !self.igpChargeMobileNumber.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpChargeMobileNumber, fieldNumber: 7)
+    }
+    if self.igpTopupType != .irancellPrepaid {
+      try visitor.visitSingularEnumField(value: self.igpTopupType, fieldNumber: 8)
+    }
+    if !self.igpCardNumber.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpCardNumber, fieldNumber: 9)
+    }
+    if !self.igpMerchantName.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpMerchantName, fieldNumber: 10)
+    }
+    if self.igpTerminalNo != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpTerminalNo, fieldNumber: 11)
+    }
+    if self.igpRrn != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpRrn, fieldNumber: 12)
+    }
+    if self.igpTraceNumber != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpTraceNumber, fieldNumber: 13)
+    }
+    if self.igpRequestTime != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpRequestTime, fieldNumber: 14)
+    }
+    if self.igpStatus != false {
+      try visitor.visitSingularBoolField(value: self.igpStatus, fieldNumber: 15)
+    }
+    if !self.igpStatusDescription.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpStatusDescription, fieldNumber: 16)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: IGPRoomMessageWallet.IGPTopup, rhs: IGPRoomMessageWallet.IGPTopup) -> Bool {
+    if lhs.igpFromUserID != rhs.igpFromUserID {return false}
+    if lhs.igpOrderID != rhs.igpOrderID {return false}
+    if lhs.igpMyToken != rhs.igpMyToken {return false}
+    if lhs.igpToken != rhs.igpToken {return false}
+    if lhs.igpAmount != rhs.igpAmount {return false}
+    if lhs.igpRequesterMobileNumber != rhs.igpRequesterMobileNumber {return false}
+    if lhs.igpChargeMobileNumber != rhs.igpChargeMobileNumber {return false}
+    if lhs.igpTopupType != rhs.igpTopupType {return false}
+    if lhs.igpCardNumber != rhs.igpCardNumber {return false}
+    if lhs.igpMerchantName != rhs.igpMerchantName {return false}
+    if lhs.igpTerminalNo != rhs.igpTerminalNo {return false}
+    if lhs.igpRrn != rhs.igpRrn {return false}
+    if lhs.igpTraceNumber != rhs.igpTraceNumber {return false}
+    if lhs.igpRequestTime != rhs.igpRequestTime {return false}
+    if lhs.igpStatus != rhs.igpStatus {return false}
+    if lhs.igpStatusDescription != rhs.igpStatusDescription {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension IGPRoomMessageWallet.IGPTopup.IGPType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "IRANCELL_PREPAID"),
+    1: .same(proto: "IRANCELL_WOW"),
+    2: .same(proto: "IRANCELL_WIMAX"),
+    3: .same(proto: "IRANCELL_POSTPAID"),
+    4: .same(proto: "MCI"),
+    5: .same(proto: "RIGHTEL"),
+  ]
+}
+
+extension IGPRoomMessageWallet.IGPBill: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = IGPRoomMessageWallet.protoMessageName + ".IGPBill"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_from_user_id"),
+    2: .standard(proto: "IGP_order_id"),
+    3: .standard(proto: "IGP_my_token"),
+    4: .standard(proto: "IGP_token"),
+    5: .standard(proto: "IGP_amount"),
+    6: .standard(proto: "IGP_pay_id"),
+    7: .standard(proto: "IGP_bill_id"),
+    8: .standard(proto: "IGP_bill_type"),
+    9: .standard(proto: "IGP_card_number"),
+    10: .standard(proto: "IGP_merchant_name"),
+    11: .standard(proto: "IGP_terminal_no"),
+    12: .standard(proto: "IGP_rrn"),
+    13: .standard(proto: "IGP_trace_number"),
+    14: .standard(proto: "IGP_request_time"),
+    15: .standard(proto: "IGP_status"),
+    16: .standard(proto: "IGP_status_description"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt64Field(value: &self.igpFromUserID)
+      case 2: try decoder.decodeSingularInt64Field(value: &self.igpOrderID)
+      case 3: try decoder.decodeSingularStringField(value: &self.igpMyToken)
+      case 4: try decoder.decodeSingularInt64Field(value: &self.igpToken)
+      case 5: try decoder.decodeSingularInt64Field(value: &self.igpAmount)
+      case 6: try decoder.decodeSingularStringField(value: &self.igpPayID)
+      case 7: try decoder.decodeSingularStringField(value: &self.igpBillID)
+      case 8: try decoder.decodeSingularStringField(value: &self.igpBillType)
+      case 9: try decoder.decodeSingularStringField(value: &self.igpCardNumber)
+      case 10: try decoder.decodeSingularStringField(value: &self.igpMerchantName)
+      case 11: try decoder.decodeSingularInt64Field(value: &self.igpTerminalNo)
+      case 12: try decoder.decodeSingularInt64Field(value: &self.igpRrn)
+      case 13: try decoder.decodeSingularInt64Field(value: &self.igpTraceNumber)
+      case 14: try decoder.decodeSingularInt32Field(value: &self.igpRequestTime)
+      case 15: try decoder.decodeSingularBoolField(value: &self.igpStatus)
+      case 16: try decoder.decodeSingularStringField(value: &self.igpStatusDescription)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.igpFromUserID != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpFromUserID, fieldNumber: 1)
+    }
+    if self.igpOrderID != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpOrderID, fieldNumber: 2)
+    }
+    if !self.igpMyToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpMyToken, fieldNumber: 3)
+    }
+    if self.igpToken != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpToken, fieldNumber: 4)
+    }
+    if self.igpAmount != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpAmount, fieldNumber: 5)
+    }
+    if !self.igpPayID.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpPayID, fieldNumber: 6)
+    }
+    if !self.igpBillID.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpBillID, fieldNumber: 7)
+    }
+    if !self.igpBillType.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpBillType, fieldNumber: 8)
+    }
+    if !self.igpCardNumber.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpCardNumber, fieldNumber: 9)
+    }
+    if !self.igpMerchantName.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpMerchantName, fieldNumber: 10)
+    }
+    if self.igpTerminalNo != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpTerminalNo, fieldNumber: 11)
+    }
+    if self.igpRrn != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpRrn, fieldNumber: 12)
+    }
+    if self.igpTraceNumber != 0 {
+      try visitor.visitSingularInt64Field(value: self.igpTraceNumber, fieldNumber: 13)
+    }
+    if self.igpRequestTime != 0 {
+      try visitor.visitSingularInt32Field(value: self.igpRequestTime, fieldNumber: 14)
+    }
+    if self.igpStatus != false {
+      try visitor.visitSingularBoolField(value: self.igpStatus, fieldNumber: 15)
+    }
+    if !self.igpStatusDescription.isEmpty {
+      try visitor.visitSingularStringField(value: self.igpStatusDescription, fieldNumber: 16)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: IGPRoomMessageWallet.IGPBill, rhs: IGPRoomMessageWallet.IGPBill) -> Bool {
+    if lhs.igpFromUserID != rhs.igpFromUserID {return false}
+    if lhs.igpOrderID != rhs.igpOrderID {return false}
+    if lhs.igpMyToken != rhs.igpMyToken {return false}
+    if lhs.igpToken != rhs.igpToken {return false}
+    if lhs.igpAmount != rhs.igpAmount {return false}
+    if lhs.igpPayID != rhs.igpPayID {return false}
+    if lhs.igpBillID != rhs.igpBillID {return false}
+    if lhs.igpBillType != rhs.igpBillType {return false}
+    if lhs.igpCardNumber != rhs.igpCardNumber {return false}
+    if lhs.igpMerchantName != rhs.igpMerchantName {return false}
+    if lhs.igpTerminalNo != rhs.igpTerminalNo {return false}
+    if lhs.igpRrn != rhs.igpRrn {return false}
+    if lhs.igpTraceNumber != rhs.igpTraceNumber {return false}
+    if lhs.igpRequestTime != rhs.igpRequestTime {return false}
+    if lhs.igpStatus != rhs.igpStatus {return false}
+    if lhs.igpStatusDescription != rhs.igpStatusDescription {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -5564,6 +5997,10 @@ extension IGPDiscoveryField.IGPButtonActionType: SwiftProtobuf._ProtoNameProvidi
     37: .same(proto: "INVITE_FRIEND"),
     38: .same(proto: "NEWS"),
     39: .same(proto: "ELECTRIC_BILL_MENU"),
+    40: .same(proto: "BLOCKCHAIN"),
+    41: .same(proto: "PARSLAND"),
+    42: .same(proto: "POLL_RESULT"),
+    43: .same(proto: "VIRTUAL_GIFT_CARD"),
   ]
 }
 
