@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D67C1E8A23461BB10004EFD0 /* InfoUpdate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C1E8923461BB10004EFD0 /* InfoUpdate.pb.swift */; };
 		D67C1E8C23461BF40004EFD0 /* UserRefreshToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C1E8B23461BF40004EFD0 /* UserRefreshToken.pb.swift */; };
+		D6FC157E243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC157C243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift */; };
+		D6FC157F243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FC157D243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift */; };
 		FA2A506D20ECDA75002C5322 /* WalletRegister.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A506A20ECDA74002C5322 /* WalletRegister.pb.swift */; };
 		FA2A506E20ECDA75002C5322 /* BillInquiryMci.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A506B20ECDA74002C5322 /* BillInquiryMci.pb.swift */; };
 		FA2A506F20ECDA75002C5322 /* BillInquiryTelecom.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */; };
@@ -222,6 +224,8 @@
 /* Begin PBXFileReference section */
 		D67C1E8923461BB10004EFD0 /* InfoUpdate.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUpdate.pb.swift; sourceTree = "<group>"; };
 		D67C1E8B23461BF40004EFD0 /* UserRefreshToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRefreshToken.pb.swift; sourceTree = "<group>"; };
+		D6FC157C243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileGetNationalCode.pb.swift; sourceTree = "<group>"; };
+		D6FC157D243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileSetNationalCode.pb.swift; sourceTree = "<group>"; };
 		FA2A506A20ECDA74002C5322 /* WalletRegister.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRegister.pb.swift; sourceTree = "<group>"; };
 		FA2A506B20ECDA74002C5322 /* BillInquiryMci.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInquiryMci.pb.swift; sourceTree = "<group>"; };
 		FA2A506C20ECDA75002C5322 /* BillInquiryTelecom.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillInquiryTelecom.pb.swift; sourceTree = "<group>"; };
@@ -449,6 +453,8 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				D6FC157C243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift */,
+				D6FC157D243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift */,
 				D67C1E8B23461BF40004EFD0 /* UserRefreshToken.pb.swift */,
 				D67C1E8923461BB10004EFD0 /* InfoUpdate.pb.swift */,
 				FA6D4D4F23094FC600D7539F /* MplTransactionInfo.pb.swift */,
@@ -777,6 +783,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6FC157E243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift in Sources */,
+				D6FC157F243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift in Sources */,
 				D67C1E8C23461BF40004EFD0 /* UserRefreshToken.pb.swift in Sources */,
 				D67C1E8A23461BB10004EFD0 /* InfoUpdate.pb.swift in Sources */,
 				FA6D4D5123094FC600D7539F /* MplTransactionInfo.pb.swift in Sources */,

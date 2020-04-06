@@ -83,6 +83,11 @@ public struct IGPUserLogin: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpLanguage = newValue}
   }
 
+  public var igpSymmetricKey: Data {
+    get {return _storage._igpSymmetricKey}
+    set {_uniqueStorage()._igpSymmetricKey = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -149,6 +154,11 @@ public struct IGPUserLoginResponse: SwiftProtobuf.ResponseMessage {
     set {_uniqueStorage()._igpContactHash = newValue}
   }
 
+  public var igpRole: Int32 {
+    get {return _storage._igpRole}
+    set {_uniqueStorage()._igpRole = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -172,6 +182,7 @@ extension IGPUserLogin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     9: .standard(proto: "IGP_device"),
     10: .standard(proto: "IGP_device_name"),
     11: .standard(proto: "IGP_language"),
+    12: .standard(proto: "IGP_symmetric_key"),
   ]
 
   fileprivate class _StorageClass {
@@ -186,6 +197,7 @@ extension IGPUserLogin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     var _igpDevice: IGPDevice = .unknownDevice
     var _igpDeviceName: String = String()
     var _igpLanguage: IGPLanguage = .enUs
+    var _igpSymmetricKey: Data = SwiftProtobuf.Internal.emptyData
 
     static let defaultInstance = _StorageClass()
 
@@ -203,6 +215,7 @@ extension IGPUserLogin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
       _igpDevice = source._igpDevice
       _igpDeviceName = source._igpDeviceName
       _igpLanguage = source._igpLanguage
+      _igpSymmetricKey = source._igpSymmetricKey
     }
   }
 
@@ -229,6 +242,7 @@ extension IGPUserLogin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
         case 9: try decoder.decodeSingularEnumField(value: &_storage._igpDevice)
         case 10: try decoder.decodeSingularStringField(value: &_storage._igpDeviceName)
         case 11: try decoder.decodeSingularEnumField(value: &_storage._igpLanguage)
+        case 12: try decoder.decodeSingularBytesField(value: &_storage._igpSymmetricKey)
         default: break
         }
       }
@@ -270,6 +284,9 @@ extension IGPUserLogin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
       if _storage._igpLanguage != .enUs {
         try visitor.visitSingularEnumField(value: _storage._igpLanguage, fieldNumber: 11)
       }
+      if !_storage._igpSymmetricKey.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._igpSymmetricKey, fieldNumber: 12)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -290,6 +307,7 @@ extension IGPUserLogin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
         if _storage._igpDevice != rhs_storage._igpDevice {return false}
         if _storage._igpDeviceName != rhs_storage._igpDeviceName {return false}
         if _storage._igpLanguage != rhs_storage._igpLanguage {return false}
+        if _storage._igpSymmetricKey != rhs_storage._igpSymmetricKey {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -312,6 +330,7 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
     8: .standard(proto: "IGP_wallet_agreement_accepted"),
     9: .standard(proto: "IGP_access_token"),
     10: .standard(proto: "IGP_contact_hash"),
+    11: .standard(proto: "IGP_role"),
   ]
 
   fileprivate class _StorageClass {
@@ -325,6 +344,7 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
     var _igpWalletAgreementAccepted: Bool = false
     var _igpAccessToken: String = String()
     var _igpContactHash: String = String()
+    var _igpRole: Int32 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -341,6 +361,7 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
       _igpWalletAgreementAccepted = source._igpWalletAgreementAccepted
       _igpAccessToken = source._igpAccessToken
       _igpContactHash = source._igpContactHash
+      _igpRole = source._igpRole
     }
   }
 
@@ -366,6 +387,7 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
         case 8: try decoder.decodeSingularBoolField(value: &_storage._igpWalletAgreementAccepted)
         case 9: try decoder.decodeSingularStringField(value: &_storage._igpAccessToken)
         case 10: try decoder.decodeSingularStringField(value: &_storage._igpContactHash)
+        case 11: try decoder.decodeSingularInt32Field(value: &_storage._igpRole)
         default: break
         }
       }
@@ -404,6 +426,9 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
       if !_storage._igpContactHash.isEmpty {
         try visitor.visitSingularStringField(value: _storage._igpContactHash, fieldNumber: 10)
       }
+      if _storage._igpRole != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._igpRole, fieldNumber: 11)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -423,6 +448,7 @@ extension IGPUserLoginResponse: SwiftProtobuf._MessageImplementationBase, SwiftP
         if _storage._igpWalletAgreementAccepted != rhs_storage._igpWalletAgreementAccepted {return false}
         if _storage._igpAccessToken != rhs_storage._igpAccessToken {return false}
         if _storage._igpContactHash != rhs_storage._igpContactHash {return false}
+        if _storage._igpRole != rhs_storage._igpRole {return false}
         return true
       }
       if !storagesAreEqual {return false}
