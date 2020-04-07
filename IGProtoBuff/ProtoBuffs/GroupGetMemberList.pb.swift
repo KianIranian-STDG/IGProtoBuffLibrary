@@ -133,13 +133,30 @@ public struct IGPGroupGetMemberListResponse: SwiftProtobuf.ResponseMessage {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var igpUserID: Int64 = 0
+    public var igpUserID: Int64 {
+      get {return _storage._igpUserID}
+      set {_uniqueStorage()._igpUserID = newValue}
+    }
 
-    public var igpRole: IGPGroupRoom.IGPRole = .member
+    public var igpRole: IGPGroupRoom.IGPRole {
+      get {return _storage._igpRole}
+      set {_uniqueStorage()._igpRole = newValue}
+    }
+
+    public var igpPermission: IGPRoomAccess {
+      get {return _storage._igpPermission ?? IGPRoomAccess()}
+      set {_uniqueStorage()._igpPermission = newValue}
+    }
+    /// Returns true if `igpPermission` has been explicitly set.
+    public var hasIgpPermission: Bool {return _storage._igpPermission != nil}
+    /// Clears the value of `igpPermission`. Subsequent reads from it will return its default value.
+    public mutating func clearIgpPermission() {_uniqueStorage()._igpPermission = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
+
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   public init() {}
@@ -317,31 +334,73 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_userId"),
     2: .standard(proto: "IGP_role"),
+    3: .standard(proto: "IGP_permission"),
   ]
 
+  fileprivate class _StorageClass {
+    var _igpUserID: Int64 = 0
+    var _igpRole: IGPGroupRoom.IGPRole = .member
+    var _igpPermission: IGPRoomAccess? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _igpUserID = source._igpUserID
+      _igpRole = source._igpRole
+      _igpPermission = source._igpPermission
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &self.igpUserID)
-      case 2: try decoder.decodeSingularEnumField(value: &self.igpRole)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt64Field(value: &_storage._igpUserID)
+        case 2: try decoder.decodeSingularEnumField(value: &_storage._igpRole)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._igpPermission)
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.igpUserID != 0 {
-      try visitor.visitSingularInt64Field(value: self.igpUserID, fieldNumber: 1)
-    }
-    if self.igpRole != .member {
-      try visitor.visitSingularEnumField(value: self.igpRole, fieldNumber: 2)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._igpUserID != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._igpUserID, fieldNumber: 1)
+      }
+      if _storage._igpRole != .member {
+        try visitor.visitSingularEnumField(value: _storage._igpRole, fieldNumber: 2)
+      }
+      if let v = _storage._igpPermission {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: IGPGroupGetMemberListResponse.IGPMember, rhs: IGPGroupGetMemberListResponse.IGPMember) -> Bool {
-    if lhs.igpUserID != rhs.igpUserID {return false}
-    if lhs.igpRole != rhs.igpRole {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._igpUserID != rhs_storage._igpUserID {return false}
+        if _storage._igpRole != rhs_storage._igpRole {return false}
+        if _storage._igpPermission != rhs_storage._igpPermission {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
