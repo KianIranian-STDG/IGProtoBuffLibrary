@@ -2363,32 +2363,85 @@ public struct IGPFile: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+public struct IGPPostMessageRights: SwiftProtobuf.Message {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var igpSendText: Bool = false
+
+  public var igpSendMedia: Bool = false
+
+  public var igpSendGif: Bool = false
+
+  public var igpSendSticker: Bool = false
+
+  public var igpSendLink: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 public struct IGPRoomAccess: SwiftProtobuf.Message {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var igpModifyRoom: Bool = false
+  public var igpModifyRoom: Bool {
+    get {return _storage._igpModifyRoom}
+    set {_uniqueStorage()._igpModifyRoom = newValue}
+  }
 
-  public var igpPostMessage: Bool = false
+  public var igpPostMessage: IGPPostMessageRights {
+    get {return _storage._igpPostMessage ?? IGPPostMessageRights()}
+    set {_uniqueStorage()._igpPostMessage = newValue}
+  }
+  /// Returns true if `igpPostMessage` has been explicitly set.
+  public var hasIgpPostMessage: Bool {return _storage._igpPostMessage != nil}
+  /// Clears the value of `igpPostMessage`. Subsequent reads from it will return its default value.
+  public mutating func clearIgpPostMessage() {_uniqueStorage()._igpPostMessage = nil}
 
-  public var igpEditMessage: Bool = false
+  public var igpEditMessage: Bool {
+    get {return _storage._igpEditMessage}
+    set {_uniqueStorage()._igpEditMessage = newValue}
+  }
 
-  public var igpDeleteMessage: Bool = false
+  public var igpDeleteMessage: Bool {
+    get {return _storage._igpDeleteMessage}
+    set {_uniqueStorage()._igpDeleteMessage = newValue}
+  }
 
-  public var igpPinMessage: Bool = false
+  public var igpPinMessage: Bool {
+    get {return _storage._igpPinMessage}
+    set {_uniqueStorage()._igpPinMessage = newValue}
+  }
 
-  public var igpAddMember: Bool = false
+  public var igpAddMember: Bool {
+    get {return _storage._igpAddMember}
+    set {_uniqueStorage()._igpAddMember = newValue}
+  }
 
-  public var igpBanMember: Bool = false
+  public var igpBanMember: Bool {
+    get {return _storage._igpBanMember}
+    set {_uniqueStorage()._igpBanMember = newValue}
+  }
 
-  public var igpGetMember: Bool = false
+  public var igpGetMember: Bool {
+    get {return _storage._igpGetMember}
+    set {_uniqueStorage()._igpGetMember = newValue}
+  }
 
-  public var igpAddAdmin: Bool = false
+  public var igpAddAdmin: Bool {
+    get {return _storage._igpAddAdmin}
+    set {_uniqueStorage()._igpAddAdmin = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct IGPWallpaper: SwiftProtobuf.Message {
@@ -5783,6 +5836,59 @@ extension IGPFile: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._Prot
   }
 }
 
+extension IGPPostMessageRights: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPPostMessageRights"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_send_text"),
+    3: .standard(proto: "IGP_send_media"),
+    4: .standard(proto: "IGP_send_gif"),
+    5: .standard(proto: "IGP_send_sticker"),
+    6: .standard(proto: "IGP_send_link"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularBoolField(value: &self.igpSendText)
+      case 3: try decoder.decodeSingularBoolField(value: &self.igpSendMedia)
+      case 4: try decoder.decodeSingularBoolField(value: &self.igpSendGif)
+      case 5: try decoder.decodeSingularBoolField(value: &self.igpSendSticker)
+      case 6: try decoder.decodeSingularBoolField(value: &self.igpSendLink)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.igpSendText != false {
+      try visitor.visitSingularBoolField(value: self.igpSendText, fieldNumber: 1)
+    }
+    if self.igpSendMedia != false {
+      try visitor.visitSingularBoolField(value: self.igpSendMedia, fieldNumber: 3)
+    }
+    if self.igpSendGif != false {
+      try visitor.visitSingularBoolField(value: self.igpSendGif, fieldNumber: 4)
+    }
+    if self.igpSendSticker != false {
+      try visitor.visitSingularBoolField(value: self.igpSendSticker, fieldNumber: 5)
+    }
+    if self.igpSendLink != false {
+      try visitor.visitSingularBoolField(value: self.igpSendLink, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: IGPPostMessageRights, rhs: IGPPostMessageRights) -> Bool {
+    if lhs.igpSendText != rhs.igpSendText {return false}
+    if lhs.igpSendMedia != rhs.igpSendMedia {return false}
+    if lhs.igpSendGif != rhs.igpSendGif {return false}
+    if lhs.igpSendSticker != rhs.igpSendSticker {return false}
+    if lhs.igpSendLink != rhs.igpSendLink {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension IGPRoomAccess: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "IGPRoomAccess"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -5797,64 +5903,112 @@ extension IGPRoomAccess: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
     9: .standard(proto: "IGP_add_admin"),
   ]
 
+  fileprivate class _StorageClass {
+    var _igpModifyRoom: Bool = false
+    var _igpPostMessage: IGPPostMessageRights? = nil
+    var _igpEditMessage: Bool = false
+    var _igpDeleteMessage: Bool = false
+    var _igpPinMessage: Bool = false
+    var _igpAddMember: Bool = false
+    var _igpBanMember: Bool = false
+    var _igpGetMember: Bool = false
+    var _igpAddAdmin: Bool = false
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _igpModifyRoom = source._igpModifyRoom
+      _igpPostMessage = source._igpPostMessage
+      _igpEditMessage = source._igpEditMessage
+      _igpDeleteMessage = source._igpDeleteMessage
+      _igpPinMessage = source._igpPinMessage
+      _igpAddMember = source._igpAddMember
+      _igpBanMember = source._igpBanMember
+      _igpGetMember = source._igpGetMember
+      _igpAddAdmin = source._igpAddAdmin
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularBoolField(value: &self.igpModifyRoom)
-      case 2: try decoder.decodeSingularBoolField(value: &self.igpPostMessage)
-      case 3: try decoder.decodeSingularBoolField(value: &self.igpEditMessage)
-      case 4: try decoder.decodeSingularBoolField(value: &self.igpDeleteMessage)
-      case 5: try decoder.decodeSingularBoolField(value: &self.igpPinMessage)
-      case 6: try decoder.decodeSingularBoolField(value: &self.igpAddMember)
-      case 7: try decoder.decodeSingularBoolField(value: &self.igpBanMember)
-      case 8: try decoder.decodeSingularBoolField(value: &self.igpGetMember)
-      case 9: try decoder.decodeSingularBoolField(value: &self.igpAddAdmin)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularBoolField(value: &_storage._igpModifyRoom)
+        case 2: try decoder.decodeSingularMessageField(value: &_storage._igpPostMessage)
+        case 3: try decoder.decodeSingularBoolField(value: &_storage._igpEditMessage)
+        case 4: try decoder.decodeSingularBoolField(value: &_storage._igpDeleteMessage)
+        case 5: try decoder.decodeSingularBoolField(value: &_storage._igpPinMessage)
+        case 6: try decoder.decodeSingularBoolField(value: &_storage._igpAddMember)
+        case 7: try decoder.decodeSingularBoolField(value: &_storage._igpBanMember)
+        case 8: try decoder.decodeSingularBoolField(value: &_storage._igpGetMember)
+        case 9: try decoder.decodeSingularBoolField(value: &_storage._igpAddAdmin)
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.igpModifyRoom != false {
-      try visitor.visitSingularBoolField(value: self.igpModifyRoom, fieldNumber: 1)
-    }
-    if self.igpPostMessage != false {
-      try visitor.visitSingularBoolField(value: self.igpPostMessage, fieldNumber: 2)
-    }
-    if self.igpEditMessage != false {
-      try visitor.visitSingularBoolField(value: self.igpEditMessage, fieldNumber: 3)
-    }
-    if self.igpDeleteMessage != false {
-      try visitor.visitSingularBoolField(value: self.igpDeleteMessage, fieldNumber: 4)
-    }
-    if self.igpPinMessage != false {
-      try visitor.visitSingularBoolField(value: self.igpPinMessage, fieldNumber: 5)
-    }
-    if self.igpAddMember != false {
-      try visitor.visitSingularBoolField(value: self.igpAddMember, fieldNumber: 6)
-    }
-    if self.igpBanMember != false {
-      try visitor.visitSingularBoolField(value: self.igpBanMember, fieldNumber: 7)
-    }
-    if self.igpGetMember != false {
-      try visitor.visitSingularBoolField(value: self.igpGetMember, fieldNumber: 8)
-    }
-    if self.igpAddAdmin != false {
-      try visitor.visitSingularBoolField(value: self.igpAddAdmin, fieldNumber: 9)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._igpModifyRoom != false {
+        try visitor.visitSingularBoolField(value: _storage._igpModifyRoom, fieldNumber: 1)
+      }
+      if let v = _storage._igpPostMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if _storage._igpEditMessage != false {
+        try visitor.visitSingularBoolField(value: _storage._igpEditMessage, fieldNumber: 3)
+      }
+      if _storage._igpDeleteMessage != false {
+        try visitor.visitSingularBoolField(value: _storage._igpDeleteMessage, fieldNumber: 4)
+      }
+      if _storage._igpPinMessage != false {
+        try visitor.visitSingularBoolField(value: _storage._igpPinMessage, fieldNumber: 5)
+      }
+      if _storage._igpAddMember != false {
+        try visitor.visitSingularBoolField(value: _storage._igpAddMember, fieldNumber: 6)
+      }
+      if _storage._igpBanMember != false {
+        try visitor.visitSingularBoolField(value: _storage._igpBanMember, fieldNumber: 7)
+      }
+      if _storage._igpGetMember != false {
+        try visitor.visitSingularBoolField(value: _storage._igpGetMember, fieldNumber: 8)
+      }
+      if _storage._igpAddAdmin != false {
+        try visitor.visitSingularBoolField(value: _storage._igpAddAdmin, fieldNumber: 9)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: IGPRoomAccess, rhs: IGPRoomAccess) -> Bool {
-    if lhs.igpModifyRoom != rhs.igpModifyRoom {return false}
-    if lhs.igpPostMessage != rhs.igpPostMessage {return false}
-    if lhs.igpEditMessage != rhs.igpEditMessage {return false}
-    if lhs.igpDeleteMessage != rhs.igpDeleteMessage {return false}
-    if lhs.igpPinMessage != rhs.igpPinMessage {return false}
-    if lhs.igpAddMember != rhs.igpAddMember {return false}
-    if lhs.igpBanMember != rhs.igpBanMember {return false}
-    if lhs.igpGetMember != rhs.igpGetMember {return false}
-    if lhs.igpAddAdmin != rhs.igpAddAdmin {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._igpModifyRoom != rhs_storage._igpModifyRoom {return false}
+        if _storage._igpPostMessage != rhs_storage._igpPostMessage {return false}
+        if _storage._igpEditMessage != rhs_storage._igpEditMessage {return false}
+        if _storage._igpDeleteMessage != rhs_storage._igpDeleteMessage {return false}
+        if _storage._igpPinMessage != rhs_storage._igpPinMessage {return false}
+        if _storage._igpAddMember != rhs_storage._igpAddMember {return false}
+        if _storage._igpBanMember != rhs_storage._igpBanMember {return false}
+        if _storage._igpGetMember != rhs_storage._igpGetMember {return false}
+        if _storage._igpAddAdmin != rhs_storage._igpAddAdmin {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

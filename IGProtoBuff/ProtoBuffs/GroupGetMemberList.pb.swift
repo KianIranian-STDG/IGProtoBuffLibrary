@@ -143,14 +143,23 @@ public struct IGPGroupGetMemberListResponse: SwiftProtobuf.ResponseMessage {
       set {_uniqueStorage()._igpRole = newValue}
     }
 
-    public var igpPermission: IGPRoomAccess {
-      get {return _storage._igpPermission ?? IGPRoomAccess()}
-      set {_uniqueStorage()._igpPermission = newValue}
+    public var igpAdminRights: IGPGroupAddAdmin.IGPAdminRights {
+      get {return _storage._igpAdminRights ?? IGPGroupAddAdmin.IGPAdminRights()}
+      set {_uniqueStorage()._igpAdminRights = newValue}
     }
-    /// Returns true if `igpPermission` has been explicitly set.
-    public var hasIgpPermission: Bool {return _storage._igpPermission != nil}
-    /// Clears the value of `igpPermission`. Subsequent reads from it will return its default value.
-    public mutating func clearIgpPermission() {_uniqueStorage()._igpPermission = nil}
+    /// Returns true if `igpAdminRights` has been explicitly set.
+    public var hasIgpAdminRights: Bool {return _storage._igpAdminRights != nil}
+    /// Clears the value of `igpAdminRights`. Subsequent reads from it will return its default value.
+    public mutating func clearIgpAdminRights() {_uniqueStorage()._igpAdminRights = nil}
+
+    public var igpMemberRights: IGPGroupChangeMemberRights.IGPMemberRights {
+      get {return _storage._igpMemberRights ?? IGPGroupChangeMemberRights.IGPMemberRights()}
+      set {_uniqueStorage()._igpMemberRights = newValue}
+    }
+    /// Returns true if `igpMemberRights` has been explicitly set.
+    public var hasIgpMemberRights: Bool {return _storage._igpMemberRights != nil}
+    /// Clears the value of `igpMemberRights`. Subsequent reads from it will return its default value.
+    public mutating func clearIgpMemberRights() {_uniqueStorage()._igpMemberRights = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -334,13 +343,15 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_userId"),
     2: .standard(proto: "IGP_role"),
-    3: .standard(proto: "IGP_permission"),
+    3: .standard(proto: "IGP_adminRights"),
+    4: .standard(proto: "IGP_memberRights"),
   ]
 
   fileprivate class _StorageClass {
     var _igpUserID: Int64 = 0
     var _igpRole: IGPGroupRoom.IGPRole = .member
-    var _igpPermission: IGPRoomAccess? = nil
+    var _igpAdminRights: IGPGroupAddAdmin.IGPAdminRights? = nil
+    var _igpMemberRights: IGPGroupChangeMemberRights.IGPMemberRights? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -349,7 +360,8 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
     init(copying source: _StorageClass) {
       _igpUserID = source._igpUserID
       _igpRole = source._igpRole
-      _igpPermission = source._igpPermission
+      _igpAdminRights = source._igpAdminRights
+      _igpMemberRights = source._igpMemberRights
     }
   }
 
@@ -367,7 +379,8 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._igpUserID)
         case 2: try decoder.decodeSingularEnumField(value: &_storage._igpRole)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._igpPermission)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._igpAdminRights)
+        case 4: try decoder.decodeSingularMessageField(value: &_storage._igpMemberRights)
         default: break
         }
       }
@@ -382,8 +395,11 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
       if _storage._igpRole != .member {
         try visitor.visitSingularEnumField(value: _storage._igpRole, fieldNumber: 2)
       }
-      if let v = _storage._igpPermission {
+      if let v = _storage._igpAdminRights {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if let v = _storage._igpMemberRights {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -396,7 +412,8 @@ extension IGPGroupGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImpleme
         let rhs_storage = _args.1
         if _storage._igpUserID != rhs_storage._igpUserID {return false}
         if _storage._igpRole != rhs_storage._igpRole {return false}
-        if _storage._igpPermission != rhs_storage._igpPermission {return false}
+        if _storage._igpAdminRights != rhs_storage._igpAdminRights {return false}
+        if _storage._igpMemberRights != rhs_storage._igpMemberRights {return false}
         return true
       }
       if !storagesAreEqual {return false}

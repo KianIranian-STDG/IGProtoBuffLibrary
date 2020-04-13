@@ -43,8 +43,8 @@ public struct IGPGroupAddAdmin: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpMemberID = newValue}
   }
 
-  public var igpPermission: IGPRoomAccess {
-    get {return _storage._igpPermission ?? IGPRoomAccess()}
+  public var igpPermission: IGPGroupAddAdmin.IGPAdminRights {
+    get {return _storage._igpPermission ?? IGPGroupAddAdmin.IGPAdminRights()}
     set {_uniqueStorage()._igpPermission = newValue}
   }
   /// Returns true if `igpPermission` has been explicitly set.
@@ -53,6 +53,30 @@ public struct IGPGroupAddAdmin: SwiftProtobuf.RequestMessage {
   public mutating func clearIgpPermission() {_uniqueStorage()._igpPermission = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public struct IGPAdminRights: SwiftProtobuf.Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    public var igpModifyRoom: Bool = false
+
+    public var igpDeleteMessage: Bool = false
+
+    public var igpPinMessage: Bool = false
+
+    public var igpAddMember: Bool = false
+
+    public var igpBanMember: Bool = false
+
+    public var igpGetMember: Bool = false
+
+    public var igpAddAdmin: Bool = false
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+  }
 
   public init() {}
 
@@ -83,8 +107,8 @@ public struct IGPGroupAddAdminResponse: SwiftProtobuf.ResponseMessage {
     set {_uniqueStorage()._igpMemberID = newValue}
   }
 
-  public var igpPermission: IGPRoomAccess {
-    get {return _storage._igpPermission ?? IGPRoomAccess()}
+  public var igpPermission: IGPGroupAddAdmin.IGPAdminRights {
+    get {return _storage._igpPermission ?? IGPGroupAddAdmin.IGPAdminRights()}
     set {_uniqueStorage()._igpPermission = newValue}
   }
   /// Returns true if `igpPermission` has been explicitly set.
@@ -114,7 +138,7 @@ extension IGPGroupAddAdmin: SwiftProtobuf._MessageImplementationBase, SwiftProto
     var _igpRequest: IGPRequest? = nil
     var _igpRoomID: Int64 = 0
     var _igpMemberID: Int64 = 0
-    var _igpPermission: IGPRoomAccess? = nil
+    var _igpPermission: IGPGroupAddAdmin.IGPAdminRights? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -186,6 +210,71 @@ extension IGPGroupAddAdmin: SwiftProtobuf._MessageImplementationBase, SwiftProto
   }
 }
 
+extension IGPGroupAddAdmin.IGPAdminRights: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = IGPGroupAddAdmin.protoMessageName + ".IGPAdminRights"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "IGP_modify_room"),
+    2: .standard(proto: "IGP_delete_message"),
+    3: .standard(proto: "IGP_pin_message"),
+    4: .standard(proto: "IGP_add_member"),
+    5: .standard(proto: "IGP_ban_member"),
+    6: .standard(proto: "IGP_get_member"),
+    7: .standard(proto: "IGP_add_admin"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularBoolField(value: &self.igpModifyRoom)
+      case 2: try decoder.decodeSingularBoolField(value: &self.igpDeleteMessage)
+      case 3: try decoder.decodeSingularBoolField(value: &self.igpPinMessage)
+      case 4: try decoder.decodeSingularBoolField(value: &self.igpAddMember)
+      case 5: try decoder.decodeSingularBoolField(value: &self.igpBanMember)
+      case 6: try decoder.decodeSingularBoolField(value: &self.igpGetMember)
+      case 7: try decoder.decodeSingularBoolField(value: &self.igpAddAdmin)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.igpModifyRoom != false {
+      try visitor.visitSingularBoolField(value: self.igpModifyRoom, fieldNumber: 1)
+    }
+    if self.igpDeleteMessage != false {
+      try visitor.visitSingularBoolField(value: self.igpDeleteMessage, fieldNumber: 2)
+    }
+    if self.igpPinMessage != false {
+      try visitor.visitSingularBoolField(value: self.igpPinMessage, fieldNumber: 3)
+    }
+    if self.igpAddMember != false {
+      try visitor.visitSingularBoolField(value: self.igpAddMember, fieldNumber: 4)
+    }
+    if self.igpBanMember != false {
+      try visitor.visitSingularBoolField(value: self.igpBanMember, fieldNumber: 5)
+    }
+    if self.igpGetMember != false {
+      try visitor.visitSingularBoolField(value: self.igpGetMember, fieldNumber: 6)
+    }
+    if self.igpAddAdmin != false {
+      try visitor.visitSingularBoolField(value: self.igpAddAdmin, fieldNumber: 7)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: IGPGroupAddAdmin.IGPAdminRights, rhs: IGPGroupAddAdmin.IGPAdminRights) -> Bool {
+    if lhs.igpModifyRoom != rhs.igpModifyRoom {return false}
+    if lhs.igpDeleteMessage != rhs.igpDeleteMessage {return false}
+    if lhs.igpPinMessage != rhs.igpPinMessage {return false}
+    if lhs.igpAddMember != rhs.igpAddMember {return false}
+    if lhs.igpBanMember != rhs.igpBanMember {return false}
+    if lhs.igpGetMember != rhs.igpGetMember {return false}
+    if lhs.igpAddAdmin != rhs.igpAddAdmin {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension IGPGroupAddAdminResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "IGPGroupAddAdminResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -199,7 +288,7 @@ extension IGPGroupAddAdminResponse: SwiftProtobuf._MessageImplementationBase, Sw
     var _igpResponse: IGPResponse? = nil
     var _igpRoomID: Int64 = 0
     var _igpMemberID: Int64 = 0
-    var _igpPermission: IGPRoomAccess? = nil
+    var _igpPermission: IGPGroupAddAdmin.IGPAdminRights? = nil
 
     static let defaultInstance = _StorageClass()
 

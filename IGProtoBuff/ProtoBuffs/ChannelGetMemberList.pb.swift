@@ -143,14 +143,14 @@ public struct IGPChannelGetMemberListResponse: SwiftProtobuf.ResponseMessage {
       set {_uniqueStorage()._igpRole = newValue}
     }
 
-    public var igpPermission: IGPRoomAccess {
-      get {return _storage._igpPermission ?? IGPRoomAccess()}
-      set {_uniqueStorage()._igpPermission = newValue}
+    public var igpAdminRights: IGPChannelAddAdmin.IGPAdminRights {
+      get {return _storage._igpAdminRights ?? IGPChannelAddAdmin.IGPAdminRights()}
+      set {_uniqueStorage()._igpAdminRights = newValue}
     }
-    /// Returns true if `igpPermission` has been explicitly set.
-    public var hasIgpPermission: Bool {return _storage._igpPermission != nil}
-    /// Clears the value of `igpPermission`. Subsequent reads from it will return its default value.
-    public mutating func clearIgpPermission() {_uniqueStorage()._igpPermission = nil}
+    /// Returns true if `igpAdminRights` has been explicitly set.
+    public var hasIgpAdminRights: Bool {return _storage._igpAdminRights != nil}
+    /// Clears the value of `igpAdminRights`. Subsequent reads from it will return its default value.
+    public mutating func clearIgpAdminRights() {_uniqueStorage()._igpAdminRights = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -334,13 +334,13 @@ extension IGPChannelGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImple
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_userId"),
     2: .standard(proto: "IGP_role"),
-    3: .standard(proto: "IGP_permission"),
+    3: .standard(proto: "IGP_adminRights"),
   ]
 
   fileprivate class _StorageClass {
     var _igpUserID: Int64 = 0
     var _igpRole: IGPChannelRoom.IGPRole = .member
-    var _igpPermission: IGPRoomAccess? = nil
+    var _igpAdminRights: IGPChannelAddAdmin.IGPAdminRights? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -349,7 +349,7 @@ extension IGPChannelGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImple
     init(copying source: _StorageClass) {
       _igpUserID = source._igpUserID
       _igpRole = source._igpRole
-      _igpPermission = source._igpPermission
+      _igpAdminRights = source._igpAdminRights
     }
   }
 
@@ -367,7 +367,7 @@ extension IGPChannelGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImple
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._igpUserID)
         case 2: try decoder.decodeSingularEnumField(value: &_storage._igpRole)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._igpPermission)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._igpAdminRights)
         default: break
         }
       }
@@ -382,7 +382,7 @@ extension IGPChannelGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImple
       if _storage._igpRole != .member {
         try visitor.visitSingularEnumField(value: _storage._igpRole, fieldNumber: 2)
       }
-      if let v = _storage._igpPermission {
+      if let v = _storage._igpAdminRights {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
     }
@@ -396,7 +396,7 @@ extension IGPChannelGetMemberListResponse.IGPMember: SwiftProtobuf._MessageImple
         let rhs_storage = _args.1
         if _storage._igpUserID != rhs_storage._igpUserID {return false}
         if _storage._igpRole != rhs_storage._igpRole {return false}
-        if _storage._igpPermission != rhs_storage._igpPermission {return false}
+        if _storage._igpAdminRights != rhs_storage._igpAdminRights {return false}
         return true
       }
       if !storagesAreEqual {return false}
