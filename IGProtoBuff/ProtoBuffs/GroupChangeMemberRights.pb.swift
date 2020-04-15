@@ -85,7 +85,7 @@ public struct IGPGroupChangeMemberRights: SwiftProtobuf.RequestMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-public struct IGPGroupChangeMemberRoleResponse: SwiftProtobuf.ResponseMessage {
+public struct IGPGroupChangeMemberRightsResponse: SwiftProtobuf.ResponseMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -283,8 +283,8 @@ extension IGPGroupChangeMemberRights.IGPMemberRights: SwiftProtobuf._MessageImpl
   }
 }
 
-extension IGPGroupChangeMemberRoleResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "IGPGroupChangeMemberRoleResponse"
+extension IGPGroupChangeMemberRightsResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = "IGPGroupChangeMemberRightsResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_response"),
     2: .standard(proto: "IGP_room_id"),
@@ -350,7 +350,7 @@ extension IGPGroupChangeMemberRoleResponse: SwiftProtobuf._MessageImplementation
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: IGPGroupChangeMemberRoleResponse, rhs: IGPGroupChangeMemberRoleResponse) -> Bool {
+  public static func ==(lhs: IGPGroupChangeMemberRightsResponse, rhs: IGPGroupChangeMemberRightsResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

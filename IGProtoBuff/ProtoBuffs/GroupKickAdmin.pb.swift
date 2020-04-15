@@ -74,6 +74,15 @@ public struct IGPGroupKickAdminResponse: SwiftProtobuf.ResponseMessage {
     set {_uniqueStorage()._igpMemberID = newValue}
   }
 
+  public var igpPermission: IGPGroupChangeMemberRights.IGPMemberRights {
+    get {return _storage._igpPermission ?? IGPGroupChangeMemberRights.IGPMemberRights()}
+    set {_uniqueStorage()._igpPermission = newValue}
+  }
+  /// Returns true if `igpPermission` has been explicitly set.
+  public var hasIgpPermission: Bool {return _storage._igpPermission != nil}
+  /// Clears the value of `igpPermission`. Subsequent reads from it will return its default value.
+  public mutating func clearIgpPermission() {_uniqueStorage()._igpPermission = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -166,12 +175,14 @@ extension IGPGroupKickAdminResponse: SwiftProtobuf._MessageImplementationBase, S
     1: .standard(proto: "IGP_response"),
     2: .standard(proto: "IGP_room_id"),
     3: .standard(proto: "IGP_member_id"),
+    4: .standard(proto: "IGP_permission"),
   ]
 
   fileprivate class _StorageClass {
     var _igpResponse: IGPResponse? = nil
     var _igpRoomID: Int64 = 0
     var _igpMemberID: Int64 = 0
+    var _igpPermission: IGPGroupChangeMemberRights.IGPMemberRights? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -181,6 +192,7 @@ extension IGPGroupKickAdminResponse: SwiftProtobuf._MessageImplementationBase, S
       _igpResponse = source._igpResponse
       _igpRoomID = source._igpRoomID
       _igpMemberID = source._igpMemberID
+      _igpPermission = source._igpPermission
     }
   }
 
@@ -199,6 +211,7 @@ extension IGPGroupKickAdminResponse: SwiftProtobuf._MessageImplementationBase, S
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpResponse)
         case 2: try decoder.decodeSingularInt64Field(value: &_storage._igpRoomID)
         case 3: try decoder.decodeSingularInt64Field(value: &_storage._igpMemberID)
+        case 4: try decoder.decodeSingularMessageField(value: &_storage._igpPermission)
         default: break
         }
       }
@@ -216,6 +229,9 @@ extension IGPGroupKickAdminResponse: SwiftProtobuf._MessageImplementationBase, S
       if _storage._igpMemberID != 0 {
         try visitor.visitSingularInt64Field(value: _storage._igpMemberID, fieldNumber: 3)
       }
+      if let v = _storage._igpPermission {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -228,6 +244,7 @@ extension IGPGroupKickAdminResponse: SwiftProtobuf._MessageImplementationBase, S
         if _storage._igpResponse != rhs_storage._igpResponse {return false}
         if _storage._igpRoomID != rhs_storage._igpRoomID {return false}
         if _storage._igpMemberID != rhs_storage._igpMemberID {return false}
+        if _storage._igpPermission != rhs_storage._igpPermission {return false}
         return true
       }
       if !storagesAreEqual {return false}
