@@ -1941,6 +1941,15 @@ public struct IGPGroupRoom: SwiftProtobuf.Message {
   /// Clears the value of `igpPublicExtra`. Subsequent reads from it will return its default value.
   public mutating func clearIgpPublicExtra() {_uniqueStorage()._igpPublicExtra = nil}
 
+  public var igpRoomRights: IGPGroupChangeMemberRights.IGPMemberRights {
+    get {return _storage._igpRoomRights ?? IGPGroupChangeMemberRights.IGPMemberRights()}
+    set {_uniqueStorage()._igpRoomRights = newValue}
+  }
+  /// Returns true if `igpRoomRights` has been explicitly set.
+  public var hasIgpRoomRights: Bool {return _storage._igpRoomRights != nil}
+  /// Clears the value of `igpRoomRights`. Subsequent reads from it will return its default value.
+  public mutating func clearIgpRoomRights() {_uniqueStorage()._igpRoomRights = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPType: SwiftProtobuf.Enum {
@@ -5184,6 +5193,7 @@ extension IGPGroupRoom: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     9: .standard(proto: "IGP_avatar"),
     10: .standard(proto: "IGP_private_extra"),
     11: .standard(proto: "IGP_public_extra"),
+    12: .standard(proto: "IGP_room_rights"),
   ]
 
   fileprivate class _StorageClass {
@@ -5198,6 +5208,7 @@ extension IGPGroupRoom: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
     var _igpAvatar: IGPAvatar? = nil
     var _igpPrivateExtra: IGPGroupRoom.IGPPrivateExtra? = nil
     var _igpPublicExtra: IGPGroupRoom.IGPPublicExtra? = nil
+    var _igpRoomRights: IGPGroupChangeMemberRights.IGPMemberRights? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -5215,6 +5226,7 @@ extension IGPGroupRoom: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
       _igpAvatar = source._igpAvatar
       _igpPrivateExtra = source._igpPrivateExtra
       _igpPublicExtra = source._igpPublicExtra
+      _igpRoomRights = source._igpRoomRights
     }
   }
 
@@ -5241,6 +5253,7 @@ extension IGPGroupRoom: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
         case 9: try decoder.decodeSingularMessageField(value: &_storage._igpAvatar)
         case 10: try decoder.decodeSingularMessageField(value: &_storage._igpPrivateExtra)
         case 11: try decoder.decodeSingularMessageField(value: &_storage._igpPublicExtra)
+        case 12: try decoder.decodeSingularMessageField(value: &_storage._igpRoomRights)
         default: break
         }
       }
@@ -5282,6 +5295,9 @@ extension IGPGroupRoom: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
       if let v = _storage._igpPublicExtra {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
       }
+      if let v = _storage._igpRoomRights {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -5302,6 +5318,7 @@ extension IGPGroupRoom: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.
         if _storage._igpAvatar != rhs_storage._igpAvatar {return false}
         if _storage._igpPrivateExtra != rhs_storage._igpPrivateExtra {return false}
         if _storage._igpPublicExtra != rhs_storage._igpPublicExtra {return false}
+        if _storage._igpRoomRights != rhs_storage._igpRoomRights {return false}
         return true
       }
       if !storagesAreEqual {return false}
