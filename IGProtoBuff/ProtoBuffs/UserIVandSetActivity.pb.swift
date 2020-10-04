@@ -38,6 +38,11 @@ public struct IGPUserIVandSetActivity: SwiftProtobuf.RequestMessage {
     set {_uniqueStorage()._igpPlancode = newValue}
   }
 
+  public var igpValue: Int64 {
+    get {return _storage._igpValue}
+    set {_uniqueStorage()._igpValue = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -83,11 +88,13 @@ extension IGPUserIVandSetActivity: SwiftProtobuf._MessageImplementationBase, Swi
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "IGP_request"),
     2: .standard(proto: "IGP_plancode"),
+    3: .standard(proto: "IGP_value"),
   ]
 
   fileprivate class _StorageClass {
     var _igpRequest: IGPRequest? = nil
     var _igpPlancode: String = String()
+    var _igpValue: Int64 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -96,6 +103,7 @@ extension IGPUserIVandSetActivity: SwiftProtobuf._MessageImplementationBase, Swi
     init(copying source: _StorageClass) {
       _igpRequest = source._igpRequest
       _igpPlancode = source._igpPlancode
+      _igpValue = source._igpValue
     }
   }
 
@@ -113,6 +121,7 @@ extension IGPUserIVandSetActivity: SwiftProtobuf._MessageImplementationBase, Swi
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._igpRequest)
         case 2: try decoder.decodeSingularStringField(value: &_storage._igpPlancode)
+        case 3: try decoder.decodeSingularInt64Field(value: &_storage._igpValue)
         default: break
         }
       }
@@ -127,6 +136,9 @@ extension IGPUserIVandSetActivity: SwiftProtobuf._MessageImplementationBase, Swi
       if !_storage._igpPlancode.isEmpty {
         try visitor.visitSingularStringField(value: _storage._igpPlancode, fieldNumber: 2)
       }
+      if _storage._igpValue != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._igpValue, fieldNumber: 3)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -138,6 +150,7 @@ extension IGPUserIVandSetActivity: SwiftProtobuf._MessageImplementationBase, Swi
         let rhs_storage = _args.1
         if _storage._igpRequest != rhs_storage._igpRequest {return false}
         if _storage._igpPlancode != rhs_storage._igpPlancode {return false}
+        if _storage._igpValue != rhs_storage._igpValue {return false}
         return true
       }
       if !storagesAreEqual {return false}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2167BF9252A00EF0076F1FC /* InfoConfig.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2167BF8252A00EF0076F1FC /* InfoConfig.pb.swift */; };
 		D67558792444248A00791660 /* GroupChangeMemberRights.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67558782444248A00791660 /* GroupChangeMemberRights.pb.swift */; };
 		D67C1E8A23461BB10004EFD0 /* InfoUpdate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C1E8923461BB10004EFD0 /* InfoUpdate.pb.swift */; };
 		D67C1E8C23461BF40004EFD0 /* UserRefreshToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C1E8B23461BF40004EFD0 /* UserRefreshToken.pb.swift */; };
@@ -223,6 +224,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D2167BF8252A00EF0076F1FC /* InfoConfig.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoConfig.pb.swift; sourceTree = "<group>"; };
 		D67558782444248A00791660 /* GroupChangeMemberRights.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChangeMemberRights.pb.swift; sourceTree = "<group>"; };
 		D67C1E8923461BB10004EFD0 /* InfoUpdate.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUpdate.pb.swift; sourceTree = "<group>"; };
 		D67C1E8B23461BF40004EFD0 /* UserRefreshToken.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRefreshToken.pb.swift; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 		FA5A9FF11F71ECEF00D925F5 /* ProtoBuffs */ = {
 			isa = PBXGroup;
 			children = (
+				D2167BF8252A00EF0076F1FC /* InfoConfig.pb.swift */,
 				D67558782444248A00791660 /* GroupChangeMemberRights.pb.swift */,
 				D6FC157C243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift */,
 				D6FC157D243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift */,
@@ -786,6 +789,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2167BF9252A00EF0076F1FC /* InfoConfig.pb.swift in Sources */,
 				D67558792444248A00791660 /* GroupChangeMemberRights.pb.swift in Sources */,
 				D6FC157E243B3EAA003CF3E9 /* UserProfileGetNationalCode.pb.swift in Sources */,
 				D6FC157F243B3EAA003CF3E9 /* UserProfileSetNationalCode.pb.swift in Sources */,
