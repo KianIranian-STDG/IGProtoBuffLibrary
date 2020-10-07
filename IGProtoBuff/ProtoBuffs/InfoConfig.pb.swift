@@ -109,6 +109,11 @@ public struct IGPInfoConfigResponse: SwiftProtobuf.ResponseMessage {
     set {_uniqueStorage()._igpBaseURL = newValue}
   }
 
+  public var igpShowAdvertising: Bool {
+    get {return _storage._igpShowAdvertising}
+    set {_uniqueStorage()._igpShowAdvertising = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPDebugger: SwiftProtobuf.Enum {
@@ -288,6 +293,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
     10: .standard(proto: "IGP_micro_service"),
     11: .standard(proto: "IGP_debugger"),
     12: .standard(proto: "IGP_base_url"),
+    13: .standard(proto: "IGP_show_advertising"),
   ]
 
   fileprivate class _StorageClass {
@@ -303,6 +309,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
     var _igpMicroService: [IGPMicroService] = []
     var _igpDebugger: IGPInfoConfigResponse.IGPDebugger = .crashlytics
     var _igpBaseURL: String = String()
+    var _igpShowAdvertising: Bool = false
 
     static let defaultInstance = _StorageClass()
 
@@ -321,6 +328,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
       _igpMicroService = source._igpMicroService
       _igpDebugger = source._igpDebugger
       _igpBaseURL = source._igpBaseURL
+      _igpShowAdvertising = source._igpShowAdvertising
     }
   }
 
@@ -348,6 +356,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
         case 10: try decoder.decodeRepeatedMessageField(value: &_storage._igpMicroService)
         case 11: try decoder.decodeSingularEnumField(value: &_storage._igpDebugger)
         case 12: try decoder.decodeSingularStringField(value: &_storage._igpBaseURL)
+        case 13: try decoder.decodeSingularBoolField(value: &_storage._igpShowAdvertising)
         default: break
         }
       }
@@ -392,6 +401,9 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
       if !_storage._igpBaseURL.isEmpty {
         try visitor.visitSingularStringField(value: _storage._igpBaseURL, fieldNumber: 12)
       }
+      if _storage._igpShowAdvertising != false {
+        try visitor.visitSingularBoolField(value: _storage._igpShowAdvertising, fieldNumber: 13)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -413,6 +425,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
         if _storage._igpMicroService != rhs_storage._igpMicroService {return false}
         if _storage._igpDebugger != rhs_storage._igpDebugger {return false}
         if _storage._igpBaseURL != rhs_storage._igpBaseURL {return false}
+        if _storage._igpShowAdvertising != rhs_storage._igpShowAdvertising {return false}
         return true
       }
       if !storagesAreEqual {return false}
