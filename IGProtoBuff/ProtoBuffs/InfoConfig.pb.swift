@@ -114,6 +114,11 @@ public struct IGPInfoConfigResponse: SwiftProtobuf.ResponseMessage {
     set {_uniqueStorage()._igpShowAdvertising = newValue}
   }
 
+  public var igpDefaultTab: IGPInfoConfigResponse.IGPTab {
+    get {return _storage._igpDefaultTab}
+    set {_uniqueStorage()._igpDefaultTab = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum IGPDebugger: SwiftProtobuf.Enum {
@@ -144,6 +149,43 @@ public struct IGPInfoConfigResponse: SwiftProtobuf.ResponseMessage {
 
   }
 
+  public enum IGPTab: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+    case contact // = 0
+    case call // = 1
+    case chat // = 2
+    case iland // = 3
+    case setting // = 4
+    case UNRECOGNIZED(Int)
+
+    public init() {
+      self = .contact
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .contact
+      case 1: self = .call
+      case 2: self = .chat
+      case 3: self = .iland
+      case 4: self = .setting
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .contact: return 0
+      case .call: return 1
+      case .chat: return 2
+      case .iland: return 3
+      case .setting: return 4
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
@@ -156,6 +198,17 @@ extension IGPInfoConfigResponse.IGPDebugger: CaseIterable {
   public static var allCases: [IGPInfoConfigResponse.IGPDebugger] = [
     .crashlytics,
     .sentry,
+  ]
+}
+
+extension IGPInfoConfigResponse.IGPTab: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [IGPInfoConfigResponse.IGPTab] = [
+    .contact,
+    .call,
+    .chat,
+    .iland,
+    .setting,
   ]
 }
 
@@ -294,6 +347,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
     11: .standard(proto: "IGP_debugger"),
     12: .standard(proto: "IGP_base_url"),
     13: .standard(proto: "IGP_show_advertising"),
+    14: .standard(proto: "IGP_defaultTab"),
   ]
 
   fileprivate class _StorageClass {
@@ -310,6 +364,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
     var _igpDebugger: IGPInfoConfigResponse.IGPDebugger = .crashlytics
     var _igpBaseURL: String = String()
     var _igpShowAdvertising: Bool = false
+    var _igpDefaultTab: IGPInfoConfigResponse.IGPTab = .contact
 
     static let defaultInstance = _StorageClass()
 
@@ -329,6 +384,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
       _igpDebugger = source._igpDebugger
       _igpBaseURL = source._igpBaseURL
       _igpShowAdvertising = source._igpShowAdvertising
+      _igpDefaultTab = source._igpDefaultTab
     }
   }
 
@@ -357,6 +413,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
         case 11: try decoder.decodeSingularEnumField(value: &_storage._igpDebugger)
         case 12: try decoder.decodeSingularStringField(value: &_storage._igpBaseURL)
         case 13: try decoder.decodeSingularBoolField(value: &_storage._igpShowAdvertising)
+        case 14: try decoder.decodeSingularEnumField(value: &_storage._igpDefaultTab)
         default: break
         }
       }
@@ -404,6 +461,9 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
       if _storage._igpShowAdvertising != false {
         try visitor.visitSingularBoolField(value: _storage._igpShowAdvertising, fieldNumber: 13)
       }
+      if _storage._igpDefaultTab != .contact {
+        try visitor.visitSingularEnumField(value: _storage._igpDefaultTab, fieldNumber: 14)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -426,6 +486,7 @@ extension IGPInfoConfigResponse: SwiftProtobuf._MessageImplementationBase, Swift
         if _storage._igpDebugger != rhs_storage._igpDebugger {return false}
         if _storage._igpBaseURL != rhs_storage._igpBaseURL {return false}
         if _storage._igpShowAdvertising != rhs_storage._igpShowAdvertising {return false}
+        if _storage._igpDefaultTab != rhs_storage._igpDefaultTab {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -439,6 +500,16 @@ extension IGPInfoConfigResponse.IGPDebugger: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CRASHLYTICS"),
     1: .same(proto: "SENTRY"),
+  ]
+}
+
+extension IGPInfoConfigResponse.IGPTab: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CONTACT"),
+    1: .same(proto: "CALL"),
+    2: .same(proto: "CHAT"),
+    3: .same(proto: "ILAND"),
+    4: .same(proto: "SETTING"),
   ]
 }
 
