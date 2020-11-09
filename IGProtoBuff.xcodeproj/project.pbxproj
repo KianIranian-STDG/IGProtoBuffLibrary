@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D2167BF9252A00EF0076F1FC /* InfoConfig.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2167BF8252A00EF0076F1FC /* InfoConfig.pb.swift */; };
+		D297EB73255959E70057DD12 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = D297EB72255959E70057DD12 /* SwiftProtobuf */; };
+		D297EB75255959E70057DD12 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = D297EB74255959E70057DD12 /* SwiftProtobufPluginLibrary */; };
 		D67558792444248A00791660 /* GroupChangeMemberRights.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67558782444248A00791660 /* GroupChangeMemberRights.pb.swift */; };
 		D67C1E8A23461BB10004EFD0 /* InfoUpdate.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C1E8923461BB10004EFD0 /* InfoUpdate.pb.swift */; };
 		D67C1E8C23461BF40004EFD0 /* UserRefreshToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67C1E8B23461BF40004EFD0 /* UserRefreshToken.pb.swift */; };
@@ -53,7 +55,6 @@
 		FAB50BDD227EFAA400BE2D6A /* MplGetCardToCardToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50BDC227EFAA300BE2D6A /* MplGetCardToCardToken.pb.swift */; };
 		FAB623E82295254B006DEA00 /* MplGetSalesToken.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB623E72295254B006DEA00 /* MplGetSalesToken.pb.swift */; };
 		FAB87B3A21C62B6B0056D403 /* ClientGetPromote.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB87B3921C62B6B0056D403 /* ClientGetPromote.pb.swift */; };
-		FAF5D23D1F8D66DB00A26EE1 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF5D23C1F8D66CE00A26EE1 /* SwiftProtobuf.framework */; };
 		FAF5D23F1F8D6AF100A26EE1 /* ChannelAddAdmin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D1FE1F8D665300A26EE1 /* ChannelAddAdmin.pb.swift */; };
 		FAF5D2401F8D6C2000A26EE1 /* ChannelAddMember.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D2071F8D665600A26EE1 /* ChannelAddMember.pb.swift */; };
 		FAF5D2411F8D6C2000A26EE1 /* ChannelAddMessageReaction.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5D21A1F8D665C00A26EE1 /* ChannelAddMessageReaction.pb.swift */; };
@@ -439,7 +440,6 @@
 		FAF5D2391F8D666400A26EE1 /* ChannelAvatarGetList.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelAvatarGetList.pb.swift; sourceTree = "<group>"; };
 		FAF5D23A1F8D666500A26EE1 /* GeoGetConfiguration.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoGetConfiguration.pb.swift; sourceTree = "<group>"; };
 		FAF5D23B1F8D666500A26EE1 /* InfoLocation.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLocation.pb.swift; sourceTree = "<group>"; };
-		FAF5D23C1F8D66CE00A26EE1 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,7 +447,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF5D23D1F8D66DB00A26EE1 /* SwiftProtobuf.framework in Frameworks */,
+				D297EB75255959E70057DD12 /* SwiftProtobufPluginLibrary in Frameworks */,
+				D297EB73255959E70057DD12 /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +704,6 @@
 		FA7638341E2FFFD200C24391 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FAF5D23C1F8D66CE00A26EE1 /* SwiftProtobuf.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -736,6 +736,10 @@
 			dependencies = (
 			);
 			name = IGProtoBuff;
+			packageProductDependencies = (
+				D297EB72255959E70057DD12 /* SwiftProtobuf */,
+				D297EB74255959E70057DD12 /* SwiftProtobufPluginLibrary */,
+			);
 			productName = IGProtoBuff;
 			productReference = FA7638291E2FFD5E00C24391 /* IGProtoBuff.framework */;
 			productType = "com.apple.product-type.framework";
@@ -765,6 +769,9 @@
 				en,
 			);
 			mainGroup = FA76381F1E2FFD5E00C24391;
+			packageReferences = (
+				D297EB71255959E70057DD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+			);
 			productRefGroup = FA76382A1E2FFD5E00C24391 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1098,7 +1105,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1123,13 +1131,18 @@
 				INFOPLIST_FILE = IGProtoBuff/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-wmo";
 				PRODUCT_BUNDLE_IDENTIFIER = net.igap.IGProtoBuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1151,7 +1164,11 @@
 				INFOPLIST_FILE = IGProtoBuff/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_SWIFT_FLAGS = "-wmo";
 				PRODUCT_BUNDLE_IDENTIFIER = net.igap.IGProtoBuff;
@@ -1183,6 +1200,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D297EB71255959E70057DD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KianIranian-STDG/swift-protobuf.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D297EB72255959E70057DD12 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D297EB71255959E70057DD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		D297EB74255959E70057DD12 /* SwiftProtobufPluginLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D297EB71255959E70057DD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobufPluginLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA7638201E2FFD5E00C24391 /* Project object */;
 }
