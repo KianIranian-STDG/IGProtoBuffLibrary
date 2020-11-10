@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftProtobuf",
+        "repositoryURL": "https://github.com/KianIranian-STDG/swift-protobuf.git",
+        "state": {
+          "branch": "master",
+          "revision": "8d7e7248c09e7d032e226d9b71a48f72de45daee",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
