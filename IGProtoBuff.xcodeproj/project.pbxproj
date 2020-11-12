@@ -276,6 +276,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "-wmo";
 				PRODUCT_BUNDLE_IDENTIFIER = net.igap.IGProtoBuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +307,7 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "-wmo";
 				PRODUCT_BUNDLE_IDENTIFIER = net.igap.IGProtoBuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
